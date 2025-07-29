@@ -3745,4 +3745,111 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 2;
 }
 
+/* ===== SCROLL SUAVE POR BLOQUES ===== */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Para compensar el navbar fijo */
+}
+
+/* Scroll suave por bloques */
+body {
+    scroll-behavior: smooth;
+}
+
+/* Configuración para scroll por bloques */
+.section-block {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenedor principal con scroll snap */
+.main-container {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+/* Ajustes para secciones específicas */
+.hero-section {
+    scroll-snap-align: start;
+}
+
+.products-section {
+    scroll-snap-align: start;
+}
+
+.product-detail-section {
+    scroll-snap-align: start;
+}
+
+/* Scroll personalizado para navegación */
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+/* Botones de navegación rápida */
+.scroll-nav {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.scroll-nav-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%);
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+}
+
+.scroll-nav-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.5);
+}
+
+/* Indicador de progreso de scroll */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(44, 44, 44, 0.5);
+    z-index: 1001;
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Responsive para scroll nav */
+@media (max-width: 768px) {
+    .scroll-nav {
+        right: 10px;
+    }
+    
+    .scroll-nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}
+
 /* Categorías */

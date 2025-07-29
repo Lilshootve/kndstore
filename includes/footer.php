@@ -110,6 +110,9 @@ function generateScripts() {
     // Custom JS
     $scripts .= '<script src="assets/js/main.js"></script>' . "\n";
     
+    // Scroll suave por bloques
+    $scripts .= '<script src="assets/js/scroll-smooth.js"></script>' . "\n";
+    
     // Configuración de partículas para el footer
     $scripts .= '<script>' . "\n";
     $scripts .= '// Configuración de partículas para el footer' . "\n";
