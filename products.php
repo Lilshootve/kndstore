@@ -41,6 +41,55 @@ require_once 'includes/footer.php';
     </div>
 </section>
 
+<!-- Categorías Destacadas -->
+<section class="categories-section py-4">
+    <div class="container">
+        <h2 class="section-title text-center mb-4">Categorías Destacadas</h2>
+        <div class="row">
+            <div class="col-lg-2 col-md-4 col-6 mb-3">
+                <a href="/products.php?categoria=tecnologia" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h5>Tecnología</h5>
+                </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 mb-3">
+                <a href="/products.php?categoria=gaming" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h5>Gaming</h5>
+                </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 mb-3">
+                <a href="/products.php?categoria=accesorios" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h5>Accesorios</h5>
+                </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 mb-3">
+                <a href="/products.php?categoria=software" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h5>Software</h5>
+                </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 mb-3">
+                <a href="/products.php?categoria=hardware" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h5>Hardware</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Filtros y Búsqueda -->
 <section class="filters-section py-4">
     <div class="container">
@@ -187,55 +236,6 @@ require_once 'includes/footer.php';
                 <a href="/products.php" class="btn btn-primary">Ver Todos los Productos</a>
             </div>
         <?php endif; ?>
-    </div>
-</section>
-
-<!-- Categorías Destacadas -->
-<section class="categories-section py-5">
-    <div class="container">
-        <h2 class="section-title text-center mb-5">Categorías Destacadas</h2>
-        <div class="row">
-            <div class="col-lg-2 col-md-4 col-6 mb-4">
-                <a href="/products.php?categoria=tecnologia" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h5>Tecnología</h5>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 mb-4">
-                <a href="/products.php?categoria=gaming" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <h5>Gaming</h5>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 mb-4">
-                <a href="/products.php?categoria=accesorios" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h5>Accesorios</h5>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 mb-4">
-                <a href="/products.php?categoria=software" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h5>Software</h5>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 mb-4">
-                <a href="/products.php?categoria=hardware" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <h5>Hardware</h5>
-                </a>
-            </div>
-        </div>
     </div>
 </section>
 
