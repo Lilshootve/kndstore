@@ -1,6 +1,11 @@
 <?php
 // KND Store - Header común
 
+// Verificar si la sesión ya está iniciada
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 // Función para obtener el título de la página
 function getPageTitle($title = '') {
     $baseTitle = 'KND Store - Tu Tienda Galáctica';
@@ -55,7 +60,7 @@ function generateCommonAssets() {
     $assets .= '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">' . "\n";
     
     // Font Awesome
-    $assets .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">' . "\n";
+    $assets .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">' . "\n";
     
     // Custom CSS
     $assets .= '<link rel="stylesheet" href="assets/css/style.css">' . "\n";
@@ -71,7 +76,7 @@ function generateFavicon() {
 // Función para generar el header completo
 function generateHeader($title = '', $description = '', $keywords = '') {
     $header = '<!DOCTYPE html>' . "\n";
-    $header .= '<html lang="es">' . "\n";
+    $header .= '<html lang="es" data-bs-theme="dark">' . "\n";
     $header .= '<head>' . "\n";
     $header .= generateMetaTags($title, $description, $keywords);
     $header .= generateFavicon();
@@ -81,5 +86,66 @@ function generateHeader($title = '', $description = '', $keywords = '') {
     $header .= '<body>' . "\n";
     
     return $header;
+}
+
+// Función para generar la navegación
+function generateNavigation() {
+    $nav = '<nav class="navbar navbar-expand-lg navbar-dark fixed-top">' . "\n";
+    $nav .= '    <div class="container">' . "\n";
+    $nav .= '        <a class="navbar-brand" href="index.php">' . "\n";
+    $nav .= '            <img src="assets/images/knd-logo.png" alt="KND Store" height="40">' . "\n";
+    $nav .= '        </a>' . "\n";
+    $nav .= '        ' . "\n";
+    $nav .= '        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">' . "\n";
+    $nav .= '            <span class="navbar-toggler-icon"></span>' . "\n";
+    $nav .= '        </button>' . "\n";
+    $nav .= '        ' . "\n";
+    $nav .= '        <div class="collapse navbar-collapse" id="navbarNav">' . "\n";
+    $nav .= '            <ul class="navbar-nav me-auto">' . "\n";
+    $nav .= '                <li class="nav-item">' . "\n";
+    $nav .= '                    <a class="nav-link ' . (isCurrentPage('index.php') ? 'active' : '') . '" href="index.php">Inicio</a>' . "\n";
+    $nav .= '                </li>' . "\n";
+    $nav .= '                <li class="nav-item">' . "\n";
+    $nav .= '                    <a class="nav-link ' . (isCurrentPage('products.php') ? 'active' : '') . '" href="products.php">Productos</a>' . "\n";
+    $nav .= '                </li>' . "\n";
+    $nav .= '                <li class="nav-item">' . "\n";
+    $nav .= '                    <a class="nav-link ' . (isCurrentPage('about.php') ? 'active' : '') . '" href="about.php">Nosotros</a>' . "\n";
+    $nav .= '                </li>' . "\n";
+    $nav .= '                <li class="nav-item">' . "\n";
+    $nav .= '                    <a class="nav-link ' . (isCurrentPage('contact.php') ? 'active' : '') . '" href="contact.php">Contacto</a>' . "\n";
+    $nav .= '                </li>' . "\n";
+    $nav .= '            </ul>' . "\n";
+    $nav .= '            ' . "\n";
+    $nav .= '            <ul class="navbar-nav">' . "\n";
+    
+    // Verificar si el usuario está logueado
+    if (isset($_SESSION['user_id'])) {
+        $nav .= '                <li class="nav-item dropdown">' . "\n";
+        $nav .= '                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">' . "\n";
+        $nav .= '                        <i class="fas fa-user"></i> ' . htmlspecialchars($_SESSION['user_name']) . "\n";
+        $nav .= '                    </a>' . "\n";
+        $nav .= '                    <ul class="dropdown-menu">' . "\n";
+        $nav .= '                        <li><a class="dropdown-item" href="profile.php">Mi Perfil</a></li>' . "\n";
+        $nav .= '                        <li><a class="dropdown-item" href="orders.php">Mis Pedidos</a></li>' . "\n";
+        $nav .= '                        <li><a class="dropdown-item" href="cart.php">Carrito</a></li>' . "\n";
+        $nav .= '                        <li><hr class="dropdown-divider"></li>' . "\n";
+        $nav .= '                        <li><a class="dropdown-item" href="logout.php">Cerrar Sesión</a></li>' . "\n";
+        $nav .= '                    </ul>' . "\n";
+        $nav .= '                </li>' . "\n";
+    } else {
+        $nav .= '                <li class="nav-item">' . "\n";
+        $nav .= '                    <a class="nav-link" href="login.php">Iniciar Sesión</a>' . "\n";
+        $nav .= '                </li>' . "\n";
+        $nav .= '                <li class="nav-item">' . "\n";
+        $nav .= '                    <a class="nav-link" href="register.php">Registrarse</a>' . "\n";
+        $nav .= '                </li>' . "\n";
+    }
+    
+    $nav .= '            </ul>' . "\n";
+    $nav .= '        </div>' . "\n";
+    $nav .= '    </div>' . "\n";
+    $nav .= '</nav>' . "\n";
+    
+    return $nav;
 }
 ?> 

@@ -14,6 +14,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 require_once 'includes/config.php';
 require_once 'includes/header.php';
+require_once 'includes/footer.php';
 ?>
 
 <?php echo generateHeader('Inicio', 'Tu tienda galáctica de productos únicos y tecnología de vanguardia'); ?>
@@ -21,59 +22,7 @@ require_once 'includes/header.php';
 <!-- Particles Background -->
 <div id="particles-bg"></div>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="index.php">
-            <img src="assets/images/knd-logo.png" alt="KND Store" height="40">
-        </a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link <?php echo isCurrentPage('index.php') ? 'active' : ''; ?>" href="index.php">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php echo isCurrentPage('products.php') ? 'active' : ''; ?>" href="products.php">Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php echo isCurrentPage('about.php') ? 'active' : ''; ?>" href="about.php">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php echo isCurrentPage('contact.php') ? 'active' : ''; ?>" href="contact.php">Contacto</a>
-                </li>
-            </ul>
-            
-            <ul class="navbar-nav">
-                <?php if (isset($_SESSION['user_id'])): ?>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-user"></i> <?php echo htmlspecialchars($_SESSION['user_name']); ?>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="profile.php">Mi Perfil</a></li>
-                            <li><a class="dropdown-item" href="orders.php">Mis Pedidos</a></li>
-                            <li><a class="dropdown-item" href="cart.php">Carrito</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="logout.php">Cerrar Sesión</a></li>
-                        </ul>
-                    </li>
-                <?php else: ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Iniciar Sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.php">Registrarse</a>
-                    </li>
-                <?php endif; ?>
-            </ul>
-        </div>
-    </div>
-</nav>
+<?php echo generateNavigation(); ?>
 
 <!-- Hero Section -->
 <section class="hero-section">
@@ -190,70 +139,7 @@ require_once 'includes/header.php';
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 mb-4">
-                <h5>KND Store</h5>
-                <p>Tu tienda galáctica de productos únicos y tecnología de vanguardia. Descubre un universo de posibilidades.</p>
-                <div class="social-links">
-                    <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="me-3"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6 mb-4">
-                <h5>Enlaces</h5>
-                <ul class="list-unstyled">
-                    <li><a href="index.php"><i class="fas fa-home"></i> Inicio</a></li>
-                    <li><a href="products.php"><i class="fas fa-box"></i> Productos</a></li>
-                    <li><a href="about.php"><i class="fas fa-info-circle"></i> Nosotros</a></li>
-                    <li><a href="contact.php"><i class="fas fa-envelope"></i> Contacto</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5>Servicios</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#"><i class="fas fa-shipping-fast"></i> Envío Galáctico</a></li>
-                    <li><a href="#"><i class="fas fa-shield-alt"></i> Garantía Cósmica</a></li>
-                    <li><a href="#"><i class="fas fa-headset"></i> Soporte 24/7</a></li>
-                    <li><a href="#"><i class="fas fa-credit-card"></i> Pagos Seguros</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 mb-4">
-                <h5>Contacto</h5>
-                <ul class="list-unstyled">
-                    <li><i class="fas fa-map-marker-alt"></i> Sector Galáctico 7, Vía Láctea</li>
-                    <li><i class="fas fa-phone"></i> +1 (555) GALAXY</li>
-                    <li><i class="fas fa-envelope"></i> info@kndstore.com</li>
-                    <li><i class="fas fa-clock"></i> 24/7 Disponible</li>
-                </ul>
-            </div>
-        </div>
-        <hr class="my-4">
-        <div class="row">
-            <div class="col-md-6">
-                <p>&copy; 2024 KND Store. Todos los derechos reservados.</p>
-            </div>
-            <div class="col-md-6 text-md-end">
-                <a href="privacy.php" class="me-3">Política de Privacidad</a>
-                <a href="terms.php" class="me-3">Términos de Servicio</a>
-                <a href="sitemap.php">Mapa del Sitio</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Particles.js -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-<!-- Custom JS -->
-<script src="assets/js/main.js"></script>
-
-</body>
-</html> 
+<?php 
+echo generateFooter();
+echo generateScripts();
+?> 
