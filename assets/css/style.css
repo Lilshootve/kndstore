@@ -676,7 +676,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 200px; /* Aumentar significativamente para mayor separación */
+    padding-top: 250px; /* Aumentar drásticamente para separación máxima */
     padding-bottom: 20px;
 }
 
@@ -799,6 +799,7 @@ h1, h2, h3, h4, h5, h6 {
 .features-section {
     background: rgba(44, 44, 44, 0.8);
     backdrop-filter: blur(10px);
+    padding-top: 100px; /* Agregar padding superior para separación */
 }
 
 .feature-card {
@@ -841,6 +842,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Featured Products */
 .featured-products {
     background: var(--knd-black);
+    padding-top: 100px; /* Agregar padding superior para separación */
 }
 
 .section-title {
@@ -1448,6 +1450,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Productos */
 .products-section {
     background: var(--knd-black);
+    padding-top: 100px; /* Agregar padding superior para separación */
 }
 
 .product-card {
@@ -3754,7 +3757,7 @@ h1, h2, h3, h4, h5, h6 {
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Para compensar el navbar fijo */
+    scroll-padding-top: 120px; /* Aumentar para compensar mejor el header fijo */
 }
 
 /* Scroll suave básico */
