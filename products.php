@@ -337,7 +337,7 @@ foreach ($productos as $categoria => $productos_categoria) {
                         <div class="product-card">
                             <div class="product-image">
                                 <img src="<?php echo $producto['imagen']; ?>" alt="<?php echo htmlspecialchars($producto['nombre']); ?>" 
-                                     onerror="this.src='/assets/images/productos/default.jpg'">
+                                     onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMmMyYzJjIi8+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxODAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwYmZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwYmZmZiIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxwYXRoIGQ9Ik0xMzAgODAgTDE3MCA4MCBNMTMwIDEyMCBMMTcwIDEyMCIgc3Ryb2tlPSIjMDBiZmZmIiBzdHJva2Utd2lkdGg9IjIiLz4KPHN2ZyB4PSIxMjAiIHk9IjE0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIwIj4KICA8dGV4dCBmaWxsPSIjMDBiZmZmIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk5vIEltYWdlbjwvdGV4dD4KPC9zdmc+'; this.style.background='#2c2c2c';">
                                 <div class="product-overlay">
                                     <a href="<?php echo $producto['url']; ?>" class="btn btn-primary">
                                         <i class="fas fa-eye me-2"></i>Ver detalles
@@ -349,7 +349,7 @@ foreach ($productos as $categoria => $productos_categoria) {
                                 <p class="product-description"><?php echo htmlspecialchars($producto['descripcion']); ?></p>
                                 <div class="product-footer">
                                     <span class="product-price">$<?php echo number_format($producto['precio'], 2); ?></span>
-                                    <a href="<?php echo $producto['url']; ?>" class="btn btn-outline-neon btn-sm">
+                                    <a href="<?php echo $producto['url']; ?>" class="btn btn-outline-neon btn-sm btn-details">
                                         Ver detalles
                                     </a>
                                 </div>
