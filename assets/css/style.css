@@ -416,6 +416,161 @@ h1, h2, h3, h4, h5, h6 {
    4. Los iconos y elementos interactivos
 */
 
+/* PANEL DE PERSONALIZACIÓN DE COLORES */
+.color-panel-toggle {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #00bfff 0%, #8a2be2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.6);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.color-panel-toggle:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 191, 255, 0.8);
+}
+
+.color-panel-toggle.active {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Sidebar de colores */
+.color-panel-sidebar {
+    position: fixed;
+    left: -350px;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    border-right: 3px solid rgba(0, 191, 255, 0.8);
+    z-index: 9998;
+    transition: left 0.4s ease;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+}
+
+.color-panel-sidebar.open {
+    left: 0;
+}
+
+.color-panel-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 191, 255, 0.3);
+    text-align: center;
+}
+
+.color-panel-header h3 {
+    color: var(--knd-white);
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.color-panel-content {
+    padding: 20px;
+}
+
+.color-theme {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(44, 44, 44, 0.5);
+}
+
+.color-theme:hover {
+    border-color: rgba(0, 191, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+    transform: translateX(5px);
+}
+
+.color-theme.active {
+    border-color: rgba(0, 191, 255, 1);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+    background: rgba(0, 191, 255, 0.1);
+}
+
+.color-theme h4 {
+    color: var(--knd-white);
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.color-preview {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.color-swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.2);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.color-theme p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Overlay para cerrar panel */
+.color-panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9997;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.color-panel-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .color-panel-sidebar {
+        width: 300px;
+        left: -300px;
+    }
+    
+    .color-panel-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
 .navbar-brand img {
     transition: transform 0.3s ease;
 }

@@ -278,10 +278,163 @@ function revealOnScroll() {
     });
 }
 
-// Initialize everything when DOM is loaded
+// Función para inicializar el panel de personalización de colores
+function initColorPanel() {
+    const toggle = document.getElementById('colorPanelToggle');
+    const sidebar = document.getElementById('colorPanelSidebar');
+    const overlay = document.getElementById('colorPanelOverlay');
+    const themes = document.querySelectorAll('.color-theme');
+
+    // Toggle del panel
+    if (toggle && sidebar) {
+        toggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+            toggle.classList.toggle('active');
+        });
+
+        // Cerrar con overlay
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            toggle.classList.remove('active');
+        });
+
+        // Cerrar con ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('active');
+                toggle.classList.remove('active');
+            }
+        });
+    }
+
+    // Cambiar temas de color
+    themes.forEach(theme => {
+        theme.addEventListener('click', () => {
+            // Remover active de todos los temas
+            themes.forEach(t => t.classList.remove('active'));
+            
+            // Agregar active al tema seleccionado
+            theme.classList.add('active');
+            
+            // Aplicar el tema
+            const themeName = theme.dataset.theme;
+            applyColorTheme(themeName);
+            
+            // Guardar en localStorage
+            localStorage.setItem('knd-color-theme', themeName);
+        });
+    });
+
+    // Cargar tema guardado
+    const savedTheme = localStorage.getItem('knd-color-theme');
+    if (savedTheme) {
+        applyColorTheme(savedTheme);
+        themes.forEach(theme => {
+            if (theme.dataset.theme === savedTheme) {
+                theme.classList.add('active');
+            } else {
+                theme.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Función para aplicar temas de color
+function applyColorTheme(themeName) {
+    const root = document.documentElement;
+    
+    const themes = {
+        'galactic-blue': {
+            '--knd-neon-blue': '#00bfff',
+            '--knd-electric-purple': '#8a2be2',
+            '--knd-dark-blue': '#16213e'
+        },
+        'cyber-green': {
+            '--knd-neon-blue': '#00ff00',
+            '--knd-electric-purple': '#32cd32',
+            '--knd-dark-blue': '#006400'
+        },
+        'fire-red': {
+            '--knd-neon-blue': '#ff0000',
+            '--knd-electric-purple': '#ff4500',
+            '--knd-dark-blue': '#8b0000'
+        },
+        'golden-sun': {
+            '--knd-neon-blue': '#ffd700',
+            '--knd-electric-purple': '#ffa500',
+            '--knd-dark-blue': '#daa520'
+        },
+        'neon-pink': {
+            '--knd-neon-blue': '#ff69b4',
+            '--knd-electric-purple': '#ff1493',
+            '--knd-dark-blue': '#c71585'
+        },
+        'ice-blue': {
+            '--knd-neon-blue': '#00ffff',
+            '--knd-electric-purple': '#87ceeb',
+            '--knd-dark-blue': '#4682b4'
+        }
+    };
+
+    const theme = themes[themeName];
+    if (theme) {
+        Object.entries(theme).forEach(([property, value]) => {
+            root.style.setProperty(property, value);
+        });
+    }
+}
+
+// Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar partículas
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-bg', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: ['#00bfff', '#8a2be2', '#00d4ff'] },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#00bfff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    }
+
+    // Inicializar animaciones de scroll
     initScrollAnimations();
+    
+    // Inicializar formulario de contacto
     initContactForm();
+    
+    // Inicializar panel de colores
+    initColorPanel();
     
     // Add smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
