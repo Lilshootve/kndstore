@@ -395,3 +395,135 @@ h1, h2, h3, h4, h5, h6 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 } 
+
+/* Footer con partículas */
+.footer {
+    background: var(--knd-gunmetal-gray);
+    border-top: 1px solid var(--knd-neon-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+    z-index: 0;
+}
+
+.footer .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Efecto de partículas en el footer */
+#particles-footer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+/* Efectos de hover para enlaces del footer */
+.footer a {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer a:hover {
+    color: var(--knd-neon-blue) !important;
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+.footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--knd-neon-blue), var(--knd-electric-purple));
+    transition: width 0.3s ease;
+}
+
+.footer a:hover::after {
+    width: 100%;
+}
+
+/* Botones de redes sociales en footer */
+.btn-outline-neon {
+    border: 2px solid var(--knd-neon-blue);
+    color: var(--knd-neon-blue);
+    background: transparent;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-neon:hover {
+    background: var(--knd-neon-blue);
+    color: var(--knd-black);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4);
+}
+
+/* Efecto glow para el título del footer */
+.glow-text {
+    background: linear-gradient(45deg, var(--knd-neon-blue), var(--knd-electric-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+}
+
+/* Iconos de métodos de pago */
+.footer .fab {
+    transition: all 0.3s ease;
+}
+
+.footer .fab:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+/* Animación de partículas para el footer */
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px) rotate(360deg);
+        opacity: 0.5;
+    }
+}
+
+/* Efecto de profundidad para el footer */
+.footer {
+    box-shadow: inset 0 10px 30px rgba(0, 191, 255, 0.1);
+}
+
+/* Responsive para partículas del footer */
+@media (max-width: 768px) {
+    #particles-footer {
+        opacity: 0.3;
+    }
+    
+    .footer {
+        padding: 2rem 0;
+    }
+} 
