@@ -9,7 +9,6 @@ function generateFooter() {
     $footer .= '            <div class="row g-5">' . "\n";
     $footer .= '                <div class="col-lg-4">' . "\n";
     $footer .= '                    <h3 class="mb-4">' . "\n";
-    $footer .= '                        <i class="fas fa-crown me-2"></i>' . "\n";
     $footer .= '                        <span class="glow-text">KND STORE</span>' . "\n";
     $footer .= '                    </h3>' . "\n";
     $footer .= '                    <p class="mb-4" style="opacity: 0.8;">' . "\n";
