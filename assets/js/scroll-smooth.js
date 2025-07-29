@@ -70,7 +70,14 @@ document.addEventListener('DOMContentLoaded', function() {
             productsBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 console.log('Products button clicked'); // Debug
-                smoothScrollTo('.products-section');
+                // Primero intentar buscar la sección en la página actual
+                const productsSection = document.querySelector('.products-section, .featured-products');
+                if (productsSection) {
+                    smoothScrollTo(productsSection);
+                } else {
+                    // Si no existe, navegar a la página de productos
+                    window.location.href = '/products.php';
+                }
             });
         }
         
@@ -78,7 +85,14 @@ document.addEventListener('DOMContentLoaded', function() {
             aboutBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 console.log('About button clicked'); // Debug
-                smoothScrollTo('.about-section');
+                // Primero intentar buscar la sección en la página actual
+                const aboutSection = document.querySelector('.about-section');
+                if (aboutSection) {
+                    smoothScrollTo(aboutSection);
+                } else {
+                    // Si no existe, navegar a la página de about
+                    window.location.href = '/about.php';
+                }
             });
         }
         
@@ -86,7 +100,14 @@ document.addEventListener('DOMContentLoaded', function() {
             contactBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 console.log('Contact button clicked'); // Debug
-                smoothScrollTo('.contact-section');
+                // Primero intentar buscar la sección en la página actual
+                const contactSection = document.querySelector('.contact-section');
+                if (contactSection) {
+                    smoothScrollTo(contactSection);
+                } else {
+                    // Si no existe, navegar a la página de contacto
+                    window.location.href = '/contact.php';
+                }
             });
         }
     }
