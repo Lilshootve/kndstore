@@ -1613,3 +1613,82 @@ h1, h2, h3, h4, h5, h6 {
     50% { box-shadow: 0 0 20px rgba(0, 191, 255, 0.6); }
     100% { box-shadow: 0 0 15px rgba(0, 191, 255, 0.4); }
 } 
+
+/* Mejorar fondos de secciones bg-dark */
+.bg-dark {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(44, 44, 44, 0.9) 50%, rgba(26, 26, 46, 0.95) 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(0, 191, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bg-dark::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0,191,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Asegurar que el contenido esté por encima del fondo */
+.bg-dark > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Efecto especial para secciones de contacto */
+.contact-info-section.bg-dark {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.98) 0%, rgba(44, 44, 44, 0.95) 50%, rgba(26, 26, 46, 0.98) 100%) !important;
+}
+
+.contact-info-section.bg-dark::before {
+    background: 
+        radial-gradient(circle at 30% 70%, rgba(0, 191, 255, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 70% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(0, 191, 255, 0.08) 0%, transparent 70%);
+}
+
+/* Efecto especial para secciones de about */
+.about-section.bg-dark {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.96) 0%, rgba(44, 44, 44, 0.92) 50%, rgba(26, 26, 46, 0.96) 100%) !important;
+}
+
+.about-section.bg-dark::before {
+    background: 
+        radial-gradient(circle at 25% 75%, rgba(0, 191, 255, 0.12) 0%, transparent 55%),
+        radial-gradient(circle at 75% 25%, rgba(138, 43, 226, 0.12) 0%, transparent 55%),
+        radial-gradient(circle at 45% 45%, rgba(0, 191, 255, 0.06) 0%, transparent 65%);
+}
+
+/* Animación sutil para los fondos */
+@keyframes backgroundShift {
+    0%, 100% { 
+        background-position: 0% 50%; 
+    }
+    50% { 
+        background-position: 100% 50%; 
+    }
+}
+
+.bg-dark {
+    background-size: 200% 200% !important;
+    animation: backgroundShift 20s ease-in-out infinite;
+} 
