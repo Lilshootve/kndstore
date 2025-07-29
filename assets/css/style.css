@@ -667,11 +667,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero-section {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .hero-title {
@@ -938,7 +939,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Estilos para página de producto individual */
 .product-detail-section {
     min-height: 80vh;
-    padding-top: 100px;
+    padding-top: 20px;
 }
 
 .product-image-container {
