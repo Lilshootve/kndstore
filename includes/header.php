@@ -72,7 +72,7 @@ function generateCommonAssets() {
 function generateFavicon() {
     $favicon = '';
     
-    // Favicon básico
+    // Favicon básico (prioridad alta)
     $favicon .= '<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">' . "\n";
     
     // Favicon SVG (mejor calidad)
@@ -94,7 +94,6 @@ function generateFavicon() {
     // Meta tags para PWA
     $favicon .= '<meta name="theme-color" content="#00bfff">' . "\n";
     $favicon .= '<meta name="msapplication-TileColor" content="#00bfff">' . "\n";
-    $favicon .= '<meta name="msapplication-config" content="assets/images/browserconfig.xml">' . "\n";
     
     return $favicon;
 }

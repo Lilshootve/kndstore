@@ -30,7 +30,7 @@ require_once 'includes/footer.php';
         <div class="row align-items-center min-vh-100">
             <div class="col-lg-6">
                 <h1 class="hero-title">
-                    <span class="text-gradient">Bienvenido</span><br>
+                    <span class="text-gradient">Bienvenido a</span><br>
                     <span class="text-gradient">KND Store</span>
                 </h1>
                 <p class="hero-subtitle">
