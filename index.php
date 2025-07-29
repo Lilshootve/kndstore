@@ -47,7 +47,7 @@ require_once 'includes/footer.php';
             </div>
             <div class="col-lg-6 text-center">
                 <div class="hero-image">
-                    <img src="assets/images/hero-graphic.png" alt="KND Store" class="img-fluid">
+                    <img src="assets/images/knd-logo.png" alt="KND Store" class="img-fluid hero-logo">
                 </div>
             </div>
         </div>

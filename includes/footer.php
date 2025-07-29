@@ -69,10 +69,6 @@ function generateFooter() {
     $footer .= '                            <i class="fab fa-discord me-3" style="color: var(--knd-neon-blue);"></i>' . "\n";
     $footer .= '                            <span style="opacity: 0.8;">Discord: KND_Store</span>' . "\n";
     $footer .= '                        </li>' . "\n";
-    $footer .= '                        <li class="mb-3 d-flex align-items-center">' . "\n";
-    $footer .= '                            <i class="fas fa-map-marker-alt me-3" style="color: var(--knd-neon-blue);"></i>' . "\n";
-    $footer .= '                            <span style="opacity: 0.8;">Sector Galáctico 7, Vía Láctea</span>' . "\n";
-    $footer .= '                        </li>' . "\n";
     $footer .= '                    </ul>' . "\n";
     $footer .= '                    ' . "\n";
     $footer .= '                    <h6 class="mt-4 mb-3">PAGOS SEGUROS</h6>' . "\n";

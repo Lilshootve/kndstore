@@ -123,6 +123,35 @@ h1, h2, h3, h4, h5, h6 {
     flex-wrap: wrap;
 }
 
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.hero-logo {
+    max-width: 400px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(0, 191, 255, 0.3));
+    transition: all 0.3s ease;
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.hero-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 30px rgba(0, 191, 255, 0.5));
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 /* Buttons */
 .btn {
     border-radius: 12px;
