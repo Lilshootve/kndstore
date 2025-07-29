@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </section>
 
 <!-- Información de Contacto -->
-<section class="contact-info-section py-5 bg-dark">
+<section class="contact-info-section py-5 bg-dark-epic">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mb-5">

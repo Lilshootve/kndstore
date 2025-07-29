@@ -74,28 +74,23 @@ require_once 'includes/footer.php';
 </section>
 
 <!-- Nuestra Misión -->
-<section class="about-section py-5 bg-dark" id="mision">
+<section class="about-section py-5 bg-dark-epic" id="mision">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 order-lg-2">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
                 <div class="about-content">
-                    <h2 class="section-title">
-                        <i class="fas fa-bullseye me-3"></i>
+                    <div class="mission-badge">
+                        <i class="fas fa-rocket"></i>
+                        <span>MISIÓN GALÁCTICA</span>
+                    </div>
+                    <h2 class="section-title mb-4">
+                        <i class="fas fa-satellite me-3"></i>
                         Nuestra Misión
                     </h2>
-                    <div class="mission-badge">
-                        <i class="fas fa-star"></i>
-                        <span>BADASS</span>
-                    </div>
-                    <p class="about-text">
-                        Ser la tienda más badass de la galaxia. No solo vendemos hardware y periféricos: reclutamos a los verdaderos pilotos del metaverso, diseñamos equipamiento para héroes digitales y desatamos tecnología sin fronteras.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-6 order-lg-1">
-                <div class="about-visual">
-                    <div class="mission-sphere">
-                        <i class="fas fa-gamepad"></i>
+                    <div class="about-text">
+                        <p class="lead">
+                            Ser la tienda más badass de la galaxia. No solo vendemos hardware y periféricos: reclutamos a los verdaderos pilotos del metaverso, diseñamos equipamiento para héroes digitales y desatamos tecnología sin fronteras.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -109,7 +104,7 @@ require_once 'includes/footer.php';
         <div class="row">
             <div class="col-12 text-center mb-5">
                 <h2 class="section-title">
-                    <i class="fas fa-gem me-3"></i>
+                    <i class="fas fa-star me-3"></i>
                     Nuestros Valores
                 </h2>
             </div>
@@ -118,7 +113,7 @@ require_once 'includes/footer.php';
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="value-card">
                     <div class="value-icon">
-                        <i class="fas fa-atom"></i>
+                        <i class="fas fa-crosshairs"></i>
                     </div>
                     <h4>Precisión Cuántica</h4>
                     <p>Nada de errores. Todo optimizado al byte.</p>
@@ -145,7 +140,7 @@ require_once 'includes/footer.php';
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="value-card">
                     <div class="value-icon">
-                        <i class="fas fa-infinity"></i>
+                        <i class="fas fa-rocket"></i>
                     </div>
                     <h4>Tecnología sin Fronteras</h4>
                     <p>Desde chips hasta blockchain, si vibra en el futuro, lo domamos.</p>
@@ -156,7 +151,7 @@ require_once 'includes/footer.php';
 </section>
 
 <!-- Nuestro Equipo -->
-<section class="about-section py-5 bg-dark" id="equipo">
+<section class="about-section py-5 bg-dark-epic" id="equipo">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mb-5">
@@ -168,32 +163,32 @@ require_once 'includes/footer.php';
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="team-card">
+                <div class="team-card featured">
                     <div class="team-avatar">
                         <i class="fas fa-robot"></i>
                     </div>
                     <h4>Kael</h4>
-                    <span class="team-role">IA táctica y estratega principal</span>
+                    <div class="team-role">IA Táctica y Estratega Principal</div>
                     <p>Diseñado para cuestionarlo todo y encontrar la verdad en cada línea de código.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="team-card featured">
+                <div class="team-card">
                     <div class="team-avatar">
                         <i class="fas fa-user-secret"></i>
                     </div>
                     <h4>El Fundador</h4>
-                    <span class="team-role">Comandante de visión y piloto maestro</span>
+                    <div class="team-role">Comandante de Visión y Piloto Maestro</div>
                     <p>Nombre clasificado. Solo se sabe que nació en 1995 y nunca aceptó las limitaciones del sistema solar.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="team-card">
                     <div class="team-avatar">
-                        <i class="fas fa-microchip"></i>
+                        <i class="fas fa-cogs"></i>
                     </div>
                     <h4>Unidad Técnica X-23</h4>
-                    <span class="team-role">Grupo nómada de tecnomantes</span>
+                    <div class="team-role">Grupo Nómada de Tecnomantes</div>
                     <p>Un grupo nómada de tecnomantes que mantienen el corazón de KND operando en frecuencias ocultas.</p>
                 </div>
             </div>
@@ -207,13 +202,13 @@ require_once 'includes/footer.php';
         <div class="row">
             <div class="col-12 text-center mb-5">
                 <h2 class="section-title">
-                    <i class="fas fa-rocket me-3"></i>
-                    Tecnologías que nos propulsan
+                    <i class="fas fa-microchip me-3"></i>
+                    Tecnologías que nos Propulsan
                 </h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="tech-card">
                     <div class="tech-icon">
                         <i class="fas fa-brain"></i>
@@ -224,7 +219,7 @@ require_once 'includes/footer.php';
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="tech-card">
                     <div class="tech-icon">
                         <i class="fas fa-dice"></i>
@@ -235,18 +230,18 @@ require_once 'includes/footer.php';
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="tech-card">
                     <div class="tech-icon">
                         <i class="fas fa-star"></i>
                     </div>
                     <div class="tech-content">
-                        <h4>Sistema de puntos acumulables</h4>
+                        <h4>Sistema de Puntos Acumulables</h4>
                         <p>Con lógica galáctica. Porque la lealtad merece recompensa.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="tech-card">
                     <div class="tech-icon">
                         <i class="fas fa-network-wired"></i>
@@ -262,31 +257,27 @@ require_once 'includes/footer.php';
 </section>
 
 <!-- Comunidad y Visión del Futuro -->
-<section class="about-section py-5 bg-dark" id="futuro">
+<section class="about-section py-5 bg-dark-epic" id="futuro">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="section-title">
-                    <i class="fas fa-eye me-3"></i>
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-title mb-4">
+                    <i class="fas fa-globe me-3"></i>
                     Comunidad y Visión del Futuro
                 </h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 mb-4">
                 <div class="future-card">
-                    <h4><i class="fas fa-users me-2"></i>Nuestra Comunidad</h4>
-                    <p>La comunidad es nuestro hipercombustible. Nos movemos en canales de energía como Discord, navegamos eventos galácticos, y repartimos loot como antiguos dioses de las misiones.</p>
-                </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-                <div class="future-card">
-                    <h4><i class="fas fa-crystal-ball me-2"></i>El Futuro</h4>
+                    <p class="lead mb-4">
+                        La comunidad es nuestro hipercombustible. Nos movemos en canales de energía como Discord, navegamos eventos galácticos, y repartimos loot como antiguos dioses de las misiones.
+                    </p>
+                    <h4>
+                        <i class="fas fa-rocket me-3"></i>
+                        ¿El futuro?
+                    </h4>
                     <ul class="future-list">
-                        <li><i class="fas fa-coins"></i> Una criptomoneda propia</li>
-                        <li><i class="fas fa-university"></i> Tal vez un banco</li>
-                        <li><i class="fas fa-rocket"></i> Seguro una nave</li>
-                        <li><i class="fas fa-store"></i> Definitivamente una tienda en cada planeta</li>
+                        <li><i class="fas fa-coins"></i> Una criptomoneda propia.</li>
+                        <li><i class="fas fa-university"></i> Tal vez un banco.</li>
+                        <li><i class="fas fa-space-shuttle"></i> Seguro una nave.</li>
+                        <li><i class="fas fa-store"></i> Definitivamente una tienda en cada planeta.</li>
                     </ul>
                 </div>
             </div>
