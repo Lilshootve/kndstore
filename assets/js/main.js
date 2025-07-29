@@ -280,14 +280,26 @@ function revealOnScroll() {
 
 // Función para inicializar el panel de personalización de colores
 function initColorPanel() {
+    console.log('🔧 Inicializando panel de colores...');
+    
     const toggle = document.getElementById('colorPanelToggle');
     const sidebar = document.getElementById('colorPanelSidebar');
     const overlay = document.getElementById('colorPanelOverlay');
     const themes = document.querySelectorAll('.color-theme');
 
+    console.log('🎨 Elementos encontrados:', {
+        toggle: toggle,
+        sidebar: sidebar,
+        overlay: overlay,
+        themes: themes.length
+    });
+
     // Toggle del panel
     if (toggle && sidebar) {
+        console.log('✅ Configurando toggle del panel');
+        
         toggle.addEventListener('click', () => {
+            console.log('🖱️ Click en toggle del panel');
             sidebar.classList.toggle('open');
             overlay.classList.toggle('active');
             toggle.classList.toggle('active');
@@ -295,6 +307,7 @@ function initColorPanel() {
 
         // Cerrar con overlay
         overlay.addEventListener('click', () => {
+            console.log('🖱️ Click en overlay');
             sidebar.classList.remove('open');
             overlay.classList.remove('active');
             toggle.classList.remove('active');
@@ -303,16 +316,21 @@ function initColorPanel() {
         // Cerrar con ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+                console.log('⌨️ Tecla ESC presionada');
                 sidebar.classList.remove('open');
                 overlay.classList.remove('active');
                 toggle.classList.remove('active');
             }
         });
+    } else {
+        console.error('❌ No se encontraron elementos del panel');
     }
 
     // Cambiar temas de color
     themes.forEach(theme => {
         theme.addEventListener('click', () => {
+            console.log('🎨 Tema seleccionado:', theme.dataset.theme);
+            
             // Remover active de todos los temas
             themes.forEach(t => t.classList.remove('active'));
             
@@ -331,6 +349,7 @@ function initColorPanel() {
     // Cargar tema guardado
     const savedTheme = localStorage.getItem('knd-color-theme');
     if (savedTheme) {
+        console.log('💾 Tema guardado encontrado:', savedTheme);
         applyColorTheme(savedTheme);
         themes.forEach(theme => {
             if (theme.dataset.theme === savedTheme) {
@@ -340,6 +359,8 @@ function initColorPanel() {
             }
         });
     }
+    
+    console.log('✅ Panel de colores inicializado');
 }
 
 // Función para aplicar temas de color

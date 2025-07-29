@@ -432,7 +432,7 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     font-size: 20px;
     cursor: pointer;
-    z-index: 9999;
+    z-index: 99999 !important;
     box-shadow: 0 0 20px rgba(0, 191, 255, 0.6);
     transition: all 0.3s ease;
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -456,7 +456,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 100vh;
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
     border-right: 3px solid rgba(0, 191, 255, 0.8);
-    z-index: 9998;
+    z-index: 99998 !important;
     transition: left 0.4s ease;
     overflow-y: auto;
     backdrop-filter: blur(10px);
@@ -546,7 +546,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 9997;
+    z-index: 99997 !important;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
