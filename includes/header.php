@@ -111,6 +111,9 @@ function generateHeader($title = '', $description = '', $keywords = '') {
 
 // Función para generar la navegación
 function generateNavigation() {
+    // Obtener la página actual
+    $current_page = basename($_SERVER['PHP_SELF']);
+    
     $nav = '<nav class="navbar navbar-expand-lg navbar-dark fixed-top">' . "\n";
     $nav .= '    <div class="container">' . "\n";
     $nav .= '        <a class="navbar-brand logo-container" href="/index.php">' . "\n";
@@ -123,19 +126,19 @@ function generateNavigation() {
     $nav .= '        <div class="collapse navbar-collapse" id="navbarNav">' . "\n";
     $nav .= '            <ul class="navbar-nav ms-auto">' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link" href="/index.php">Inicio</a>' . "\n";
+    $nav .= '                    <a class="nav-link' . ($current_page == 'index.php' ? ' active' : '') . '" href="/index.php">Inicio</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link" href="/products.php">Productos</a>' . "\n";
+    $nav .= '                    <a class="nav-link' . ($current_page == 'products.php' ? ' active' : '') . '" href="/products.php">Productos</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link" href="/about.php">Sobre Nosotros</a>' . "\n";
+    $nav .= '                    <a class="nav-link' . ($current_page == 'about.php' ? ' active' : '') . '" href="/about.php">Sobre Nosotros</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link" href="/contact.php">Contacto</a>' . "\n";
+    $nav .= '                    <a class="nav-link' . ($current_page == 'contact.php' ? ' active' : '') . '" href="/contact.php">Contacto</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link" href="/faq.php">FAQ</a>' . "\n";
+    $nav .= '                    <a class="nav-link' . ($current_page == 'faq.php' ? ' active' : '') . '" href="/faq.php">FAQ</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '            </ul>' . "\n";
     $nav .= '        </div>' . "\n";
