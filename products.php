@@ -42,7 +42,7 @@ require_once 'includes/footer.php';
 </section>
 
 <!-- Categorías Destacadas -->
-<section class="categories-section py-4">
+<section class="categories-section py-4 bg-dark-epic">
     <div class="container">
         <h2 class="section-title text-center mb-4">Categorías Destacadas</h2>
         <div class="row">
