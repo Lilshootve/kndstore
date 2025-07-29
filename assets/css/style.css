@@ -3818,4 +3818,175 @@ body {
     }
 }
 
+/* ===== OPCIONES DE FONDOS ALTERNATIVOS ===== */
+
+/* Opción 1: Fondo Sutil con Gradiente */
+.bg-subtle-gradient {
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.05) 0%, rgba(138, 43, 226, 0.05) 100%);
+    position: relative;
+    border-top: 1px solid rgba(0, 191, 255, 0.1);
+    border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+}
+
+.bg-subtle-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(0, 191, 255, 0.02) 50%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Opción 2: Fondo Oscuro Simple */
+.bg-dark-simple {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 191, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+/* Opción 3: Fondo con Patrón Sutil */
+.bg-pattern-subtle {
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(0, 191, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(138, 43, 226, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    position: relative;
+}
+
+.bg-pattern-subtle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
+    pointer-events: none;
+}
+
+/* Opción 4: Fondo con Líneas Suaves */
+.bg-soft-lines {
+    background: 
+        linear-gradient(45deg, transparent 40%, rgba(0, 191, 255, 0.02) 50%, transparent 60%),
+        linear-gradient(-45deg, transparent 40%, rgba(138, 43, 226, 0.02) 50%, transparent 60%);
+    background-size: 100px 100px;
+    position: relative;
+}
+
+.bg-soft-lines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, transparent 50%, rgba(0, 0, 0, 0.05) 100%);
+    pointer-events: none;
+}
+
+/* Opción 5: Fondo con Brillo Sutil */
+.bg-subtle-glow {
+    background: rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-subtle-glow::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(0, 191, 255, 0.05) 0%, transparent 70%);
+    animation: subtleGlow 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.bg-subtle-glow::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(138, 43, 226, 0.05) 0%, transparent 70%);
+    animation: subtleGlow 8s ease-in-out infinite reverse;
+    pointer-events: none;
+}
+
+@keyframes subtleGlow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+/* Opción 6: Fondo Transparente */
+.bg-transparent {
+    background: transparent;
+    position: relative;
+}
+
+.bg-transparent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.02) 50%, transparent 100%);
+    pointer-events: none;
+}
+
+/* Estilos para la página de demo */
+.demo-content {
+    background: rgba(44, 44, 44, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.demo-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.instructions {
+    background: rgba(44, 44, 44, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    border: 1px solid var(--knd-neon-blue);
+}
+
+.instructions p {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.code-example {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid var(--knd-electric-purple);
+}
+
+.code-example code {
+    color: var(--knd-neon-blue);
+    font-size: 1.1rem;
+    font-family: 'Courier New', monospace;
+}
+
 /* Categorías */
