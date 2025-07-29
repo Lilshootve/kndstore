@@ -419,7 +419,7 @@ h1, h2, h3, h4, h5, h6 {
 /* PANEL DE PERSONALIZACIÓN DE COLORES */
 .color-panel-toggle {
     position: fixed;
-    right: 20px;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
     width: 50px;
@@ -450,20 +450,20 @@ h1, h2, h3, h4, h5, h6 {
 /* Sidebar de colores */
 .color-panel-sidebar {
     position: fixed;
-    left: -350px;
+    right: -350px;
     top: 0;
     width: 350px;
     height: 100vh;
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-    border-right: 3px solid rgba(0, 191, 255, 0.8);
+    border-left: 3px solid rgba(0, 191, 255, 0.8);
     z-index: 99998 !important;
-    transition: left 0.4s ease;
+    transition: right 0.4s ease;
     overflow-y: auto;
     backdrop-filter: blur(10px);
 }
 
 .color-panel-sidebar.open {
-    left: 0;
+    right: 0;
 }
 
 .color-panel-header {
