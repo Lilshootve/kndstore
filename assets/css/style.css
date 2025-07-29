@@ -909,9 +909,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Estilos específicos para productos destacados en la página de inicio */
 .featured-products .product-image img {
-    object-fit: cover;
+    object-fit: contain;
     background: linear-gradient(135deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%);
-    padding: 0;
+    padding: 20px;
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -922,15 +922,28 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Estilos para todas las imágenes de productos en el catálogo */
 .products-section .product-image img {
-    object-fit: cover;
+    object-fit: contain;
     background: linear-gradient(135deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%);
-    padding: 0;
+    padding: 20px;
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 200px;
     border: 2px solid var(--knd-neon-blue);
     min-height: 200px;
+}
+
+/* Debug temporal - mostrar información de la imagen */
+.products-section .product-image img::after {
+    content: attr(src);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px;
+    font-size: 10px;
+    z-index: 1000;
 }
 
 /* Footer */
