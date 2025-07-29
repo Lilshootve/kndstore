@@ -282,7 +282,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <a href="https://discord.gg/knd_store" target="_blank" class="btn btn-primary btn-lg me-3">
                         <i class="fab fa-discord"></i> Discord Inmediato
                     </a>
-                    <a href="mailto:support@kndstore.com" class="btn btn-outline-neon btn-lg">
+                    <a href="mailto:support@kndstore.com" class="btn btn-primary btn-lg">
                         <i class="fas fa-envelope"></i> Email de Emergencia
                     </a>
                 </div>
