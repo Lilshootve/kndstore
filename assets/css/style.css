@@ -52,6 +52,11 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 1px solid var(--knd-neon-blue);
     transition: all 0.3s ease;
     box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 80px;
 }
 
 /* Logo optimizado con efectos épicos mejorados */
@@ -671,7 +676,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 20px;
+    padding-top: 120px; /* Aumentar para compensar el navbar fijo */
     padding-bottom: 20px;
 }
 
@@ -3822,10 +3827,12 @@ body {
 
 /* Opción 1: Fondo Sutil con Gradiente */
 .bg-subtle-gradient {
-    background: linear-gradient(135deg, rgba(0, 191, 255, 0.05) 0%, rgba(138, 43, 226, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
     position: relative;
-    border-top: 1px solid rgba(0, 191, 255, 0.1);
-    border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+    border-top: 1px solid rgba(0, 191, 255, 0.2);
+    border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+    padding: 40px 0;
+    margin: 20px 0;
 }
 
 .bg-subtle-gradient::before {
@@ -3835,25 +3842,29 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(0, 191, 255, 0.02) 50%, transparent 70%);
+    background: linear-gradient(45deg, transparent 30%, rgba(0, 191, 255, 0.05) 50%, transparent 70%);
     pointer-events: none;
 }
 
 /* Opción 2: Fondo Oscuro Simple */
 .bg-dark-simple {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 191, 255, 0.1);
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 191, 255, 0.2);
     border-radius: 10px;
     backdrop-filter: blur(5px);
+    padding: 40px 0;
+    margin: 20px 0;
 }
 
 /* Opción 3: Fondo con Patrón Sutil */
 .bg-pattern-subtle {
     background: 
-        radial-gradient(circle at 25% 25%, rgba(0, 191, 255, 0.03) 1px, transparent 1px),
-        radial-gradient(circle at 75% 75%, rgba(138, 43, 226, 0.03) 1px, transparent 1px);
+        radial-gradient(circle at 25% 25%, rgba(0, 191, 255, 0.08) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(138, 43, 226, 0.08) 1px, transparent 1px);
     background-size: 50px 50px;
     position: relative;
+    padding: 40px 0;
+    margin: 20px 0;
 }
 
 .bg-pattern-subtle::before {
@@ -3863,17 +3874,19 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, transparent 50%, rgba(0, 0, 0, 0.2) 100%);
     pointer-events: none;
 }
 
 /* Opción 4: Fondo con Líneas Suaves */
 .bg-soft-lines {
     background: 
-        linear-gradient(45deg, transparent 40%, rgba(0, 191, 255, 0.02) 50%, transparent 60%),
-        linear-gradient(-45deg, transparent 40%, rgba(138, 43, 226, 0.02) 50%, transparent 60%);
+        linear-gradient(45deg, transparent 40%, rgba(0, 191, 255, 0.06) 50%, transparent 60%),
+        linear-gradient(-45deg, transparent 40%, rgba(138, 43, 226, 0.06) 50%, transparent 60%);
     background-size: 100px 100px;
     position: relative;
+    padding: 40px 0;
+    margin: 20px 0;
 }
 
 .bg-soft-lines::before {
@@ -3883,15 +3896,17 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, transparent 50%, rgba(0, 0, 0, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, transparent 50%, rgba(0, 0, 0, 0.15) 100%);
     pointer-events: none;
 }
 
 /* Opción 5: Fondo con Brillo Sutil */
 .bg-subtle-glow {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
+    padding: 40px 0;
+    margin: 20px 0;
 }
 
 .bg-subtle-glow::before {
@@ -3901,7 +3916,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at center, rgba(0, 191, 255, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(0, 191, 255, 0.08) 0%, transparent 70%);
     animation: subtleGlow 8s ease-in-out infinite;
     pointer-events: none;
 }
@@ -3913,7 +3928,7 @@ body {
     right: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at center, rgba(138, 43, 226, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(138, 43, 226, 0.08) 0%, transparent 70%);
     animation: subtleGlow 8s ease-in-out infinite reverse;
     pointer-events: none;
 }
@@ -3927,6 +3942,8 @@ body {
 .bg-transparent {
     background: transparent;
     position: relative;
+    padding: 40px 0;
+    margin: 20px 0;
 }
 
 .bg-transparent::before {
@@ -3936,7 +3953,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.02) 50%, transparent 100%);
+    background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.05) 50%, transparent 100%);
     pointer-events: none;
 }
 
