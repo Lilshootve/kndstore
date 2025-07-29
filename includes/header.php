@@ -1,4 +1,4 @@
-se ve asi, y titila "ver detalles "<?php
+<?php
 // KND Store - Header común
 
 // Verificar si la sesión ya está iniciada
