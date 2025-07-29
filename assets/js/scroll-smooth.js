@@ -1,40 +1,39 @@
-// Scroll suave por bloques para KND Store - Versión simplificada
+// Scroll suave por bloques para KND Store - Versión simplificada y confiable
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Scroll smooth script loaded'); // Debug
     
-    // Configuración de scroll suave
-    const scrollConfig = {
-        duration: 600,
-        easing: 'easeInOutCubic'
-    };
-    
-    // Función de easing personalizada
-    function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-    }
-    
-    // Función de scroll suave mejorada
-    function smoothScrollTo(target, duration = scrollConfig.duration) {
-        const targetElement = typeof target === 'string' ? document.querySelector(target) : target;
-        if (!targetElement) return;
+    // Función de scroll suave simple
+    function smoothScrollTo(target) {
+        console.log('Scrolling to:', target); // Debug
         
-        const startPosition = window.pageYOffset;
-        const targetPosition = targetElement.offsetTop - 140; // Compensar navbar alto
-        const distance = targetPosition - startPosition;
-        let startTime = null;
-        
-        function animation(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            const timeElapsed = currentTime - startTime;
-            const run = easeInOutCubic(timeElapsed / duration);
-            window.scrollTo(0, startPosition + distance * run);
-            if (timeElapsed < duration) requestAnimationFrame(animation);
+        if (target === 0) {
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            return;
         }
         
-        requestAnimationFrame(animation);
+        const targetElement = typeof target === 'string' ? document.querySelector(target) : target;
+        if (!targetElement) {
+            console.log('Target not found:', target); // Debug
+            return;
+        }
+        
+        const navbarHeight = 120; // Altura del navbar
+        const targetPosition = targetElement.offsetTop - navbarHeight;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
     }
     
     // Crear botones de navegación rápida
     function createScrollNav() {
+        console.log('Creating scroll navigation'); // Debug
+        
         const nav = document.createElement('div');
         nav.className = 'scroll-nav';
         nav.innerHTML = `
@@ -54,30 +53,42 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(nav);
         
         // Agregar event listeners a los botones
-        document.getElementById('scroll-top').addEventListener('click', function() {
-            smoothScrollTo(0);
-        });
+        const topBtn = document.getElementById('scroll-top');
+        const productsBtn = document.getElementById('scroll-products');
+        const aboutBtn = document.getElementById('scroll-about');
+        const contactBtn = document.getElementById('scroll-contact');
         
-        document.getElementById('scroll-products').addEventListener('click', function() {
-            const section = document.querySelector('.products-section');
-            if (section) {
-                smoothScrollTo(section);
-            }
-        });
+        if (topBtn) {
+            topBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Top button clicked'); // Debug
+                smoothScrollTo(0);
+            });
+        }
         
-        document.getElementById('scroll-about').addEventListener('click', function() {
-            const section = document.querySelector('.about-section');
-            if (section) {
-                smoothScrollTo(section);
-            }
-        });
+        if (productsBtn) {
+            productsBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Products button clicked'); // Debug
+                smoothScrollTo('.products-section');
+            });
+        }
         
-        document.getElementById('scroll-contact').addEventListener('click', function() {
-            const section = document.querySelector('.contact-section');
-            if (section) {
-                smoothScrollTo(section);
-            }
-        });
+        if (aboutBtn) {
+            aboutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('About button clicked'); // Debug
+                smoothScrollTo('.about-section');
+            });
+        }
+        
+        if (contactBtn) {
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Contact button clicked'); // Debug
+                smoothScrollTo('.contact-section');
+            });
+        }
     }
     
     // Crear indicador de progreso
@@ -106,23 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     window.scrollToSection = function(selector) {
-        const section = document.querySelector(selector);
-        if (section) {
-            smoothScrollTo(section);
-        }
+        smoothScrollTo(selector);
     };
-    
-    // Scroll suave para enlaces internos (solo los que empiecen con #)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = this.getAttribute('href');
-            const targetElement = document.querySelector(target);
-            if (targetElement) {
-                smoothScrollTo(targetElement);
-            }
-        });
-    });
     
     // Inicializar componentes
     createScrollNav();
@@ -150,43 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollNav.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
     }
     
-    // Navegación por teclado (solo cuando se presiona Ctrl)
-    document.addEventListener('keydown', function(e) {
-        if (e.ctrlKey) {
-            const sections = document.querySelectorAll('.hero-section, .products-section, .product-detail-section, .about-section, .contact-section');
-            
-            if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-                e.preventDefault();
-                const currentSection = getCurrentSection(sections);
-                const nextSection = sections[currentSection + 1];
-                if (nextSection) {
-                    smoothScrollTo(nextSection);
-                }
-            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-                e.preventDefault();
-                const currentSection = getCurrentSection(sections);
-                const prevSection = sections[currentSection - 1];
-                if (prevSection) {
-                    smoothScrollTo(prevSection);
-                }
-            }
-        }
-    });
-    
-    // Función para obtener la sección actual
-    function getCurrentSection(sections) {
-        const scrollPosition = window.pageYOffset + 100;
-        for (let i = 0; i < sections.length; i++) {
-            const section = sections[i];
-            const sectionTop = section.offsetTop;
-            const sectionBottom = sectionTop + section.offsetHeight;
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                return i;
-            }
-        }
-        return 0;
-    }
+    console.log('Scroll navigation initialized'); // Debug
 });
 
 // Configuración adicional para mejor experiencia
