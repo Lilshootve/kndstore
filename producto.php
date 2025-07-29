@@ -172,7 +172,7 @@ if (!$producto) {
 
 // Generar mensaje de WhatsApp
 $mensaje_whatsapp = urlencode("Hola, me interesa el servicio: " . $producto['nombre'] . " - $" . number_format($producto['precio'], 2));
-$link_whatsapp = "https://wa.me/1234567890?text=" . $mensaje_whatsapp; // Cambia el número por el tuyo
+$link_whatsapp = "https://wa.me/584246661334?text=" . $mensaje_whatsapp;
 
 ?>
 
