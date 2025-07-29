@@ -96,25 +96,28 @@ require_once 'includes/footer.php';
         <h2 class="section-title">Productos Destacados</h2>
         <div class="row">
             <?php
-            // Simular productos destacados (en producción esto vendría de la base de datos)
+            // Productos destacados reales de KND Store
             $featuredProducts = [
                 [
-                    'name' => 'Nave Espacial Modelo X-1',
-                    'description' => 'Nave espacial de alta velocidad con tecnología de propulsión cuántica.',
-                    'price' => 1500000,
-                    'image' => 'assets/images/product-1.jpg'
+                    'name' => 'Formateo y limpieza de PC (Remoto)',
+                    'description' => 'Recupera el rendimiento de tu PC desde la comodidad de tu nave.',
+                    'price' => 10.00,
+                    'image' => 'assets/images/productos/formateo-limpieza-pc-remoto.png',
+                    'url' => '/producto/formateo-limpieza-pc'
                 ],
                 [
-                    'name' => 'Traje Espacial Elite',
-                    'description' => 'Traje espacial con protección térmica y sistema de soporte vital integrado.',
-                    'price' => 25000,
-                    'image' => 'assets/images/product-2.jpg'
+                    'name' => 'Optimización Gamer (FPS, temperaturas, disco)',
+                    'description' => 'Tu PC, afinada para dominar la galaxia del gaming.',
+                    'price' => 5.00,
+                    'image' => 'assets/images/productos/optimizacion-gamer-fps-temperaturas-disco.png',
+                    'url' => '/producto/optimizacion-gamer'
                 ],
                 [
-                    'name' => 'Comunicador Intergaláctico',
-                    'description' => 'Dispositivo de comunicación que funciona en cualquier parte del universo.',
-                    'price' => 5000,
-                    'image' => 'assets/images/product-3.jpg'
+                    'name' => 'PC Ready Pack (software + configuración)',
+                    'description' => 'Todo instalado, optimizado y listo para jugar o trabajar.',
+                    'price' => 10.00,
+                    'image' => 'assets/images/productos/pc-ready-pack-software-configuracion.png',
+                    'url' => '/producto/pc-ready-pack'
                 ]
             ];
             
@@ -128,7 +131,7 @@ require_once 'includes/footer.php';
                             <h3><?php echo htmlspecialchars($product['name']); ?></h3>
                             <p><?php echo htmlspecialchars($product['description']); ?></p>
                             <div class="product-price"><?php echo formatPrice($product['price']); ?></div>
-                            <a href="/product-details.php?id=1" class="btn btn-primary">Ver Detalles</a>
+                            <a href="<?php echo $product['url']; ?>" class="btn btn-primary">Ver Detalles</a>
                         </div>
                     </div>
                 </div>

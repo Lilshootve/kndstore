@@ -24,7 +24,7 @@ $productos = [
             'nombre' => 'Formateo y limpieza de PC (Remoto)',
             'descripcion' => 'Recupera el rendimiento de tu PC desde la comodidad de tu nave.',
             'precio' => 10.00,
-            'imagen' => '/assets/images/productos/formateo-pc.jpg',
+            'imagen' => 'assets/images/productos/formateo-limpieza-pc-remoto.png',
             'categoria' => 'tecnologia',
             'url' => '/producto/formateo-limpieza-pc'
         ],
@@ -33,7 +33,7 @@ $productos = [
             'nombre' => 'Instalación de Windows + Drivers',
             'descripcion' => 'Sistema operativo listo para despegar. Configuración limpia y segura.',
             'precio' => 8.00,
-            'imagen' => '/assets/images/productos/windows-drivers.jpg',
+            'imagen' => 'assets/images/productos/instalacion-windows-drivers.png',
             'categoria' => 'tecnologia',
             'url' => '/producto/instalacion-windows-drivers'
         ],
@@ -42,7 +42,7 @@ $productos = [
             'nombre' => 'Optimización Gamer (FPS, temperaturas, disco)',
             'descripcion' => 'Tu PC, afinada para dominar la galaxia del gaming.',
             'precio' => 5.00,
-            'imagen' => '/assets/images/productos/optimizacion-gamer.jpg',
+            'imagen' => 'assets/images/productos/optimizacion-gamer-fps-temperaturas-disco.png',
             'categoria' => 'tecnologia',
             'url' => '/producto/optimizacion-gamer'
         ]
@@ -53,7 +53,7 @@ $productos = [
             'nombre' => 'Activación de Juegos y Gift Cards',
             'descripcion' => 'Claves para Steam, PSN, Xbox, Riot y más. Entrega directa.',
             'precio' => 3.00,
-            'imagen' => '/assets/images/productos/gift-cards.jpg',
+            'imagen' => 'assets/images/productos/activacion-juegos-giftcards.png',
             'categoria' => 'gaming',
             'url' => '/producto/activacion-juegos-giftcards'
         ],
@@ -62,7 +62,7 @@ $productos = [
             'nombre' => 'Asesoría para PC Gamer (Presupuesto personalizado)',
             'descripcion' => '¿Tienes $300 o $3000? Te armamos la build perfecta.',
             'precio' => 5.00,
-            'imagen' => '/assets/images/productos/asesoria-pc.jpg',
+            'imagen' => 'assets/images/productos/asesoria-pc-gamer-presupuesto.png',
             'categoria' => 'gaming',
             'url' => '/producto/asesoria-pc-gamer'
         ],
@@ -71,7 +71,7 @@ $productos = [
             'nombre' => 'Death Roll Crate (Caja misteriosa)',
             'descripcion' => 'Llave, wallpaper, avatar… ¿o meme cósmico? Nunca lo sabrás.',
             'precio' => 2.00,
-            'imagen' => '/assets/images/productos/death-roll-crate.jpg',
+            'imagen' => 'assets/images/productos/death-roll-crate-caja-misteriosa.png',
             'categoria' => 'gaming',
             'url' => '/producto/death-roll-crate'
         ]
@@ -82,7 +82,7 @@ $productos = [
             'nombre' => 'Wallpaper personalizado estilo KND',
             'descripcion' => 'Tu fondo, tu nave. Generado a medida.',
             'precio' => 4.00,
-            'imagen' => '/assets/images/productos/wallpaper-knd.jpg',
+            'imagen' => 'assets/images/productos/wallpaper-personalizado-knd.png',
             'categoria' => 'accesorios',
             'url' => '/producto/wallpaper-personalizado'
         ],
@@ -91,7 +91,7 @@ $productos = [
             'nombre' => 'Avatar gamer personalizado',
             'descripcion' => 'Crea tu imagen digital con estilo galáctico.',
             'precio' => 6.00,
-            'imagen' => '/assets/images/productos/avatar-gamer.jpg',
+            'imagen' => 'assets/images/productos/avatar-gamer-personalizado.png',
             'categoria' => 'accesorios',
             'url' => '/producto/avatar-personalizado'
         ],
@@ -100,7 +100,7 @@ $productos = [
             'nombre' => 'Icon Pack edición especial',
             'descripcion' => 'Reinventa tu escritorio con estética cósmica.',
             'precio' => 3.00,
-            'imagen' => '/assets/images/productos/icon-pack.jpg',
+            'imagen' => 'assets/images/productos/icon-pack-edicion-especial.png',
             'categoria' => 'accesorios',
             'url' => '/producto/icon-pack-knd'
         ]
@@ -111,7 +111,7 @@ $productos = [
             'nombre' => 'Instalación de Office, Adobe, OBS, etc.',
             'descripcion' => 'Programas listos para usar. Te lo dejo full operativo.',
             'precio' => 5.00,
-            'imagen' => '/assets/images/productos/software-instalacion.jpg',
+            'imagen' => 'assets/images/productos/instalacion-programas-office-adobe-obs.png',
             'categoria' => 'software',
             'url' => '/producto/instalacion-software'
         ],
@@ -120,7 +120,7 @@ $productos = [
             'nombre' => 'PC Ready Pack (software + configuración)',
             'descripcion' => 'Todo instalado, optimizado y listo para jugar o trabajar.',
             'precio' => 10.00,
-            'imagen' => '/assets/images/productos/pc-ready-pack.jpg',
+            'imagen' => 'assets/images/productos/pc-ready-pack-software-configuracion.png',
             'categoria' => 'software',
             'url' => '/producto/pc-ready-pack'
         ],
@@ -129,7 +129,7 @@ $productos = [
             'nombre' => 'Mini tutorial PDF o video express',
             'descripcion' => '¿No sabes algo? Te lo explico claro y con estilo.',
             'precio' => 2.00,
-            'imagen' => '/assets/images/productos/tutorial-knd.jpg',
+            'imagen' => 'assets/images/productos/mini-tutorial-pdf-video-express.png',
             'categoria' => 'software',
             'url' => '/producto/tutorial-knd'
         ]
@@ -140,7 +140,7 @@ $productos = [
             'nombre' => 'Compatibilidad de piezas (¿funcionan juntas?)',
             'descripcion' => 'Evita errores antes de comprar. Te lo confirmo todo.',
             'precio' => 3.00,
-            'imagen' => '/assets/images/productos/compatibilidad.jpg',
+            'imagen' => 'assets/images/productos/compatibilidad-piezas-pc.png',
             'categoria' => 'hardware',
             'url' => '/producto/compatibilidad-piezas'
         ],
@@ -149,7 +149,7 @@ $productos = [
             'nombre' => 'Simulación de Build con PDF personalizado',
             'descripcion' => 'Lista completa + imagen de referencia para tu futura nave.',
             'precio' => 7.00,
-            'imagen' => '/assets/images/productos/simulacion-build.jpg',
+            'imagen' => 'assets/images/productos/simulacion-build-pdf-personalizado.png',
             'categoria' => 'hardware',
             'url' => '/producto/simulacion-build'
         ],
@@ -158,7 +158,7 @@ $productos = [
             'nombre' => 'Análisis de rendimiento de tu PC actual',
             'descripcion' => '¿Funciona bien o le falta potencia? Lo analizamos contigo.',
             'precio' => 5.00,
-            'imagen' => '/assets/images/productos/analisis-pc.jpg',
+            'imagen' => 'assets/images/productos/analisis-rendimiento-pc.png',
             'categoria' => 'hardware',
             'url' => '/producto/analisis-pc'
         ]

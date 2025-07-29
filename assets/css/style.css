@@ -560,14 +560,73 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive */
 @media (max-width: 768px) {
     .color-panel-sidebar {
-        width: 300px;
-        left: -300px;
+        width: 100vw;
+        right: -100vw;
+        left: auto;
+    }
+    
+    .color-panel-sidebar.open {
+        right: 0;
     }
     
     .color-panel-toggle {
         width: 45px;
         height: 45px;
         font-size: 18px;
+        left: 15px;
+    }
+    
+    .color-panel-content {
+        padding: 15px;
+    }
+    
+    .color-theme {
+        margin-bottom: 20px;
+        padding: 12px;
+    }
+    
+    .color-panel-header {
+        padding: 15px;
+    }
+    
+    .color-panel-header h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .color-panel-sidebar {
+        width: 100vw;
+        right: -100vw;
+    }
+    
+    .color-panel-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        left: 10px;
+    }
+    
+    .color-panel-content {
+        padding: 10px;
+    }
+    
+    .color-theme {
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+    
+    .color-theme h4 {
+        font-size: 1rem;
+    }
+    
+    .color-swatch {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .color-preview {
+        gap: 8px;
     }
 }
 
@@ -846,6 +905,32 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     color: var(--knd-neon-blue);
     margin-bottom: 1rem;
+}
+
+/* Estilos específicos para productos destacados en la página de inicio */
+.featured-products .product-image img {
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%);
+    padding: 0;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 200px;
+    border: 2px solid var(--knd-neon-blue);
+    min-height: 200px;
+}
+
+/* Estilos para todas las imágenes de productos en el catálogo */
+.products-section .product-image img {
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%);
+    padding: 0;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 200px;
+    border: 2px solid var(--knd-neon-blue);
+    min-height: 200px;
 }
 
 /* Footer */

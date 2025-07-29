@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /cache/
+Disallow: /backups/
+Disallow: /includes/
+Sitemap: https://kndstore.com/sitemap.xml
