@@ -909,9 +909,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Estilos específicos para productos destacados en la página de inicio */
 .featured-products .product-image img {
-    object-fit: contain;
+    object-fit: cover;
     background: linear-gradient(135deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%);
-    padding: 20px;
+    padding: 0;
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -922,9 +922,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Estilos para todas las imágenes de productos en el catálogo */
 .products-section .product-image img {
-    object-fit: contain;
+    object-fit: cover;
     background: linear-gradient(135deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%);
-    padding: 20px;
+    padding: 0;
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -944,6 +944,196 @@ h1, h2, h3, h4, h5, h6 {
     padding: 5px;
     font-size: 10px;
     z-index: 1000;
+}
+
+/* Estilos para página de producto individual */
+.product-detail-section {
+    min-height: 80vh;
+    padding-top: 100px;
+}
+
+.product-image-container {
+    text-align: center;
+    background: linear-gradient(135deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.product-image-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(0, 191, 255, 0.5);
+}
+
+.product-detail-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.product-info-container {
+    padding: 20px;
+    background: rgba(44, 44, 44, 0.8);
+    border-radius: 15px;
+    border: 1px solid var(--knd-neon-blue);
+    backdrop-filter: blur(10px);
+}
+
+.product-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--knd-white);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+}
+
+.product-price-container {
+    margin-bottom: 2rem;
+}
+
+.product-price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--knd-neon-blue);
+    text-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.product-description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.product-actions {
+    margin-top: 2rem;
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.5);
+    color: white;
+}
+
+.btn-discord {
+    background: linear-gradient(135deg, #7289da 0%, #5865f2 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(114, 137, 218, 0.3);
+}
+
+.btn-discord:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(114, 137, 218, 0.5);
+    color: white;
+}
+
+.category-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--knd-electric-purple) 0%, var(--knd-neon-blue) 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+}
+
+.breadcrumb-item a {
+    color: var(--knd-neon-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--knd-electric-purple);
+}
+
+.breadcrumb-item.active {
+    color: var(--knd-white);
+}
+
+.discord-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #7289da 0%, #5865f2 100%);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(114, 137, 218, 0.5);
+    z-index: 10000;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive para página de producto */
+@media (max-width: 768px) {
+    .product-title {
+        font-size: 2rem;
+    }
+    
+    .product-price {
+        font-size: 2.5rem;
+    }
+    
+    .product-description {
+        font-size: 1rem;
+    }
+    
+    .product-actions .btn {
+        font-size: 0.9rem;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-title {
+        font-size: 1.8rem;
+    }
+    
+    .product-price {
+        font-size: 2rem;
+    }
+    
+    .product-image-container {
+        padding: 20px;
+    }
 }
 
 /* Footer */

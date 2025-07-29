@@ -131,7 +131,7 @@ require_once 'includes/footer.php';
                             <h3><?php echo htmlspecialchars($product['name']); ?></h3>
                             <p><?php echo htmlspecialchars($product['description']); ?></p>
                             <div class="product-price"><?php echo formatPrice($product['price']); ?></div>
-                            <a href="<?php echo $product['url']; ?>" class="btn btn-primary">Ver Detalles</a>
+                                                            <a href="/producto.php?slug=<?php echo str_replace(['/producto/', '/'], '', $product['url']); ?>" class="btn btn-primary">Ver Detalles</a>
                         </div>
                     </div>
                 </div>

@@ -26,7 +26,8 @@ $productos = [
             'precio' => 10.00,
             'imagen' => 'assets/images/productos/formateo-limpieza-pc-remoto.png',
             'categoria' => 'tecnologia',
-            'url' => '/producto/formateo-limpieza-pc'
+            'url' => '/producto/formateo-limpieza-pc',
+            'slug' => 'formateo-limpieza-pc'
         ],
         [
             'id' => 2,
@@ -35,7 +36,8 @@ $productos = [
             'precio' => 8.00,
             'imagen' => 'assets/images/productos/instalacion-windows-drivers.png',
             'categoria' => 'tecnologia',
-            'url' => '/producto/instalacion-windows-drivers'
+            'url' => '/producto/instalacion-windows-drivers',
+            'slug' => 'instalacion-windows-drivers'
         ],
         [
             'id' => 3,
@@ -44,7 +46,8 @@ $productos = [
             'precio' => 5.00,
             'imagen' => 'assets/images/productos/optimizacion-gamer-fps-temperaturas-disco.png',
             'categoria' => 'tecnologia',
-            'url' => '/producto/optimizacion-gamer'
+            'url' => '/producto/optimizacion-gamer',
+            'slug' => 'optimizacion-gamer'
         ]
     ],
     'gaming' => [
@@ -55,7 +58,8 @@ $productos = [
             'precio' => 3.00,
             'imagen' => 'assets/images/productos/activacion-juegos-giftcards.png',
             'categoria' => 'gaming',
-            'url' => '/producto/activacion-juegos-giftcards'
+            'url' => '/producto/activacion-juegos-giftcards',
+            'slug' => 'activacion-juegos-giftcards'
         ],
         [
             'id' => 5,
@@ -64,7 +68,8 @@ $productos = [
             'precio' => 5.00,
             'imagen' => 'assets/images/productos/asesoria-pc-gamer-presupuesto.png',
             'categoria' => 'gaming',
-            'url' => '/producto/asesoria-pc-gamer'
+            'url' => '/producto/asesoria-pc-gamer',
+            'slug' => 'asesoria-pc-gamer'
         ],
         [
             'id' => 6,
@@ -73,7 +78,8 @@ $productos = [
             'precio' => 2.00,
             'imagen' => 'assets/images/productos/death-roll-crate-caja-misteriosa.png',
             'categoria' => 'gaming',
-            'url' => '/producto/death-roll-crate'
+            'url' => '/producto/death-roll-crate',
+            'slug' => 'death-roll-crate'
         ]
     ],
     'accesorios' => [
@@ -84,7 +90,8 @@ $productos = [
             'precio' => 4.00,
             'imagen' => 'assets/images/productos/wallpaper-personalizado-knd.png',
             'categoria' => 'accesorios',
-            'url' => '/producto/wallpaper-personalizado'
+            'url' => '/producto/wallpaper-personalizado',
+            'slug' => 'wallpaper-personalizado'
         ],
         [
             'id' => 8,
@@ -93,7 +100,8 @@ $productos = [
             'precio' => 6.00,
             'imagen' => 'assets/images/productos/avatar-gamer-personalizado.png',
             'categoria' => 'accesorios',
-            'url' => '/producto/avatar-personalizado'
+            'url' => '/producto/avatar-personalizado',
+            'slug' => 'avatar-personalizado'
         ],
         [
             'id' => 9,
@@ -102,7 +110,8 @@ $productos = [
             'precio' => 3.00,
             'imagen' => 'assets/images/productos/icon-pack-edicion-especial.png',
             'categoria' => 'accesorios',
-            'url' => '/producto/icon-pack-knd'
+            'url' => '/producto/icon-pack-knd',
+            'slug' => 'icon-pack-knd'
         ]
     ],
     'software' => [
@@ -113,7 +122,8 @@ $productos = [
             'precio' => 5.00,
             'imagen' => 'assets/images/productos/instalacion-programas-office-adobe-obs.png',
             'categoria' => 'software',
-            'url' => '/producto/instalacion-software'
+            'url' => '/producto/instalacion-software',
+            'slug' => 'instalacion-software'
         ],
         [
             'id' => 11,
@@ -122,7 +132,8 @@ $productos = [
             'precio' => 10.00,
             'imagen' => 'assets/images/productos/pc-ready-pack-software-configuracion.png',
             'categoria' => 'software',
-            'url' => '/producto/pc-ready-pack'
+            'url' => '/producto/pc-ready-pack',
+            'slug' => 'pc-ready-pack'
         ],
         [
             'id' => 12,
@@ -131,7 +142,8 @@ $productos = [
             'precio' => 2.00,
             'imagen' => 'assets/images/productos/mini-tutorial-pdf-video-express.png',
             'categoria' => 'software',
-            'url' => '/producto/tutorial-knd'
+            'url' => '/producto/tutorial-knd',
+            'slug' => 'tutorial-knd'
         ]
     ],
     'hardware' => [
@@ -142,7 +154,8 @@ $productos = [
             'precio' => 3.00,
             'imagen' => 'assets/images/productos/compatibilidad-piezas-pc.png',
             'categoria' => 'hardware',
-            'url' => '/producto/compatibilidad-piezas'
+            'url' => '/producto/compatibilidad-piezas',
+            'slug' => 'compatibilidad-piezas'
         ],
         [
             'id' => 14,
@@ -151,7 +164,8 @@ $productos = [
             'precio' => 7.00,
             'imagen' => 'assets/images/productos/simulacion-build-pdf-personalizado.png',
             'categoria' => 'hardware',
-            'url' => '/producto/simulacion-build'
+            'url' => '/producto/simulacion-build',
+            'slug' => 'simulacion-build'
         ],
         [
             'id' => 15,
@@ -160,7 +174,8 @@ $productos = [
             'precio' => 5.00,
             'imagen' => 'assets/images/productos/analisis-rendimiento-pc.png',
             'categoria' => 'hardware',
-            'url' => '/producto/analisis-pc'
+            'url' => '/producto/analisis-pc',
+            'slug' => 'analisis-pc'
         ]
     ]
 ];
@@ -339,7 +354,7 @@ foreach ($productos as $categoria => $productos_categoria) {
                                 <img src="<?php echo $producto['imagen']; ?>" alt="<?php echo htmlspecialchars($producto['nombre']); ?>" 
                                      onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMmMyYzJjIi8+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxODAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwYmZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwYmZmZiIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxwYXRoIGQ9Ik0xMzAgODAgTDE3MCA4MCBNMTMwIDEyMCBMMTcwIDEyMCIgc3Ryb2tlPSIjMDBiZmZmIiBzdHJva2Utd2lkdGg9IjIiLz4KPHN2ZyB4PSIxMjAiIHk9IjE0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIwIj4KICA8dGV4dCBmaWxsPSIjMDBiZmZmIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk5vIEltYWdlbjwvdGV4dD4KPC9zdmc+'; this.style.background='#2c2c2c';">
                                 <div class="product-overlay">
-                                    <a href="<?php echo $producto['url']; ?>" class="btn btn-primary">
+                                    <a href="/producto.php?slug=<?php echo $producto['slug']; ?>" class="btn btn-primary">
                                         <i class="fas fa-eye me-2"></i>Ver detalles
                                     </a>
                                 </div>
@@ -349,7 +364,7 @@ foreach ($productos as $categoria => $productos_categoria) {
                                 <p class="product-description"><?php echo htmlspecialchars($producto['descripcion']); ?></p>
                                 <div class="product-footer">
                                     <span class="product-price">$<?php echo number_format($producto['precio'], 2); ?></span>
-                                    <a href="<?php echo $producto['url']; ?>" class="btn btn-outline-neon btn-sm btn-details">
+                                    <a href="/producto.php?slug=<?php echo $producto['slug']; ?>" class="btn btn-outline-neon btn-sm btn-details">
                                         Ver detalles
                                     </a>
                                 </div>
