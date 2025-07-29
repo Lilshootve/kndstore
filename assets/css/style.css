@@ -786,95 +786,57 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .product-card {
-    background: rgba(44, 44, 44, 0.8);
-    border: 1px solid rgba(0, 191, 255, 0.3);
-    border-radius: 15px;
+    background: rgba(26, 26, 46, 0.9);
+    border: 1px solid var(--knd-neon-blue);
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 .product-card:hover {
-    border-color: rgba(0, 191, 255, 0.8);
-    box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 191, 255, 0.3);
+    border-color: var(--knd-electric-purple);
 }
 
 .product-image {
     position: relative;
-    height: 200px;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(0, 191, 255, 0.1), rgba(138, 43, 226, 0.1));
+    height: 200px;
 }
 
 .product-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
 .product-card:hover .product-image img {
     transform: scale(1.1);
 }
 
-.product-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.product-card:hover .product-overlay {
-    opacity: 1;
-}
-
 .product-info {
-    padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    padding: 1.5rem;
 }
 
-.product-title {
+.product-info h3 {
     color: var(--knd-white);
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
 }
 
-.product-description {
+.product-info p {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    flex-grow: 1;
-}
-
-.product-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
+    margin-bottom: 1rem;
 }
 
 .product-price {
-    color: var(--knd-electric-purple);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    font-family: 'Orbitron', sans-serif;
-    text-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+    color: var(--knd-neon-blue);
+    margin-bottom: 1rem;
 }
 
 /* Footer */
@@ -1186,95 +1148,75 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .product-card {
-    background: rgba(44, 44, 44, 0.8);
-    border: 1px solid rgba(0, 191, 255, 0.3);
-    border-radius: 15px;
+    background: rgba(26, 26, 46, 0.9);
+    border: 1px solid var(--knd-neon-blue);
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    position: relative;
 }
 
 .product-card:hover {
-    border-color: rgba(0, 191, 255, 0.8);
-    box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 191, 255, 0.3);
+    border-color: var(--knd-electric-purple);
 }
 
 .product-image {
     position: relative;
-    height: 200px;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(0, 191, 255, 0.1), rgba(138, 43, 226, 0.1));
+    height: 200px;
 }
 
 .product-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
 .product-card:hover .product-image img {
     transform: scale(1.1);
 }
 
-.product-overlay {
+.featured-badge {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.product-card:hover .product-overlay {
-    opacity: 1;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(45deg, var(--knd-neon-blue), var(--knd-electric-purple));
+    color: var(--knd-white);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
 }
 
 .product-info {
-    padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    padding: 1.5rem;
 }
 
-.product-title {
+.product-info h3 {
     color: var(--knd-white);
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
     font-family: 'Orbitron', sans-serif;
 }
 
-.product-description {
+.product-info p {
     color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
     font-size: 0.9rem;
     line-height: 1.5;
-    margin-bottom: 15px;
-    flex-grow: 1;
-}
-
-.product-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
 }
 
 .product-price {
-    color: var(--knd-electric-purple);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 700;
+    color: var(--knd-neon-blue);
+    margin-bottom: 1rem;
     font-family: 'Orbitron', sans-serif;
-    text-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
 }
 
 .product-actions {
@@ -2401,54 +2343,127 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.3s ease;
 }
 
-/* Estilos para búsqueda y filtros */
-.search-form {
-    background: rgba(44, 44, 44, 0.8);
-    padding: 20px;
-    border-radius: 15px;
-    border: 1px solid rgba(0, 191, 255, 0.3);
-    backdrop-filter: blur(10px);
-}
-
-.search-input, .form-select {
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(0, 191, 255, 0.3);
+/* Botones con especificidad para evitar conflictos con Bootstrap */
+.navbar .btn,
+.hero-section .btn,
+.products-section .btn,
+.about-section .btn,
+.contact-section .btn,
+.faq-section .btn,
+.cta-section .btn {
+    background: linear-gradient(135deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%);
+    border: none;
     color: var(--knd-white);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 191, 255, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
-.search-input:focus, .form-select:focus {
-    background: rgba(0, 0, 0, 0.7);
-    border-color: var(--knd-neon-blue);
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+.navbar .btn:hover,
+.hero-section .btn:hover,
+.products-section .btn:hover,
+.about-section .btn:hover,
+.contact-section .btn:hover,
+.faq-section .btn:hover,
+.cta-section .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 191, 255, 0.5);
+    color: var(--knd-white);
+    text-decoration: none;
+}
+
+.navbar .btn-primary,
+.hero-section .btn-primary,
+.products-section .btn-primary,
+.about-section .btn-primary,
+.contact-section .btn-primary,
+.faq-section .btn-primary,
+.cta-section .btn-primary {
+    background: linear-gradient(135deg, var(--knd-neon-blue) 0%, var(--knd-electric-purple) 100%) !important;
+    border: none !important;
+    color: var(--knd-white) !important;
+}
+
+.navbar .btn-outline-light,
+.hero-section .btn-outline-light,
+.products-section .btn-outline-light,
+.about-section .btn-outline-light,
+.contact-section .btn-outline-light,
+.faq-section .btn-outline-light,
+.cta-section .btn-outline-light {
+    background: transparent;
+    border: 2px solid var(--knd-white);
     color: var(--knd-white);
 }
 
-.search-input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+.navbar .btn-outline-light:hover,
+.hero-section .btn-outline-light:hover,
+.products-section .btn-outline-light:hover,
+.about-section .btn-outline-light:hover,
+.contact-section .btn-outline-light:hover,
+.faq-section .btn-outline-light:hover,
+.cta-section .btn-outline-light:hover {
+    background: var(--knd-white);
+    color: var(--knd-dark);
 }
 
-/* Estilos para resultados vacíos */
-.no-results {
-    padding: 40px;
-    text-align: center;
+/* Formularios con especificidad para evitar conflictos con Bootstrap */
+.products-section .form-control,
+.contact-section .form-control,
+.faq-section .form-control {
+    background: rgba(44, 44, 44, 0.8) !important;
+    border: 1px solid rgba(0, 191, 255, 0.3) !important;
+    color: var(--knd-white) !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    transition: all 0.3s ease !important;
 }
 
-.no-results h3 {
-    color: var(--knd-neon-blue);
-    margin-bottom: 15px;
-    font-family: 'Orbitron', sans-serif;
+.products-section .form-control:focus,
+.contact-section .form-control:focus,
+.faq-section .form-control:focus {
+    background: rgba(44, 44, 44, 0.9) !important;
+    border-color: var(--knd-neon-blue) !important;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3) !important;
+    color: var(--knd-white) !important;
 }
 
-.no-results p {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 20px;
+.products-section .form-select,
+.contact-section .form-select,
+.faq-section .form-select {
+    background: rgba(44, 44, 44, 0.8) !important;
+    border: 1px solid rgba(0, 191, 255, 0.3) !important;
+    color: var(--knd-white) !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
 }
 
-.navbar-brand img {
-    transition: transform 0.3s ease;
+.products-section .form-select:focus,
+.contact-section .form-select:focus,
+.faq-section .form-select:focus {
+    background: rgba(44, 44, 44, 0.9) !important;
+    border-color: var(--knd-neon-blue) !important;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3) !important;
+    color: var(--knd-white) !important;
 }
 
-.navbar-brand:hover img {
-    transform: scale(1.1);
+/* Placeholder específico */
+.products-section .form-control::placeholder,
+.contact-section .form-control::placeholder,
+.faq-section .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Opciones del select */
+.products-section .form-select option,
+.contact-section .form-select option,
+.faq-section .form-select option {
+    background: var(--knd-dark) !important;
+    color: var(--knd-white) !important;
 }

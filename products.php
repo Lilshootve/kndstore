@@ -196,7 +196,7 @@ foreach ($productos as $categoria => $productos_categoria) {
 }
 ?>
 
-<?php echo generateHeader('Productos', 'Productos y Servicios - KND Store - Tecnología, Gaming, Software y más'); ?>
+<?php echo generateHeader('Catálogo', 'Catálogo y Servicios - KND Store - Tecnología, Gaming, Software y más'); ?>
 
 <!-- Particles Background -->
 <div id="particles-bg"></div>
@@ -209,8 +209,8 @@ foreach ($productos as $categoria => $productos_categoria) {
         <div class="row">
             <div class="col-12 text-center">
                 <h1 class="hero-title">
-                    <span class="text-gradient">Nuestros</span><br>
-                    <span class="text-gradient">Productos</span>
+                    <span class="text-gradient">Nuestro</span><br>
+                    <span class="text-gradient">Catálogo</span>
                 </h1>
                 <p class="hero-subtitle">
                     Servicios digitales y tecnología galáctica para tu nave
@@ -278,7 +278,7 @@ foreach ($productos as $categoria => $productos_categoria) {
                     <div class="row g-3">
                         <div class="col-md-6">
                             <input type="text" name="busqueda" value="<?php echo htmlspecialchars($busqueda); ?>" 
-                                   class="form-control search-input" placeholder="Buscar productos...">
+                                   class="form-control search-input" placeholder="Buscar en el catálogo...">
                         </div>
                         <div class="col-md-4">
                             <select name="categoria" class="form-select">
@@ -313,7 +313,7 @@ foreach ($productos as $categoria => $productos_categoria) {
                     <?php elseif ($busqueda): ?>
                         Resultados para "<?php echo htmlspecialchars($busqueda); ?>"
                     <?php else: ?>
-                        Todos los Productos
+                        Todo el Catálogo
                     <?php endif; ?>
                 </h2>
             </div>
@@ -324,9 +324,9 @@ foreach ($productos as $categoria => $productos_categoria) {
                 <div class="col-12 text-center">
                     <div class="no-results">
                         <i class="fas fa-search fa-3x mb-3" style="color: var(--knd-neon-blue);"></i>
-                        <h3>No se encontraron productos</h3>
+                        <h3>No se encontraron servicios</h3>
                         <p>Intenta con otros términos de búsqueda o categorías</p>
-                        <a href="/products.php" class="btn btn-primary">Ver todos los productos</a>
+                        <a href="/products.php" class="btn btn-primary">Ver todo el catálogo</a>
                     </div>
                 </div>
             </div>
