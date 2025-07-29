@@ -56,7 +56,7 @@ require_once 'includes/footer.php';
 </section>
 
 <!-- Features Section -->
-<section class="features-section py-5">
+<section class="features-section py-5 bg-dark-epic">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 mb-4">

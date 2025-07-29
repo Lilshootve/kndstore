@@ -91,7 +91,7 @@ require_once 'includes/footer.php';
 </section>
 
 <!-- Filtros y Búsqueda -->
-<section class="filters-section py-4">
+<section class="filters-section py-4 bg-dark-epic">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -105,7 +105,7 @@ require_once 'includes/footer.php';
                 </div>
             </div>
             <div class="col-lg-4">
-                <select class="form-select" name="categoria" onchange="this.form.submit()">
+                <select name="categoria" class="form-select" onchange="this.form.submit()">
                     <option value="">Todas las categorías</option>
                     <option value="tecnologia" <?php echo (isset($_GET['categoria']) && $_GET['categoria'] == 'tecnologia') ? 'selected' : ''; ?>>Tecnología</option>
                     <option value="gaming" <?php echo (isset($_GET['categoria']) && $_GET['categoria'] == 'gaming') ? 'selected' : ''; ?>>Gaming</option>
