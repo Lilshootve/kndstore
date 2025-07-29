@@ -808,3 +808,413 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 2rem;
     }
 } 
+
+/* About Us Page Styles */
+.about-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.05) 0%, rgba(138, 43, 226, 0.05) 100%);
+    pointer-events: none;
+}
+
+.about-content {
+    position: relative;
+    z-index: 2;
+}
+
+.about-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.timeline-marker {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--knd-neon-blue), var(--knd-electric-purple));
+    color: var(--knd-white);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+}
+
+.year {
+    font-size: 1.2rem;
+}
+
+.mission-badge {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: var(--knd-white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+    animation: badgeGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes badgeGlow {
+    0% { box-shadow: 0 0 20px rgba(255, 107, 53, 0.3); }
+    100% { box-shadow: 0 0 30px rgba(255, 107, 53, 0.6); }
+}
+
+.about-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.cosmic-sphere, .mission-sphere {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--knd-neon-blue), var(--knd-electric-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--knd-white);
+    box-shadow: 0 0 50px rgba(0, 191, 255, 0.4);
+    animation: sphereFloat 3s ease-in-out infinite;
+    position: relative;
+}
+
+.cosmic-sphere::before, .mission-sphere::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.2));
+    animation: sphereGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes sphereFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes sphereGlow {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Value Cards */
+.value-card {
+    background: rgba(26, 26, 46, 0.9);
+    border: 1px solid var(--knd-neon-blue);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    height: 100%;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 191, 255, 0.3);
+    border-color: var(--knd-electric-purple);
+}
+
+.value-icon {
+    font-size: 3rem;
+    color: var(--knd-neon-blue);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+    color: var(--knd-electric-purple);
+    transform: scale(1.1);
+}
+
+.value-card h4 {
+    color: var(--knd-white);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.value-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Team Cards */
+.team-card {
+    background: rgba(26, 26, 46, 0.9);
+    border: 1px solid var(--knd-neon-blue);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    height: 100%;
+    position: relative;
+}
+
+.team-card.featured {
+    border-color: var(--knd-electric-purple);
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 191, 255, 0.3);
+}
+
+.team-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--knd-neon-blue), var(--knd-electric-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--knd-white);
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover .team-avatar {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 191, 255, 0.5);
+}
+
+.team-card h4 {
+    color: var(--knd-white);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.team-role {
+    color: var(--knd-neon-blue);
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.team-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Tech Cards */
+.tech-card {
+    background: rgba(26, 26, 46, 0.9);
+    border: 1px solid var(--knd-neon-blue);
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.tech-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 15px 30px rgba(0, 191, 255, 0.3);
+    border-color: var(--knd-electric-purple);
+}
+
+.tech-icon {
+    font-size: 2.5rem;
+    color: var(--knd-neon-blue);
+    margin-right: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover .tech-icon {
+    color: var(--knd-electric-purple);
+    transform: scale(1.1);
+}
+
+.tech-content h4 {
+    color: var(--knd-white);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.tech-content p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Future Cards */
+.future-card {
+    background: rgba(26, 26, 46, 0.9);
+    border: 1px solid var(--knd-neon-blue);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    height: 100%;
+}
+
+.future-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 191, 255, 0.3);
+    border-color: var(--knd-electric-purple);
+}
+
+.future-card h4 {
+    color: var(--knd-white);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.future-card h4 i {
+    color: var(--knd-neon-blue);
+    margin-right: 0.5rem;
+}
+
+.future-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.future-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.future-list li {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.future-list li i {
+    color: var(--knd-neon-blue);
+    margin-right: 0.8rem;
+    font-size: 1rem;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,191,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    pointer-events: none;
+}
+
+.cta-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-visual {
+        height: 200px;
+        margin-top: 2rem;
+    }
+    
+    .cosmic-sphere, .mission-sphere {
+        width: 150px;
+        height: 150px;
+        font-size: 3rem;
+    }
+    
+    .tech-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .tech-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Scroll Animations */
+.about-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.about-section.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.value-card, .team-card, .tech-card, .future-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.value-card.animate, .team-card.animate, .tech-card.animate, .future-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+} 
