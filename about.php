@@ -310,7 +310,7 @@ require_once 'includes/footer.php';
                     <a href="/products.php" class="btn btn-primary btn-lg me-3">
                         <i class="fas fa-rocket"></i> Explorar Productos
                     </a>
-                    <a href="/contact.php" class="btn btn-outline-neon btn-lg">
+                    <a href="/contact.php" class="btn btn-primary btn-lg">
                         <i class="fas fa-envelope"></i> Contactar
                     </a>
                 </div>
