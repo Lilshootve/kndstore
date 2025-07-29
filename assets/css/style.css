@@ -3752,42 +3752,8 @@ html {
     scroll-padding-top: 80px; /* Para compensar el navbar fijo */
 }
 
-/* Scroll suave por bloques */
+/* Scroll suave básico */
 body {
-    scroll-behavior: smooth;
-}
-
-/* Configuración para scroll por bloques */
-.section-block {
-    scroll-snap-align: start;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Contenedor principal con scroll snap */
-.main-container {
-    scroll-snap-type: y mandatory;
-    height: 100vh;
-    overflow-y: scroll;
-}
-
-/* Ajustes para secciones específicas */
-.hero-section {
-    scroll-snap-align: start;
-}
-
-.products-section {
-    scroll-snap-align: start;
-}
-
-.product-detail-section {
-    scroll-snap-align: start;
-}
-
-/* Scroll personalizado para navegación */
-.smooth-scroll {
     scroll-behavior: smooth;
 }
 

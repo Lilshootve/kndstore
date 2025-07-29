@@ -1,9 +1,9 @@
-// Scroll suave por bloques para KND Store
+// Scroll suave por bloques para KND Store - Versión simplificada
 document.addEventListener('DOMContentLoaded', function() {
     
     // Configuración de scroll suave
     const scrollConfig = {
-        duration: 800,
+        duration: 600,
         easing: 'easeInOutCubic'
     };
     
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
     }
     
-    // Función de scroll suave
+    // Función de scroll suave mejorada
     function smoothScrollTo(target, duration = scrollConfig.duration) {
         const targetElement = typeof target === 'string' ? document.querySelector(target) : target;
         if (!targetElement) return;
@@ -31,48 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         requestAnimationFrame(animation);
-    }
-    
-    // Navegación por teclado (flechas arriba/abajo)
-    let isScrolling = false;
-    document.addEventListener('keydown', function(e) {
-        if (isScrolling) return;
-        
-        const sections = document.querySelectorAll('.hero-section, .products-section, .product-detail-section, .about-section, .contact-section');
-        const currentSection = getCurrentSection(sections);
-        
-        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-            e.preventDefault();
-            const nextSection = sections[currentSection + 1];
-            if (nextSection) {
-                isScrolling = true;
-                smoothScrollTo(nextSection);
-                setTimeout(() => { isScrolling = false; }, scrollConfig.duration);
-            }
-        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-            e.preventDefault();
-            const prevSection = sections[currentSection - 1];
-            if (prevSection) {
-                isScrolling = true;
-                smoothScrollTo(prevSection);
-                setTimeout(() => { isScrolling = false; }, scrollConfig.duration);
-            }
-        }
-    });
-    
-    // Función para obtener la sección actual
-    function getCurrentSection(sections) {
-        const scrollPosition = window.pageYOffset + 100;
-        for (let i = 0; i < sections.length; i++) {
-            const section = sections[i];
-            const sectionTop = section.offsetTop;
-            const sectionBottom = sectionTop + section.offsetHeight;
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                return i;
-            }
-        }
-        return 0;
     }
     
     // Crear botones de navegación rápida
@@ -118,30 +76,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Funciones globales para los botones
     window.scrollToTop = function() {
-        isScrolling = true;
         smoothScrollTo(0);
-        setTimeout(() => { isScrolling = false; }, scrollConfig.duration);
     };
     
     window.scrollToSection = function(selector) {
         const section = document.querySelector(selector);
         if (section) {
-            isScrolling = true;
             smoothScrollTo(section);
-            setTimeout(() => { isScrolling = false; }, scrollConfig.duration);
         }
     };
     
-    // Scroll suave para enlaces internos
+    // Scroll suave para enlaces internos (solo los que empiecen con #)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = this.getAttribute('href');
             const targetElement = document.querySelector(target);
             if (targetElement) {
-                isScrolling = true;
                 smoothScrollTo(targetElement);
-                setTimeout(() => { isScrolling = false; }, scrollConfig.duration);
             }
         });
     });
@@ -149,46 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar componentes
     createScrollNav();
     createScrollProgress();
-    
-    // Scroll suave para botones "Ver Detalles"
-    document.querySelectorAll('.btn-details, .btn-primary').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            // Solo aplicar scroll suave si no es un enlace externo
-            if (this.href && this.href.startsWith(window.location.origin)) {
-                e.preventDefault();
-                const targetUrl = this.href;
-                // Pequeña pausa antes de navegar
-                setTimeout(() => {
-                    window.location.href = targetUrl;
-                }, 300);
-            }
-        });
-    });
-    
-    // Efecto de scroll suave para el mouse wheel (opcional)
-    let wheelTimeout;
-    document.addEventListener('wheel', function(e) {
-        if (wheelTimeout) return;
-        
-        wheelTimeout = setTimeout(() => {
-            wheelTimeout = null;
-        }, 100);
-        
-        // Solo aplicar en secciones principales
-        const sections = document.querySelectorAll('.hero-section, .products-section, .product-detail-section');
-        if (sections.length > 0) {
-            const currentSection = getCurrentSection(sections);
-            const direction = e.deltaY > 0 ? 1 : -1;
-            const targetSection = sections[currentSection + direction];
-            
-            if (targetSection && !isScrolling) {
-                e.preventDefault();
-                isScrolling = true;
-                smoothScrollTo(targetSection);
-                setTimeout(() => { isScrolling = false; }, scrollConfig.duration);
-            }
-        }
-    }, { passive: false });
     
     // Mostrar/ocultar botones de navegación según scroll
     window.addEventListener('scroll', function() {
@@ -210,6 +122,44 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollNav.style.opacity = '0';
         scrollNav.style.visibility = 'hidden';
         scrollNav.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+    }
+    
+    // Navegación por teclado (solo cuando se presiona Ctrl)
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey) {
+            const sections = document.querySelectorAll('.hero-section, .products-section, .product-detail-section, .about-section, .contact-section');
+            
+            if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+                e.preventDefault();
+                const currentSection = getCurrentSection(sections);
+                const nextSection = sections[currentSection + 1];
+                if (nextSection) {
+                    smoothScrollTo(nextSection);
+                }
+            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                e.preventDefault();
+                const currentSection = getCurrentSection(sections);
+                const prevSection = sections[currentSection - 1];
+                if (prevSection) {
+                    smoothScrollTo(prevSection);
+                }
+            }
+        }
+    });
+    
+    // Función para obtener la sección actual
+    function getCurrentSection(sections) {
+        const scrollPosition = window.pageYOffset + 100;
+        for (let i = 0; i < sections.length; i++) {
+            const section = sections[i];
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                return i;
+            }
+        }
+        return 0;
     }
 });
 
