@@ -133,24 +133,100 @@ function initScrollAnimations() {
     });
 }
 
-// Initialize animations when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    initScrollAnimations();
-    
-    // Add smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+// Contact Form Validation and Effects
+function initContactForm() {
+    const contactForm = document.querySelector('.contact-form');
+    if (!contactForm) return;
+
+    const inputs = contactForm.querySelectorAll('.galactic-input, .galactic-textarea');
+    const submitBtn = contactForm.querySelector('.galactic-btn');
+
+    // Real-time validation
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            validateField(this);
+        });
+
+        input.addEventListener('input', function() {
+            if (this.classList.contains('is-invalid')) {
+                validateField(this);
             }
         });
     });
-});
+
+    // Form submission
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let isValid = true;
+        inputs.forEach(input => {
+            if (!validateField(input)) {
+                isValid = false;
+            }
+        });
+
+        if (isValid) {
+            // Show loading state
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Transmitiendo...';
+
+            // Simulate form submission
+            setTimeout(() => {
+                contactForm.submit();
+            }, 1500);
+        }
+    });
+}
+
+// Validate individual field
+function validateField(field) {
+    const value = field.value.trim();
+    let isValid = true;
+    let errorMessage = '';
+
+    // Remove previous validation classes
+    field.classList.remove('is-valid', 'is-invalid');
+    
+    // Remove previous error message
+    const existingError = field.parentNode.querySelector('.invalid-feedback');
+    if (existingError) {
+        existingError.remove();
+    }
+
+    // Validation rules
+    if (field.hasAttribute('required') && !value) {
+        isValid = false;
+        errorMessage = 'Este campo es requerido para establecer contacto intergaláctico.';
+    } else if (field.type === 'email' && value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+            isValid = false;
+            errorMessage = 'Frecuencia de respuesta inválida. Verifica tu señal de email.';
+        }
+    } else if (field.name === 'name' && value && value.length < 2) {
+        isValid = false;
+        errorMessage = 'El nombre del piloto debe tener al menos 2 caracteres.';
+    } else if (field.name === 'message' && value && value.length < 10) {
+        isValid = false;
+        errorMessage = 'La transmisión debe tener al menos 10 caracteres.';
+    }
+
+    // Apply validation classes
+    if (isValid && value) {
+        field.classList.add('is-valid');
+    } else if (!isValid) {
+        field.classList.add('is-invalid');
+        
+        // Add error message
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'invalid-feedback';
+        errorDiv.textContent = errorMessage;
+        field.parentNode.appendChild(errorDiv);
+    }
+
+    return isValid;
+}
 
 // Add to cart functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -201,5 +277,31 @@ function revealOnScroll() {
         }
     });
 }
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initScrollAnimations();
+    initContactForm();
+    
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add floating animation to contact elements
+    const contactElements = document.querySelectorAll('.contact-form-container, .contact-card, .hours-card');
+    contactElements.forEach((element, index) => {
+        element.style.animationDelay = `${index * 0.2}s`;
+    });
+});
 
 window.addEventListener('scroll', revealOnScroll); 
