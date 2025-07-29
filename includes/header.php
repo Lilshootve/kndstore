@@ -113,8 +113,9 @@ function generateHeader($title = '', $description = '', $keywords = '') {
 function generateNavigation() {
     $nav = '<nav class="navbar navbar-expand-lg navbar-dark fixed-top">' . "\n";
     $nav .= '    <div class="container">' . "\n";
-    $nav .= '        <a class="navbar-brand" href="/index.php">' . "\n";
-    $nav .= '            <img src="/assets/images/knd-logo.png" alt="KND Store" height="40">' . "\n";
+    $nav .= '        <a class="navbar-brand logo-container" href="/index.php">' . "\n";
+    $nav .= '            <img src="/assets/images/knd-logo.png" alt="KND Store" class="navbar-logo" height="60">' . "\n";
+    $nav .= '            <div class="logo-glow"></div>' . "\n";
     $nav .= '        </a>' . "\n";
     $nav .= '        ' . "\n";
     $nav .= '        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">' . "\n";
