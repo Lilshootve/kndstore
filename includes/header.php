@@ -70,7 +70,33 @@ function generateCommonAssets() {
 
 // Función para generar el favicon
 function generateFavicon() {
-    return '<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">' . "\n";
+    $favicon = '';
+    
+    // Favicon básico
+    $favicon .= '<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">' . "\n";
+    
+    // Favicon SVG (mejor calidad)
+    $favicon .= '<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">' . "\n";
+    
+    // Favicon PNG para diferentes tamaños
+    $favicon .= '<link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">' . "\n";
+    
+    // Apple Touch Icon
+    $favicon .= '<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">' . "\n";
+    
+    // Web App Manifest
+    $favicon .= '<link rel="manifest" href="assets/images/site.webmanifest">' . "\n";
+    
+    // PWA Icons
+    $favicon .= '<link rel="icon" type="image/png" sizes="192x192" href="assets/images/web-app-manifest-192x192.png">' . "\n";
+    $favicon .= '<link rel="icon" type="image/png" sizes="512x512" href="assets/images/web-app-manifest-512x512.png">' . "\n";
+    
+    // Meta tags para PWA
+    $favicon .= '<meta name="theme-color" content="#00bfff">' . "\n";
+    $favicon .= '<meta name="msapplication-TileColor" content="#00bfff">' . "\n";
+    $favicon .= '<meta name="msapplication-config" content="assets/images/browserconfig.xml">' . "\n";
+    
+    return $favicon;
 }
 
 // Función para generar el header completo
