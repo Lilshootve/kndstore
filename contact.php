@@ -213,7 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                             <h4>Nave Nodriza</h4>
                             <p>Únete a nuestra nave nodriza</p>
-                            <a href="https://discord.gg/knd_store" target="_blank" class="btn btn-primary btn-sm">
+                            <a href="https://discord.gg/VXXYakrb7X" target="_blank" class="btn btn-primary btn-sm">
                                 <i class="fab fa-discord me-2"></i>
                                 Unirse al Discord
                             </a>
@@ -279,7 +279,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     Para emergencias técnicas o consultas urgentes, nuestro equipo está listo para responder en tiempo real.
                 </p>
                 <div class="cta-buttons">
-                    <a href="https://discord.gg/knd_store" target="_blank" class="btn btn-primary btn-lg me-3">
+                                            <a href="https://discord.gg/VXXYakrb7X" target="_blank" class="btn btn-primary btn-lg me-3">
                         <i class="fab fa-discord"></i> Discord Inmediato
                     </a>
                     <a href="mailto:support@kndstore.com" class="btn btn-primary btn-lg">
