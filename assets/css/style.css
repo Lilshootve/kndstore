@@ -356,6 +356,66 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Versión sutil para FAQ - Menos intensa que bg-dark-epic */
+.faq-section.bg-dark-epic {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 30%, #16213e 60%, #0f3460 80%, #2d1b69 100%) !important;
+    border: 2px solid rgba(0, 191, 255, 0.4);
+    box-shadow: 
+        inset 0 0 80px rgba(0, 191, 255, 0.2),
+        0 0 40px rgba(0, 191, 255, 0.3),
+        0 0 80px rgba(138, 43, 226, 0.2);
+}
+
+.faq-section.bg-dark-epic::before {
+    opacity: 0.3;
+    animation: subtleGlow 4s ease-in-out infinite;
+}
+
+.faq-section.bg-dark-epic::after {
+    opacity: 0.2;
+    animation: subtleGrid 8s linear infinite;
+}
+
+@keyframes subtleGlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes subtleGrid {
+    0% {
+        background-position: 0 0, 0 0, 0 0, 0 0;
+    }
+    100% {
+        background-position: 30px 30px, 60px 60px, 90px 90px, 120px 120px;
+    }
+}
+
+/* COMENTARIOS PARA CAMBIAR COLORES:
+   Los colores del gradiente se pueden modificar en estas líneas:
+   
+   - Azul neón: rgba(0, 191, 255, X) - Cambiar a cualquier color
+   - Morado eléctrico: rgba(138, 43, 226, X) - Cambiar a cualquier color
+   - Gradiente base: #0a0a0a, #1a1a2e, #16213e, #0f3460, #2d1b69
+   
+   Ejemplos de cambios:
+   - Verde neón: rgba(0, 255, 0, X)
+   - Rojo neón: rgba(255, 0, 0, X)
+   - Amarillo neón: rgba(255, 255, 0, X)
+   - Naranja neón: rgba(255, 165, 0, X)
+   
+   Para cambiar completamente el esquema de colores, modifica:
+   1. Los gradientes en .bg-dark-epic
+   2. Los colores en ::before y ::after
+   3. Los box-shadow con los nuevos colores
+   4. Los iconos y elementos interactivos
+*/
+
 .navbar-brand img {
     transition: transform 0.3s ease;
 }
