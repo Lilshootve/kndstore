@@ -72,7 +72,7 @@ function generateCommonAssets() {
 function generateFavicon() {
     $favicon = '';
     
-    // Favicon básico con ruta absoluta
+    // Favicon básico con ruta web correcta
     $favicon .= '<link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">' . "\n";
     
     // Favicon SVG
@@ -82,7 +82,10 @@ function generateFavicon() {
     $favicon .= '<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">' . "\n";
     
     // Apple Touch Icon
-    $favicon .= '<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">' . "\n";
+    $favicon .= '<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">' . "\n";
+    
+    // Web App Manifest
+    $favicon .= '<link rel="manifest" href="/assets/images/site.webmanifest">' . "\n";
     
     // Meta tags para PWA
     $favicon .= '<meta name="theme-color" content="#00bfff">' . "\n";
