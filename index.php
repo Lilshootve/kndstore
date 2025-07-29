@@ -38,17 +38,17 @@ require_once 'includes/footer.php';
                     Descubre un universo de posibilidades con nuestro catálogo exclusivo.
                 </p>
                 <div class="hero-buttons">
-                    <a href="products.php" class="btn btn-primary btn-lg">
+                    <a href="/products.php" class="btn btn-primary btn-lg">
                         <i class="fas fa-rocket"></i> Explorar Productos
                     </a>
-                    <a href="about.php" class="btn btn-outline-light btn-lg">
+                    <a href="/about.php" class="btn btn-outline-light btn-lg">
                         <i class="fas fa-info-circle"></i> Conoce Más
                     </a>
                 </div>
             </div>
             <div class="col-lg-6 text-center">
                 <div class="hero-image">
-                    <img src="assets/images/knd-logo.png" alt="KND Store" class="img-fluid hero-logo">
+                    <img src="/assets/images/knd-logo.png" alt="KND Store" class="img-fluid hero-logo">
                 </div>
             </div>
         </div>
@@ -128,14 +128,14 @@ require_once 'includes/footer.php';
                             <h3><?php echo htmlspecialchars($product['name']); ?></h3>
                             <p><?php echo htmlspecialchars($product['description']); ?></p>
                             <div class="product-price"><?php echo formatPrice($product['price']); ?></div>
-                            <a href="product-details.php?id=1" class="btn btn-primary">Ver Detalles</a>
+                            <a href="/product-details.php?id=1" class="btn btn-primary">Ver Detalles</a>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
         <div class="text-center mt-4">
-            <a href="products.php" class="btn btn-outline-light btn-lg">Ver Todos los Productos</a>
+            <a href="/products.php" class="btn btn-outline-light btn-lg">Ver Todos los Productos</a>
         </div>
     </div>
 </section>

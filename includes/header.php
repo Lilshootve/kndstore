@@ -72,24 +72,17 @@ function generateCommonAssets() {
 function generateFavicon() {
     $favicon = '';
     
-    // Favicon básico (prioridad alta)
-    $favicon .= '<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">' . "\n";
+    // Favicon básico con ruta absoluta
+    $favicon .= '<link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">' . "\n";
     
-    // Favicon SVG (mejor calidad)
-    $favicon .= '<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">' . "\n";
+    // Favicon SVG
+    $favicon .= '<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">' . "\n";
     
-    // Favicon PNG para diferentes tamaños
-    $favicon .= '<link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">' . "\n";
+    // Favicon PNG
+    $favicon .= '<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">' . "\n";
     
     // Apple Touch Icon
-    $favicon .= '<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">' . "\n";
-    
-    // Web App Manifest
-    $favicon .= '<link rel="manifest" href="assets/images/site.webmanifest">' . "\n";
-    
-    // PWA Icons
-    $favicon .= '<link rel="icon" type="image/png" sizes="192x192" href="assets/images/web-app-manifest-192x192.png">' . "\n";
-    $favicon .= '<link rel="icon" type="image/png" sizes="512x512" href="assets/images/web-app-manifest-512x512.png">' . "\n";
+    $favicon .= '<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">' . "\n";
     
     // Meta tags para PWA
     $favicon .= '<meta name="theme-color" content="#00bfff">' . "\n";
@@ -117,8 +110,8 @@ function generateHeader($title = '', $description = '', $keywords = '') {
 function generateNavigation() {
     $nav = '<nav class="navbar navbar-expand-lg navbar-dark fixed-top">' . "\n";
     $nav .= '    <div class="container">' . "\n";
-    $nav .= '        <a class="navbar-brand" href="index.php">' . "\n";
-    $nav .= '            <img src="assets/images/knd-logo.png" alt="KND Store" height="40">' . "\n";
+    $nav .= '        <a class="navbar-brand" href="/index.php">' . "\n";
+    $nav .= '            <img src="/assets/images/knd-logo.png" alt="KND Store" height="40">' . "\n";
     $nav .= '        </a>' . "\n";
     $nav .= '        ' . "\n";
     $nav .= '        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">' . "\n";
@@ -128,16 +121,16 @@ function generateNavigation() {
     $nav .= '        <div class="collapse navbar-collapse" id="navbarNav">' . "\n";
     $nav .= '            <ul class="navbar-nav me-auto">' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link ' . (isCurrentPage('index.php') ? 'active' : '') . '" href="index.php">Inicio</a>' . "\n";
+    $nav .= '                    <a class="nav-link ' . (isCurrentPage('index.php') ? 'active' : '') . '" href="/index.php">Inicio</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link ' . (isCurrentPage('products.php') ? 'active' : '') . '" href="products.php">Productos</a>' . "\n";
+    $nav .= '                    <a class="nav-link ' . (isCurrentPage('products.php') ? 'active' : '') . '" href="/products.php">Productos</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link ' . (isCurrentPage('about.php') ? 'active' : '') . '" href="about.php">Nosotros</a>' . "\n";
+    $nav .= '                    <a class="nav-link ' . (isCurrentPage('about.php') ? 'active' : '') . '" href="/about.php">Nosotros</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link ' . (isCurrentPage('contact.php') ? 'active' : '') . '" href="contact.php">Contacto</a>' . "\n";
+    $nav .= '                    <a class="nav-link ' . (isCurrentPage('contact.php') ? 'active' : '') . '" href="/contact.php">Contacto</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '            </ul>' . "\n";
     $nav .= '            ' . "\n";
@@ -150,19 +143,19 @@ function generateNavigation() {
         $nav .= '                        <i class="fas fa-user"></i> ' . htmlspecialchars($_SESSION['user_name']) . "\n";
         $nav .= '                    </a>' . "\n";
         $nav .= '                    <ul class="dropdown-menu">' . "\n";
-        $nav .= '                        <li><a class="dropdown-item" href="profile.php">Mi Perfil</a></li>' . "\n";
-        $nav .= '                        <li><a class="dropdown-item" href="orders.php">Mis Pedidos</a></li>' . "\n";
-        $nav .= '                        <li><a class="dropdown-item" href="cart.php">Carrito</a></li>' . "\n";
+        $nav .= '                        <li><a class="dropdown-item" href="/profile.php">Mi Perfil</a></li>' . "\n";
+        $nav .= '                        <li><a class="dropdown-item" href="/orders.php">Mis Pedidos</a></li>' . "\n";
+        $nav .= '                        <li><a class="dropdown-item" href="/cart.php">Carrito</a></li>' . "\n";
         $nav .= '                        <li><hr class="dropdown-divider"></li>' . "\n";
-        $nav .= '                        <li><a class="dropdown-item" href="logout.php">Cerrar Sesión</a></li>' . "\n";
+        $nav .= '                        <li><a class="dropdown-item" href="/logout.php">Cerrar Sesión</a></li>' . "\n";
         $nav .= '                    </ul>' . "\n";
         $nav .= '                </li>' . "\n";
     } else {
         $nav .= '                <li class="nav-item">' . "\n";
-        $nav .= '                    <a class="nav-link" href="login.php">Iniciar Sesión</a>' . "\n";
+        $nav .= '                    <a class="nav-link" href="/login.php">Iniciar Sesión</a>' . "\n";
         $nav .= '                </li>' . "\n";
         $nav .= '                <li class="nav-item">' . "\n";
-        $nav .= '                    <a class="nav-link" href="register.php">Registrarse</a>' . "\n";
+        $nav .= '                    <a class="nav-link" href="/register.php">Registrarse</a>' . "\n";
         $nav .= '                </li>' . "\n";
     }
     
