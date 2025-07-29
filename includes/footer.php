@@ -220,6 +220,11 @@ function generateScripts() {
     $scripts .= '});' . "\n";
     $scripts .= '</script>' . "\n";
     
+    // Botón flotante de Discord
+    $scripts .= '<a href="https://discord.gg/knd_store" target="_blank" class="discord-float-btn" title="Únete a nuestro Discord">' . "\n";
+    $scripts .= '    <i class="fab fa-discord"></i>' . "\n";
+    $scripts .= '</a>' . "\n";
+    
     $scripts .= '</body>' . "\n";
     $scripts .= '</html>' . "\n";
     
