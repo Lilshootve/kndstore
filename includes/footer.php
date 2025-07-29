@@ -35,9 +35,9 @@ function generateFooter() {
     $footer .= '                        <div class="col-md-6">' . "\n";
     $footer .= '                            <h5 class="mb-4">NAVEGACIÓN</h5>' . "\n";
     $footer .= '                            <ul class="list-unstyled">' . "\n";
-    $footer .= '                                <li class="mb-3"><a href="faq.php" class="text-decoration-none" style="opacity: 0.8;">FAQ</a></li>' . "\n";
-    $footer .= '                                <li class="mb-3"><a href="contact.php" class="text-decoration-none" style="opacity: 0.8;">Contacto</a></li>' . "\n";
-    $footer .= '                                <li class="mb-3"><a href="privacy.php" class="text-decoration-none" style="opacity: 0.8;">Política de Privacidad</a></li>' . "\n";
+    $footer .= '                                <li class="mb-3"><a href="/faq.php" class="text-decoration-none" style="opacity: 0.8;">FAQ</a></li>' . "\n";
+    $footer .= '                                <li class="mb-3"><a href="/contact.php" class="text-decoration-none" style="opacity: 0.8;">Contacto</a></li>' . "\n";
+    $footer .= '                                <li class="mb-3"><a href="/privacy.php" class="text-decoration-none" style="opacity: 0.8;">Política de Privacidad</a></li>' . "\n";
     $footer .= '                            </ul>' . "\n";
     $footer .= '                        </div>' . "\n";
     $footer .= '                        ' . "\n";
