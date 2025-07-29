@@ -210,13 +210,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Iconos de contacto del footer con efectos épicos */
-.footer ul li .footer-contact-icon {
+.footer-contact-icon {
     transition: all 0.4s ease !important;
     position: relative;
     cursor: pointer;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--knd-neon-blue) !important;
 }
 
-.footer ul li .footer-contact-icon::before {
+.footer-contact-icon::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -230,13 +234,13 @@ h1, h2, h3, h4, h5, h6 {
     z-index: -1;
 }
 
-.footer ul li .footer-contact-icon:hover {
+.footer-contact-icon:hover {
     transform: scale(1.3) rotate(5deg) !important;
     filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.8)) brightness(1.3) !important;
     color: var(--knd-neon-blue) !important;
 }
 
-.footer ul li .footer-contact-icon:hover::before {
+.footer-contact-icon:hover::before {
     width: 40px;
     height: 40px;
     animation: iconPulse 1.5s ease-in-out infinite;
