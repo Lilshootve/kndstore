@@ -1,5 +1,17 @@
 <?php
-session_start();
+// Configuración de sesión ANTES de cargar config.php
+if (session_status() == PHP_SESSION_NONE) {
+    ini_set('session.cookie_httponly', 1);
+    ini_set('session.use_only_cookies', 1);
+    ini_set('session.cookie_secure', 0); // Cambiar a 1 en producción con HTTPS
+    session_start();
+} else {
+    // Si la sesión ya está activa, solo la iniciamos
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+}
+
 require_once 'includes/config.php';
 require_once 'includes/header.php';
 ?>

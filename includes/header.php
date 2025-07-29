@@ -1,11 +1,6 @@
 <?php
 // KND Store - Header común
 
-// Verificar si la sesión ya está iniciada
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
 // Función para obtener el título de la página
 function getPageTitle($title = '') {
     $baseTitle = 'KND Store - Tu Tienda Galáctica';
