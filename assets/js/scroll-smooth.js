@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!targetElement) return;
         
         const startPosition = window.pageYOffset;
-        const targetPosition = targetElement.offsetTop - 80; // Compensar navbar
+        const targetPosition = targetElement.offsetTop - 140; // Compensar navbar alto
         const distance = targetPosition - startPosition;
         let startTime = null;
         
@@ -38,20 +38,46 @@ document.addEventListener('DOMContentLoaded', function() {
         const nav = document.createElement('div');
         nav.className = 'scroll-nav';
         nav.innerHTML = `
-            <button class="scroll-nav-btn" onclick="scrollToTop()" title="Ir arriba">
+            <button class="scroll-nav-btn" id="scroll-top" title="Ir arriba">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <button class="scroll-nav-btn" onclick="scrollToSection('.products-section')" title="Catálogo">
+            <button class="scroll-nav-btn" id="scroll-products" title="Catálogo">
                 <i class="fas fa-th"></i>
             </button>
-            <button class="scroll-nav-btn" onclick="scrollToSection('.about-section')" title="Sobre Nosotros">
+            <button class="scroll-nav-btn" id="scroll-about" title="Sobre Nosotros">
                 <i class="fas fa-info-circle"></i>
             </button>
-            <button class="scroll-nav-btn" onclick="scrollToSection('.contact-section')" title="Contacto">
+            <button class="scroll-nav-btn" id="scroll-contact" title="Contacto">
                 <i class="fas fa-envelope"></i>
             </button>
         `;
         document.body.appendChild(nav);
+        
+        // Agregar event listeners a los botones
+        document.getElementById('scroll-top').addEventListener('click', function() {
+            smoothScrollTo(0);
+        });
+        
+        document.getElementById('scroll-products').addEventListener('click', function() {
+            const section = document.querySelector('.products-section');
+            if (section) {
+                smoothScrollTo(section);
+            }
+        });
+        
+        document.getElementById('scroll-about').addEventListener('click', function() {
+            const section = document.querySelector('.about-section');
+            if (section) {
+                smoothScrollTo(section);
+            }
+        });
+        
+        document.getElementById('scroll-contact').addEventListener('click', function() {
+            const section = document.querySelector('.contact-section');
+            if (section) {
+                smoothScrollTo(section);
+            }
+        });
     }
     
     // Crear indicador de progreso
@@ -74,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Funciones globales para los botones
+    // Funciones globales para compatibilidad
     window.scrollToTop = function() {
         smoothScrollTo(0);
     };
