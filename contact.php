@@ -188,7 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                             <h4>Email Oficial</h4>
                             <p>support@kndstore.com</p>
-                            <a href="mailto:support@kndstore.com" class="btn btn-outline-neon btn-sm">
+                            <a href="mailto:support@kndstore.com" class="btn btn-primary btn-sm">
                                 <i class="fas fa-paper-plane me-2"></i>
                                 Enviar Mensaje
                             </a>
