@@ -45,15 +45,15 @@ function generateFooter() {
     $footer .= '                            <h5 class="mb-4">CONTACTO</h5>' . "\n";
     $footer .= '                            <ul class="list-unstyled">' . "\n";
     $footer .= '                                <li class="mb-3 d-flex align-items-center">' . "\n";
-    $footer .= '                                    <i class="fas fa-envelope me-3 footer-contact-icon" style="color: var(--knd-neon-blue);"></i>' . "\n";
+    $footer .= '                                    <i class="fas fa-envelope me-3 footer-icon" style="color: var(--knd-neon-blue);"></i>' . "\n";
     $footer .= '                                    <span style="opacity: 0.8;">info@kndstore.com</span>' . "\n";
     $footer .= '                                </li>' . "\n";
     $footer .= '                                <li class="mb-3 d-flex align-items-center">' . "\n";
-    $footer .= '                                    <i class="fas fa-headset me-3 footer-contact-icon" style="color: var(--knd-neon-blue);"></i>' . "\n";
+    $footer .= '                                    <i class="fas fa-headset me-3 footer-icon" style="color: var(--knd-neon-blue);"></i>' . "\n";
     $footer .= '                                    <span style="opacity: 0.8;">Soporte 24/7</span>' . "\n";
     $footer .= '                                </li>' . "\n";
     $footer .= '                                <li class="mb-3 d-flex align-items-center">' . "\n";
-    $footer .= '                                    <i class="fab fa-discord me-3 footer-contact-icon" style="color: var(--knd-neon-blue);"></i>' . "\n";
+    $footer .= '                                    <i class="fab fa-discord me-3 footer-icon" style="color: var(--knd-neon-blue);"></i>' . "\n";
     $footer .= '                                    <span style="opacity: 0.8;">Discord: KND_Store</span>' . "\n";
     $footer .= '                                </li>' . "\n";
     $footer .= '                            </ul>' . "\n";
