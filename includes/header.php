@@ -117,57 +117,110 @@ function generateNavigation() {
     $nav .= '            <img src="/assets/images/knd-logo.png" alt="KND Store" class="navbar-logo" height="60">' . "\n";
     $nav .= '            <div class="logo-glow"></div>' . "\n";
     $nav .= '        </a>' . "\n";
-    $nav .= '        ' . "\n";
     $nav .= '        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">' . "\n";
     $nav .= '            <span class="navbar-toggler-icon"></span>' . "\n";
     $nav .= '        </button>' . "\n";
-    $nav .= '        ' . "\n";
     $nav .= '        <div class="collapse navbar-collapse" id="navbarNav">' . "\n";
-    $nav .= '            <ul class="navbar-nav me-auto">' . "\n";
+    $nav .= '            <ul class="navbar-nav ms-auto">' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link ' . (isCurrentPage('index.php') ? 'active' : '') . '" href="/index.php">Inicio</a>' . "\n";
+    $nav .= '                    <a class="nav-link" href="/index.php">Inicio</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link ' . (isCurrentPage('products.php') ? 'active' : '') . '" href="/products.php">Productos</a>' . "\n";
+    $nav .= '                    <a class="nav-link" href="/products.php">Productos</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link ' . (isCurrentPage('about.php') ? 'active' : '') . '" href="/about.php">Nosotros</a>' . "\n";
+    $nav .= '                    <a class="nav-link" href="/about.php">Sobre Nosotros</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link ' . (isCurrentPage('contact.php') ? 'active' : '') . '" href="/contact.php">Contacto</a>' . "\n";
+    $nav .= '                    <a class="nav-link" href="/contact.php">Contacto</a>' . "\n";
     $nav .= '                </li>' . "\n";
-    $nav .= '            </ul>' . "\n";
-    $nav .= '            ' . "\n";
-    $nav .= '            <ul class="navbar-nav">' . "\n";
-    
-    // Verificar si el usuario está logueado
-    if (isset($_SESSION['user_id'])) {
-        $nav .= '                <li class="nav-item dropdown">' . "\n";
-        $nav .= '                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">' . "\n";
-        $nav .= '                        <i class="fas fa-user"></i> ' . htmlspecialchars($_SESSION['user_name']) . "\n";
-        $nav .= '                    </a>' . "\n";
-        $nav .= '                    <ul class="dropdown-menu">' . "\n";
-        $nav .= '                        <li><a class="dropdown-item" href="/profile.php">Mi Perfil</a></li>' . "\n";
-        $nav .= '                        <li><a class="dropdown-item" href="/orders.php">Mis Pedidos</a></li>' . "\n";
-        $nav .= '                        <li><a class="dropdown-item" href="/cart.php">Carrito</a></li>' . "\n";
-        $nav .= '                        <li><hr class="dropdown-divider"></li>' . "\n";
-        $nav .= '                        <li><a class="dropdown-item" href="/logout.php">Cerrar Sesión</a></li>' . "\n";
-        $nav .= '                    </ul>' . "\n";
-        $nav .= '                </li>' . "\n";
-    } else {
-        $nav .= '                <li class="nav-item">' . "\n";
-        $nav .= '                    <a class="nav-link" href="/login.php">Iniciar Sesión</a>' . "\n";
-        $nav .= '                </li>' . "\n";
-        $nav .= '                <li class="nav-item">' . "\n";
-        $nav .= '                    <a class="nav-link" href="/register.php">Registrarse</a>' . "\n";
-        $nav .= '                </li>' . "\n";
-    }
-    
+    $nav .= '                <li class="nav-item">' . "\n";
+    $nav .= '                    <a class="nav-link" href="/faq.php">FAQ</a>' . "\n";
+    $nav .= '                </li>' . "\n";
     $nav .= '            </ul>' . "\n";
     $nav .= '        </div>' . "\n";
     $nav .= '    </div>' . "\n";
     $nav .= '</nav>' . "\n";
-    
+
     return $nav;
+}
+
+// Función para generar el panel de personalización de colores
+function generateColorPanel() {
+    $panel = '<!-- Panel de Personalización de Colores -->' . "\n";
+    $panel .= '<div class="color-panel-toggle" id="colorPanelToggle">' . "\n";
+    $panel .= '    <i class="fas fa-palette"></i>' . "\n";
+    $panel .= '</div>' . "\n";
+    $panel .= '' . "\n";
+    $panel .= '<div class="color-panel-overlay" id="colorPanelOverlay"></div>' . "\n";
+    $panel .= '' . "\n";
+    $panel .= '<div class="color-panel-sidebar" id="colorPanelSidebar">' . "\n";
+    $panel .= '    <div class="color-panel-header">' . "\n";
+    $panel .= '        <h3><i class="fas fa-magic me-2"></i>Personalizar Colores</h3>' . "\n";
+    $panel .= '    </div>' . "\n";
+    $panel .= '    <div class="color-panel-content">' . "\n";
+    $panel .= '        <div class="color-theme active" data-theme="galactic-blue">' . "\n";
+    $panel .= '            <h4>Galáctico Azul</h4>' . "\n";
+    $panel .= '            <div class="color-preview">' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #00bfff;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #8a2be2;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #16213e;"></div>' . "\n";
+    $panel .= '            </div>' . "\n";
+    $panel .= '            <p>El clásico azul neón con morado eléctrico</p>' . "\n";
+    $panel .= '        </div>' . "\n";
+    $panel .= '        ' . "\n";
+    $panel .= '        <div class="color-theme" data-theme="cyber-green">' . "\n";
+    $panel .= '            <h4>Cíber Verde</h4>' . "\n";
+    $panel .= '            <div class="color-preview">' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #00ff00;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #32cd32;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #006400;"></div>' . "\n";
+    $panel .= '            </div>' . "\n";
+    $panel .= '            <p>Verde neón para una vibra más hacker</p>' . "\n";
+    $panel .= '        </div>' . "\n";
+    $panel .= '        ' . "\n";
+    $panel .= '        <div class="color-theme" data-theme="fire-red">' . "\n";
+    $panel .= '            <h4>Fuego Rojo</h4>' . "\n";
+    $panel .= '            <div class="color-preview">' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #ff0000;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #ff4500;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #8b0000;"></div>' . "\n";
+    $panel .= '            </div>' . "\n";
+    $panel .= '            <p>Rojo intenso para energía máxima</p>' . "\n";
+    $panel .= '        </div>' . "\n";
+    $panel .= '        ' . "\n";
+    $panel .= '        <div class="color-theme" data-theme="golden-sun">' . "\n";
+    $panel .= '            <h4>Sol Dorado</h4>' . "\n";
+    $panel .= '            <div class="color-preview">' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #ffd700;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #ffa500;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #daa520;"></div>' . "\n";
+    $panel .= '            </div>' . "\n";
+    $panel .= '            <p>Dorado y naranja para elegancia cósmica</p>' . "\n";
+    $panel .= '        </div>' . "\n";
+    $panel .= '        ' . "\n";
+    $panel .= '        <div class="color-theme" data-theme="neon-pink">' . "\n";
+    $panel .= '            <h4>Neón Rosa</h4>' . "\n";
+    $panel .= '            <div class="color-preview">' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #ff69b4;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #ff1493;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #c71585;"></div>' . "\n";
+    $panel .= '            </div>' . "\n";
+    $panel .= '            <p>Rosa vibrante para un toque futurista</p>' . "\n";
+    $panel .= '        </div>' . "\n";
+    $panel .= '        ' . "\n";
+    $panel .= '        <div class="color-theme" data-theme="ice-blue">' . "\n";
+    $panel .= '            <h4>Hielo Azul</h4>' . "\n";
+    $panel .= '            <div class="color-preview">' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #00ffff;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #87ceeb;"></div>' . "\n";
+    $panel .= '                <div class="color-swatch" style="background: #4682b4;"></div>' . "\n";
+    $panel .= '            </div>' . "\n";
+    $panel .= '            <p>Azul cian para una sensación glacial</p>' . "\n";
+    $panel .= '        </div>' . "\n";
+    $panel .= '    </div>' . "\n";
+    $panel .= '</div>' . "\n";
+
+    return $panel;
 }
 ?> 
