@@ -676,7 +676,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 120px; /* Aumentar para compensar el navbar fijo */
+    padding-top: 160px; /* Aumentar más para crear mejor separación */
     padding-bottom: 20px;
 }
 
