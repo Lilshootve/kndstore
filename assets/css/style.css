@@ -676,7 +676,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 200px; /* Reducir para que se vea mejor el hero */
+    padding-top: 300px; /* Aumentar para que se vea claramente debajo del header */
     padding-bottom: 20px;
 }
 
@@ -3757,7 +3757,7 @@ h1, h2, h3, h4, h5, h6 {
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 140px; /* Ajustar para el navbar alto pero hero visible */
+    scroll-padding-top: 160px; /* Ajustar para el navbar alto */
 }
 
 /* Scroll suave básico */
