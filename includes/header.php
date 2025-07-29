@@ -132,13 +132,7 @@ function generateNavigation() {
     $nav .= '                    <a class="nav-link' . ($current_page == 'products.php' ? ' active' : '') . '" href="/products.php">Productos</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link' . ($current_page == 'about.php' ? ' active' : '') . '" href="/about.php">Sobre Nosotros</a>' . "\n";
-    $nav .= '                </li>' . "\n";
-    $nav .= '                <li class="nav-item">' . "\n";
     $nav .= '                    <a class="nav-link' . ($current_page == 'contact.php' ? ' active' : '') . '" href="/contact.php">Contacto</a>' . "\n";
-    $nav .= '                </li>' . "\n";
-    $nav .= '                <li class="nav-item">' . "\n";
-    $nav .= '                    <a class="nav-link' . ($current_page == 'faq.php' ? ' active' : '') . '" href="/faq.php">FAQ</a>' . "\n";
     $nav .= '                </li>' . "\n";
     $nav .= '            </ul>' . "\n";
     $nav .= '        </div>' . "\n";
