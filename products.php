@@ -350,6 +350,9 @@ foreach ($productos as $categoria => $productos_categoria) {
                 <?php foreach ($productos_filtrados as $producto): ?>
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="product-card">
+                            <?php if (in_array($producto['nombre'], ['Avatar gamer personalizado', 'Wallpaper personalizado IA'])): ?>
+                                <div class="product-offer-badge">Oferta</div>
+                            <?php endif; ?>
                             <div class="product-image">
                                 <img src="<?php echo $producto['imagen']; ?>" alt="<?php echo htmlspecialchars($producto['nombre']); ?>" 
                                      onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMmMyYzJjIi8+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxODAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwYmZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwYmZmZiIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxwYXRoIGQ9Ik0xMzAgODAgTDE3MCA4MCBNMTMwIDEyMCBMMTcwIDEyMCIgc3Ryb2tlPSIjMDBiZmZmIiBzdHJva2Utd2lkdGg9IjIiLz4KPHN2ZyB4PSIxMjAiIHk9IjE0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIwIj4KICA8dGV4dCBmaWxsPSIjMDBiZmZmIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk5vIEltYWdlbjwvdGV4dD4KPC9zdmc+'; this.style.background='#2c2c2c';">
@@ -363,7 +366,14 @@ foreach ($productos as $categoria => $productos_categoria) {
                                 <h5 class="product-title"><?php echo htmlspecialchars($producto['nombre']); ?></h5>
                                 <p class="product-description"><?php echo htmlspecialchars($producto['descripcion']); ?></p>
                                 <div class="product-footer">
-                                    <span class="product-price">$<?php echo number_format($producto['precio'], 2); ?></span>
+                                    <?php if (in_array($producto['nombre'], ['Avatar gamer personalizado', 'Wallpaper personalizado IA'])): ?>
+                                        <span class="product-price">
+                                            <span class="product-price-original">$<?php echo number_format($producto['precio'], 2); ?></span>
+                                            <span class="product-price-offer">$2.50</span>
+                                        </span>
+                                    <?php else: ?>
+                                        <span class="product-price">$<?php echo number_format($producto['precio'], 2); ?></span>
+                                    <?php endif; ?>
                                     <a href="/producto.php?slug=<?php echo $producto['slug']; ?>" class="btn btn-outline-neon btn-sm btn-details">
                                         Ver detalles
                                     </a>
