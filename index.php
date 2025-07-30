@@ -107,22 +107,22 @@ require_once 'includes/footer.php';
                 ],
                 [
                     'name' => 'Asesoría para PC Gamer (Presupuesto personalizado)',
-                    'description' => 'Te ayudamos a construir la PC de tus sueños con el presupuesto que tengas.',
+                    'description' => '¿Tienes $300 o $3000? Te armamos la build perfecta.',
                     'price' => 5.00,
                     'image' => 'assets/images/productos/asesoria-pc-gamer-presupuesto.png',
                     'url' => '/producto/asesoria-pc-gamer'
                 ],
                 [
                     'name' => 'Avatar gamer personalizado',
-                    'description' => 'Crea tu identidad digital única con un avatar personalizado estilo gamer.',
-                    'price' => 15.00,
+                    'description' => 'Crea tu imagen digital con estilo galáctico.',
+                    'price' => 6.00,
                     'image' => 'assets/images/productos/avatar-gamer-personalizado.png',
                     'url' => '/producto/avatar-gamer'
                 ],
                 [
                     'name' => 'Wallpaper personalizado IA',
-                    'description' => 'Diseños únicos generados con inteligencia artificial para tu escritorio.',
-                    'price' => 8.00,
+                    'description' => 'Tu fondo, tu nave. Generado a medida.',
+                    'price' => 4.00,
                     'image' => 'assets/images/productos/wallpaper-personalizado-knd.png',
                     'url' => '/producto/wallpaper-ia'
                 ]
