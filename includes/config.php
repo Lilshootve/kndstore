@@ -16,11 +16,11 @@ ini_set('session.cookie_samesite', 'Strict');
 ini_set('session.gc_maxlifetime', 3600);
 ini_set('session.use_strict_mode', 1);
 
-// Configuración de compresión
-if (extension_loaded('zlib')) {
-    ini_set('zlib.output_compression', 1);
-    ini_set('zlib.output_compression_level', 6);
-}
+// Configuración de compresión - DESHABILITADA TEMPORALMENTE
+// if (extension_loaded('zlib')) {
+//     ini_set('zlib.output_compression', 1);
+//     ini_set('zlib.output_compression_level', 6);
+// }
 
 // Headers de seguridad
 header('X-Content-Type-Options: nosniff');
@@ -50,7 +50,7 @@ define('LOGIN_TIMEOUT', 900); // 15 minutos
 // Configuración de rendimiento
 define('ENABLE_CACHE', true);
 define('CACHE_TTL', 3600); // 1 hora
-define('ENABLE_COMPRESSION', true);
+define('ENABLE_COMPRESSION', false); // Deshabilitado temporalmente
 define('ENABLE_MINIFICATION', true);
 
 // Función de conexión a la base de datos
