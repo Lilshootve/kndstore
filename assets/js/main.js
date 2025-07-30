@@ -410,6 +410,19 @@ function applyColorTheme(themeName) {
 
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
+    // Registrar Service Worker para PWA
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/assets/js/sw.js')
+                .then(registration => {
+                    console.log('✅ Service Worker registrado:', registration.scope);
+                })
+                .catch(error => {
+                    console.log('❌ Error registrando Service Worker:', error);
+                });
+        });
+    }
+
     // Inicializar partículas
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-bg', {

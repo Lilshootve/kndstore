@@ -33,7 +33,7 @@ function generateMetaTags($title = '', $description = '', $keywords = '') {
     
     $meta = '';
     $meta .= '<meta charset="UTF-8">' . "\n";
-    $meta .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n";
+    $meta .= '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">' . "\n";
     $meta .= '<meta name="description" content="' . ($description ?: $defaultDescription) . '">' . "\n";
     $meta .= '<meta name="keywords" content="' . ($keywords ?: $defaultKeywords) . '">' . "\n";
     $meta .= '<meta name="author" content="KND Store">' . "\n";
@@ -64,6 +64,9 @@ function generateCommonAssets() {
     
     // Custom CSS
     $assets .= '<link rel="stylesheet" href="assets/css/style.css">' . "\n";
+    
+    // Mobile Optimization CSS
+    $assets .= '<link rel="stylesheet" href="assets/css/mobile-optimization.css">' . "\n";
     
     return $assets;
 }

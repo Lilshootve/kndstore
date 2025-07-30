@@ -111,6 +111,9 @@ function generateScripts() {
     // Custom JS
     $scripts .= '<script src="assets/js/main.js"></script>' . "\n";
     
+    // Mobile Optimization JS
+    $scripts .= '<script src="assets/js/mobile-optimization.js"></script>' . "\n";
+    
     // Scroll suave por bloques
     $scripts .= '<script src="assets/js/scroll-smooth.js"></script>' . "\n";
     
