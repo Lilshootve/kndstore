@@ -61,9 +61,8 @@ function generateCommonAssets() {
     $assets .= '<link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
     $assets .= '<noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"></noscript>' . "\n";
     
-    // Font Awesome con preload
-    $assets .= '<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
-    $assets .= '<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>' . "\n";
+    // Font Awesome - Carga directa para mejor compatibilidad
+    $assets .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">' . "\n";
     
     // Custom CSS con cache headers
     $assets .= '<link rel="stylesheet" href="assets/css/style.css">' . "\n";
