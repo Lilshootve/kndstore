@@ -85,7 +85,7 @@ $productos = [
     'accesorios' => [
         [
             'id' => 7,
-            'nombre' => 'Wallpaper personalizado estilo KND',
+            'nombre' => 'Wallpaper personalizado IA',
             'descripcion' => 'Tu fondo, tu nave. Generado a medida.',
             'precio' => 4.00,
             'imagen' => 'assets/images/productos/wallpaper-personalizado-knd.png',
