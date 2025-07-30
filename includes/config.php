@@ -8,11 +8,11 @@ ini_set('display_errors', 1);
 // Configuración de zona horaria
 date_default_timezone_set('America/Mexico_City');
 
-// Configuración de seguridad mejorada
+// Configuración de seguridad mejorada - DESARROLLO LOCAL
 ini_set('session.cookie_httponly', 1);
 ini_set('session.use_only_cookies', 1);
-ini_set('session.cookie_secure', 1); // Habilitado para HTTPS en producción
-ini_set('session.cookie_samesite', 'Strict');
+ini_set('session.cookie_secure', 0); // Deshabilitado para desarrollo local
+ini_set('session.cookie_samesite', 'Lax');
 ini_set('session.gc_maxlifetime', 3600);
 ini_set('session.use_strict_mode', 1);
 
@@ -29,17 +29,17 @@ header('X-XSS-Protection: 1; mode=block');
 header('Referrer-Policy: strict-origin-when-cross-origin');
 header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
 
-// Configuración de base de datos - PRODUCCIÓN
-define('DB_HOST', 'srv1710.hstgr.io');
-define('DB_NAME', 'u354862096_kndstore');
-define('DB_USER', 'u354862096_lilshoot');
-define('DB_PASS', 'Cdrcn2577$');
+// Configuración de base de datos - DESARROLLO LOCAL
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'kndstore');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
 
-// Configuración de la aplicación - PRODUCCIÓN
+// Configuración de la aplicación - DESARROLLO LOCAL
 define('SITE_NAME', 'KND Store');
-define('SITE_URL', 'https://kndstore.com');
-define('SITE_EMAIL', 'support@kndstore.com');
+define('SITE_URL', 'http://localhost/kndstore');
+define('SITE_EMAIL', 'info@kndstore.com');
 
 // Configuración de seguridad
 define('HASH_COST', 12);
