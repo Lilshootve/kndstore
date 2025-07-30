@@ -53,16 +53,19 @@ function generateMetaTags($title = '', $description = '', $keywords = '') {
 function generateCommonAssets() {
     $assets = '';
     
-    // Google Fonts
-    $assets .= '<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">' . "\n";
+    // Google Fonts con preload
+    $assets .= '<link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
+    $assets .= '<noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet"></noscript>' . "\n";
     
-    // Bootstrap CSS
-    $assets .= '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">' . "\n";
+    // Bootstrap CSS con preload
+    $assets .= '<link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
+    $assets .= '<noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"></noscript>' . "\n";
     
-    // Font Awesome
-    $assets .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">' . "\n";
+    // Font Awesome con preload
+    $assets .= '<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
+    $assets .= '<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>' . "\n";
     
-    // Custom CSS
+    // Custom CSS con cache headers
     $assets .= '<link rel="stylesheet" href="assets/css/style.css">' . "\n";
     
     // Mobile Optimization CSS

@@ -492,3 +492,162 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 window.addEventListener('scroll', revealOnScroll); 
+
+// ===== OPTIMIZACIONES DE RENDIMIENTO =====
+
+// Optimización de eventos con debouncing
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Optimización de scroll con throttling
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+// Optimización de carga de imágenes
+function lazyLoadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Optimización de animaciones
+function optimizeAnimations() {
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        });
+
+        document.querySelectorAll('.product-card, .feature-card, .value-card').forEach(el => {
+            observer.observe(el);
+        });
+    }
+}
+
+// Optimización de memoria
+function cleanupEventListeners() {
+    // Limpiar event listeners cuando sea necesario
+    window.addEventListener('beforeunload', () => {
+        // Cleanup code here
+    });
+}
+
+// Optimización de rendimiento para dispositivos móviles
+function optimizeForMobile() {
+    if (window.innerWidth <= 768) {
+        // Reducir complejidad de animaciones en móviles
+        document.body.classList.add('mobile-optimized');
+        
+        // Deshabilitar efectos pesados en móviles
+        const heavyEffects = document.querySelectorAll('.particle-effect, .complex-animation');
+        heavyEffects.forEach(effect => {
+            effect.style.display = 'none';
+        });
+    }
+}
+
+// Optimización de carga inicial
+function optimizeInitialLoad() {
+    // Cargar recursos críticos primero
+    const criticalResources = [
+        '/assets/css/style.css',
+        '/assets/js/main.js'
+    ];
+    
+    // Precargar recursos no críticos
+    const nonCriticalResources = [
+        '/assets/css/mobile-optimization.css',
+        '/assets/js/mobile-optimization.js'
+    ];
+    
+    nonCriticalResources.forEach(resource => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = resource;
+        link.as = resource.endsWith('.css') ? 'style' : 'script';
+        document.head.appendChild(link);
+    });
+}
+
+// Optimización de Service Worker
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/assets/js/sw.js')
+                .then(registration => {
+                    console.log('✅ Service Worker registrado:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('❌ Error registrando Service Worker:', error);
+                });
+        });
+    }
+}
+
+// Optimización de rendimiento general
+function initPerformanceOptimizations() {
+    // Aplicar optimizaciones cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', applyOptimizations);
+    } else {
+        applyOptimizations();
+    }
+}
+
+function applyOptimizations() {
+    lazyLoadImages();
+    optimizeAnimations();
+    optimizeForMobile();
+    optimizeInitialLoad();
+    registerServiceWorker();
+    cleanupEventListeners();
+}
+
+// Inicializar optimizaciones
+initPerformanceOptimizations();
+
+// Optimización de eventos de resize con debouncing
+const debouncedResize = debounce(() => {
+    optimizeForMobile();
+}, 250);
+
+window.addEventListener('resize', debouncedResize);
+
+// Optimización de scroll con throttling
+const throttledScroll = throttle(() => {
+    // Código de scroll optimizado aquí
+}, 16); // ~60fps
+
+window.addEventListener('scroll', throttledScroll); 

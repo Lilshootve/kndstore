@@ -1,5 +1,5 @@
 <?php
-// KND Store - Configuración Principal
+// KND Store - Configuración Local (Desarrollo)
 
 // Configuración de errores
 error_reporting(E_ALL);
@@ -11,7 +11,7 @@ date_default_timezone_set('America/Mexico_City');
 // Configuración de seguridad mejorada
 ini_set('session.cookie_httponly', 1);
 ini_set('session.use_only_cookies', 1);
-ini_set('session.cookie_secure', 1); // Habilitado para HTTPS en producción
+ini_set('session.cookie_secure', 0); // Deshabilitado para desarrollo local
 ini_set('session.cookie_samesite', 'Strict');
 ini_set('session.gc_maxlifetime', 3600);
 ini_set('session.use_strict_mode', 1);
@@ -29,17 +29,17 @@ header('X-XSS-Protection: 1; mode=block');
 header('Referrer-Policy: strict-origin-when-cross-origin');
 header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
 
-// Configuración de base de datos - PRODUCCIÓN
-define('DB_HOST', 'srv1710.hstgr.io');
-define('DB_NAME', 'u354862096_kndstore');
-define('DB_USER', 'u354862096_lilshoot');
-define('DB_PASS', 'Cdrcn2577$');
+// Configuración de base de datos - DESARROLLO LOCAL
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'kndstore_local');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
 
-// Configuración de la aplicación - PRODUCCIÓN
-define('SITE_NAME', 'KND Store');
-define('SITE_URL', 'https://kndstore.com');
-define('SITE_EMAIL', 'support@kndstore.com');
+// Configuración de la aplicación - DESARROLLO LOCAL
+define('SITE_NAME', 'KND Store - Dev');
+define('SITE_URL', 'http://localhost/kndstore');
+define('SITE_EMAIL', 'dev@kndstore.com');
 
 // Configuración de seguridad
 define('HASH_COST', 12);
@@ -161,207 +161,6 @@ function hashPassword($password) {
 // Función para verificar contraseña
 function verifyPassword($password, $hash) {
     return password_verify($password, $hash);
-}
-
-// Función para obtener productos destacados
-function getFeaturedProducts($limit = 6) {
-    $pdo = getDBConnection();
-    if (!$pdo) {
-        return [];
-    }
-    
-    $stmt = $pdo->prepare("SELECT * FROM products WHERE featured = 1 AND active = 1 ORDER BY created_at DESC LIMIT ?");
-    $stmt->execute([$limit]);
-    return $stmt->fetchAll();
-}
-
-// Función para obtener categorías
-function getCategories() {
-    $pdo = getDBConnection();
-    if (!$pdo) {
-        return [];
-    }
-    
-    $stmt = $pdo->prepare("SELECT * FROM categories WHERE active = 1 ORDER BY name");
-    $stmt->execute();
-    return $stmt->fetchAll();
-}
-
-// Función para obtener productos por categoría
-function getProductsByCategory($categoryId, $limit = 12) {
-    $pdo = getDBConnection();
-    if (!$pdo) {
-        return [];
-    }
-    
-    $stmt = $pdo->prepare("SELECT * FROM products WHERE category_id = ? AND active = 1 ORDER BY created_at DESC LIMIT ?");
-    $stmt->execute([$categoryId, $limit]);
-    return $stmt->fetchAll();
-}
-
-// Función para buscar productos
-function searchProducts($query, $limit = 12) {
-    $pdo = getDBConnection();
-    if (!$pdo) {
-        return [];
-    }
-    
-    $searchTerm = "%$query%";
-    $stmt = $pdo->prepare("SELECT * FROM products WHERE (name LIKE ? OR description LIKE ?) AND active = 1 ORDER BY created_at DESC LIMIT ?");
-    $stmt->execute([$searchTerm, $searchTerm, $limit]);
-    return $stmt->fetchAll();
-}
-
-// Función para obtener carrito del usuario
-function getUserCart($userId) {
-    $pdo = getDBConnection();
-    if (!$pdo) {
-        return [];
-    }
-    
-    $stmt = $pdo->prepare("
-        SELECT c.*, p.name, p.price, p.image 
-        FROM cart c 
-        JOIN products p ON c.product_id = p.id 
-        WHERE c.user_id = ?
-    ");
-    $stmt->execute([$userId]);
-    return $stmt->fetchAll();
-}
-
-// Función para agregar al carrito
-function addToCart($userId, $productId, $quantity = 1) {
-    $pdo = getDBConnection();
-    if (!$pdo) {
-        return false;
-    }
-    
-    // Verificar si el producto ya está en el carrito
-    $stmt = $pdo->prepare("SELECT * FROM cart WHERE user_id = ? AND product_id = ?");
-    $stmt->execute([$userId, $productId]);
-    $existingItem = $stmt->fetch();
-    
-    if ($existingItem) {
-        // Actualizar cantidad
-        $stmt = $pdo->prepare("UPDATE cart SET quantity = quantity + ? WHERE user_id = ? AND product_id = ?");
-        return $stmt->execute([$quantity, $userId, $productId]);
-    } else {
-        // Agregar nuevo item
-        $stmt = $pdo->prepare("INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, ?)");
-        return $stmt->execute([$userId, $productId, $quantity]);
-    }
-}
-
-// Función para actualizar cantidad en carrito
-function updateCartQuantity($userId, $productId, $quantity) {
-    $pdo = getDBConnection();
-    if (!$pdo) {
-        return false;
-    }
-    
-    if ($quantity <= 0) {
-        // Eliminar item
-        $stmt = $pdo->prepare("DELETE FROM cart WHERE user_id = ? AND product_id = ?");
-        return $stmt->execute([$userId, $productId]);
-    } else {
-        // Actualizar cantidad
-        $stmt = $pdo->prepare("UPDATE cart SET quantity = ? WHERE user_id = ? AND product_id = ?");
-        return $stmt->execute([$quantity, $userId, $productId]);
-    }
-}
-
-// Función para limpiar carrito
-function clearCart($userId) {
-    $pdo = getDBConnection();
-    if (!$pdo) {
-        return false;
-    }
-    
-    $stmt = $pdo->prepare("DELETE FROM cart WHERE user_id = ?");
-    return $stmt->execute([$userId]);
-}
-
-// Función para calcular total del carrito
-function getCartTotal($userId) {
-    $cart = getUserCart($userId);
-    $total = 0;
-    
-    foreach ($cart as $item) {
-        $total += $item['price'] * $item['quantity'];
-    }
-    
-    return $total;
-}
-
-// Función para crear pedido
-function createOrder($userId, $shippingAddress, $paymentMethod) {
-    $pdo = getDBConnection();
-    if (!$pdo) {
-        return false;
-    }
-    
-    try {
-        $pdo->beginTransaction();
-        
-        // Crear pedido
-        $stmt = $pdo->prepare("
-            INSERT INTO orders (user_id, total, shipping_address, payment_method, status) 
-            VALUES (?, ?, ?, ?, 'pending')
-        ");
-        $total = getCartTotal($userId);
-        $stmt->execute([$userId, $total, $shippingAddress, $paymentMethod]);
-        $orderId = $pdo->lastInsertId();
-        
-        // Agregar items del pedido
-        $cart = getUserCart($userId);
-        foreach ($cart as $item) {
-            $stmt = $pdo->prepare("
-                INSERT INTO order_items (order_id, product_id, quantity, price) 
-                VALUES (?, ?, ?, ?)
-            ");
-            $stmt->execute([$orderId, $item['product_id'], $item['quantity'], $item['price']]);
-        }
-        
-        // Limpiar carrito
-        clearCart($userId);
-        
-        $pdo->commit();
-        return $orderId;
-    } catch (Exception $e) {
-        $pdo->rollBack();
-        error_log("Error al crear pedido: " . $e->getMessage());
-        return false;
-    }
-}
-
-// Función para obtener pedidos del usuario
-function getUserOrders($userId) {
-    $pdo = getDBConnection();
-    if (!$pdo) {
-        return [];
-    }
-    
-    $stmt = $pdo->prepare("SELECT * FROM orders WHERE user_id = ? ORDER BY created_at DESC");
-    $stmt->execute([$userId]);
-    return $stmt->fetchAll();
-}
-
-// Función para obtener detalles del pedido
-function getOrderDetails($orderId) {
-    $pdo = getDBConnection();
-    if (!$pdo) {
-        return false;
-    }
-    
-    $stmt = $pdo->prepare("
-        SELECT o.*, oi.*, p.name, p.image 
-        FROM orders o 
-        JOIN order_items oi ON o.id = oi.order_id 
-        JOIN products p ON oi.product_id = p.id 
-        WHERE o.id = ?
-    ");
-    $stmt->execute([$orderId]);
-    return $stmt->fetchAll();
 }
 
 // ===== FUNCIONES DE RENDIMIENTO =====

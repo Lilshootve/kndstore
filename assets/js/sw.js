@@ -1,5 +1,8 @@
-// KND Store - Service Worker
-const CACHE_NAME = 'knd-store-v1.0.0';
+// KND Store - Service Worker Optimizado
+const CACHE_NAME = 'knd-store-v1.1.0';
+const STATIC_CACHE = 'knd-static-v1.1.0';
+const DYNAMIC_CACHE = 'knd-dynamic-v1.1.0';
+
 const urlsToCache = [
     '/',
     '/index.php',
@@ -7,6 +10,9 @@ const urlsToCache = [
     '/about.php',
     '/contact.php',
     '/faq.php',
+    '/privacy.php',
+    '/terms.php',
+    '/offline.html',
     '/assets/css/style.css',
     '/assets/css/mobile-optimization.css',
     '/assets/js/main.js',
@@ -14,6 +20,8 @@ const urlsToCache = [
     '/assets/js/scroll-smooth.js',
     '/assets/images/knd-logo.png',
     '/assets/images/favicon.ico',
+    '/assets/images/favicon-96x96.png',
+    '/assets/images/apple-touch-icon.png',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
@@ -21,35 +29,77 @@ const urlsToCache = [
     'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'
 ];
 
+// Estrategia de cache: Cache First para recursos estáticos
+async function cacheFirst(request) {
+    const cachedResponse = await caches.match(request);
+    if (cachedResponse) {
+        return cachedResponse;
+    }
+    
+    try {
+        const networkResponse = await fetch(request);
+        if (networkResponse.ok) {
+            const cache = await caches.open(DYNAMIC_CACHE);
+            cache.put(request, networkResponse.clone());
+        }
+        return networkResponse;
+    } catch (error) {
+        console.error('Error en cacheFirst:', error);
+        return new Response('Error de red', { status: 503 });
+    }
+}
+
+// Estrategia de cache: Network First para páginas dinámicas
+async function networkFirst(request) {
+    try {
+        const networkResponse = await fetch(request);
+        if (networkResponse.ok) {
+            const cache = await caches.open(DYNAMIC_CACHE);
+            cache.put(request, networkResponse.clone());
+        }
+        return networkResponse;
+    } catch (error) {
+        console.error('Error en networkFirst:', error);
+        const cachedResponse = await caches.match(request);
+        if (cachedResponse) {
+            return cachedResponse;
+        }
+        return caches.match('/offline.html');
+    }
+}
+
 // Instalación del Service Worker
 self.addEventListener('install', event => {
-    console.log('🚀 Instalando Service Worker para KND Store...');
+    console.log('🚀 Instalando Service Worker optimizado para KND Store...');
     
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => {
-                console.log('📦 Cache abierto');
+        Promise.all([
+            caches.open(STATIC_CACHE).then(cache => {
+                console.log('📦 Cache estático abierto');
                 return cache.addAll(urlsToCache);
+            }),
+            caches.open(DYNAMIC_CACHE).then(cache => {
+                console.log('📦 Cache dinámico abierto');
+                return cache;
             })
-            .then(() => {
-                console.log('✅ Service Worker instalado correctamente');
-                return self.skipWaiting();
-            })
-            .catch(error => {
-                console.error('❌ Error durante la instalación:', error);
-            })
+        ]).then(() => {
+            console.log('✅ Service Worker instalado correctamente');
+            return self.skipWaiting();
+        }).catch(error => {
+            console.error('❌ Error durante la instalación:', error);
+        })
     );
 });
 
 // Activación del Service Worker
 self.addEventListener('activate', event => {
-    console.log('🔄 Activando Service Worker...');
+    console.log('🔄 Activando Service Worker optimizado...');
     
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
                 cacheNames.map(cacheName => {
-                    if (cacheName !== CACHE_NAME) {
+                    if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
                         console.log('🗑️ Eliminando cache antiguo:', cacheName);
                         return caches.delete(cacheName);
                     }
@@ -62,55 +112,37 @@ self.addEventListener('activate', event => {
     );
 });
 
-// Interceptar peticiones de red
+// Interceptar peticiones de red con estrategias optimizadas
 self.addEventListener('fetch', event => {
+    const { request } = event;
+    const url = new URL(request.url);
+    
     // Solo manejar peticiones GET
-    if (event.request.method !== 'GET') {
+    if (request.method !== 'GET') {
         return;
     }
 
-    // Excluir peticiones a APIs externas que no queremos cachear
-    if (event.request.url.includes('api.') || 
-        event.request.url.includes('analytics') ||
-        event.request.url.includes('tracking')) {
+    // Excluir peticiones a APIs externas
+    if (url.hostname !== self.location.hostname || 
+        url.pathname.includes('api.') || 
+        url.pathname.includes('analytics') ||
+        url.pathname.includes('tracking')) {
         return;
     }
 
-    event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                // Si encontramos la respuesta en cache, la devolvemos
-                if (response) {
-                    return response;
-                }
-
-                // Si no está en cache, hacemos la petición a la red
-                return fetch(event.request)
-                    .then(response => {
-                        // Verificar que la respuesta sea válida
-                        if (!response || response.status !== 200 || response.type !== 'basic') {
-                            return response;
-                        }
-
-                        // Clonar la respuesta para poder usarla
-                        const responseToCache = response.clone();
-
-                        // Agregar al cache
-                        caches.open(CACHE_NAME)
-                            .then(cache => {
-                                cache.put(event.request, responseToCache);
-                            });
-
-                        return response;
-                    })
-                    .catch(() => {
-                        // Si falla la red, intentar servir una página offline
-                        if (event.request.destination === 'document') {
-                            return caches.match('/offline.html');
-                        }
-                    });
-            })
-    );
+    // Estrategia según el tipo de recurso
+    if (request.destination === 'document') {
+        // Páginas HTML: Network First
+        event.respondWith(networkFirst(request));
+    } else if (request.destination === 'style' || 
+               request.destination === 'script' || 
+               request.destination === 'image') {
+        // Recursos estáticos: Cache First
+        event.respondWith(cacheFirst(request));
+    } else {
+        // Otros recursos: Network First
+        event.respondWith(networkFirst(request));
+    }
 });
 
 // Manejar mensajes del cliente

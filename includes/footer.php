@@ -99,23 +99,23 @@ function generateFooter() {
 function generateScripts() {
     $scripts = '';
     
-    // jQuery (requerido para AJAX)
-    $scripts .= '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>' . "\n";
+    // jQuery con preload
+    $scripts .= '<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>' . "\n";
     
-    // Bootstrap JS
-    $scripts .= '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>' . "\n";
+    // Bootstrap JS con preload
+    $scripts .= '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>' . "\n";
     
-    // Particles.js
-    $scripts .= '<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>' . "\n";
+    // Particles.js con preload
+    $scripts .= '<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>' . "\n";
     
-    // Custom JS
-    $scripts .= '<script src="assets/js/main.js"></script>' . "\n";
+    // Custom JS optimizado
+    $scripts .= '<script src="assets/js/main.js" defer></script>' . "\n";
     
     // Mobile Optimization JS
-    $scripts .= '<script src="assets/js/mobile-optimization.js"></script>' . "\n";
+    $scripts .= '<script src="assets/js/mobile-optimization.js" defer></script>' . "\n";
     
     // Scroll suave por bloques
-    $scripts .= '<script src="assets/js/scroll-smooth.js"></script>' . "\n";
+    $scripts .= '<script src="assets/js/scroll-smooth.js" defer></script>' . "\n";
     
     // Configuración de partículas para el footer
     $scripts .= '<script>' . "\n";

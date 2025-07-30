@@ -15,6 +15,12 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once 'includes/config.php';
 require_once 'includes/header.php';
 require_once 'includes/footer.php';
+
+// Iniciar timer de rendimiento
+$startTime = startPerformanceTimer();
+
+// Configurar headers de cache para CSS y JS
+setCacheHeaders('html');
 ?>
 
 <?php echo generateHeader('Inicio', 'Tu tienda galáctica de productos únicos y tecnología de vanguardia'); ?>
@@ -163,4 +169,12 @@ require_once 'includes/footer.php';
 <?php 
 echo generateFooter();
 echo generateScripts();
+
+// Finalizar timer de rendimiento
+$executionTime = endPerformanceTimer($startTime);
+
+// Log de rendimiento en desarrollo
+if (error_reporting() > 0) {
+    echo "<!-- Page loaded in {$executionTime}ms -->";
+}
 ?> 

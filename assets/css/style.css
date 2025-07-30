@@ -4437,10 +4437,151 @@ body {
     font-family: 'Courier New', monospace;
 }
 
+/* ===== OPTIMIZACIONES DE RENDIMIENTO ===== */
 
+/* Optimización de animaciones para dispositivos con preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
 
+/* Optimización para pantallas de alta densidad */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero-logo,
+    .product-image img,
+    .navbar-brand img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
 
+/* Optimización de contraste para accesibilidad */
+@media (prefers-contrast: high) {
+    :root {
+        --knd-neon-blue: #00ffff;
+        --knd-electric-purple: #ff00ff;
+        --knd-gunmetal-gray: #404040;
+    }
+}
 
+/* Optimización para modo oscuro del sistema */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --knd-black: #000000;
+        --knd-white: #ffffff;
+    }
+}
 
+/* Optimización para modo claro del sistema */
+@media (prefers-color-scheme: light) {
+    :root {
+        --knd-black: #000000;
+        --knd-white: #ffffff;
+    }
+}
+
+/* Optimización de impresión */
+@media print {
+    .navbar,
+    .footer,
+    .discord-float-btn,
+    .color-panel-toggle,
+    #particles-bg,
+    #particles-footer {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .hero-section,
+    .product-card,
+    .feature-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+}
+
+/* Optimización de focus para accesibilidad */
+.btn:focus,
+.nav-link:focus,
+.form-control:focus,
+.form-select:focus {
+    outline: 2px solid var(--knd-neon-blue) !important;
+    outline-offset: 2px !important;
+}
+
+/* Optimización de contraste para texto */
+.text-muted {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Optimización de hover para dispositivos táctiles */
+@media (hover: none) {
+    .btn:hover,
+    .nav-link:hover,
+    .product-card:hover,
+    .feature-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Optimización de scroll para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    
+    .col,
+    .col-md-6,
+    .col-lg-4,
+    .col-lg-6 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    p, li {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+/* Optimización de rendimiento para animaciones */
+.btn,
+.nav-link,
+.product-card,
+.feature-card {
+    will-change: transform;
+}
+
+/* Optimización de carga de fuentes */
+@font-face {
+    font-family: 'Orbitron';
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+}
 
 /* Categorías */
