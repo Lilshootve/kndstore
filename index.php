@@ -117,14 +117,14 @@ require_once 'includes/footer.php';
                     'description' => 'Crea tu imagen digital con estilo galáctico.',
                     'price' => 6.00,
                     'image' => 'assets/images/productos/avatar-gamer-personalizado.png',
-                    'url' => '/producto/avatar-gamer'
+                    'url' => '/producto/avatar-personalizado'
                 ],
                 [
                     'name' => 'Wallpaper personalizado IA',
                     'description' => 'Tu fondo, tu nave. Generado a medida.',
                     'price' => 4.00,
                     'image' => 'assets/images/productos/wallpaper-personalizado-knd.png',
-                    'url' => '/producto/wallpaper-ia'
+                    'url' => '/producto/wallpaper-personalizado'
                 ]
             ];
             
