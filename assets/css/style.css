@@ -65,6 +65,33 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: none;
 }
 
+/* Animaciones sutiles para el hero */
+.hero-title {
+    animation: heroTitleFloat 3s ease-in-out infinite;
+}
+
+.hero-subtitle {
+    animation: heroSubtitleFade 2s ease-in-out infinite;
+}
+
+@keyframes heroTitleFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes heroSubtitleFade {
+    0%, 100% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
 /* Navigation */
 .navbar {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(44, 44, 44, 0.9) 50%, rgba(44, 44, 44, 0.8) 100%) !important;
@@ -695,13 +722,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero-section {
-    min-height: 60vh !important;
+    min-height: 50vh !important;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    padding: 3rem 1rem;
     padding-top: 140px; /* Más espacio para separación visual */
-    padding-bottom: 40px;
     margin-top: 0;
     margin-bottom: 0;
     width: 100%;
@@ -745,7 +772,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-title {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
     line-height: 1.2;
     text-align: left;
@@ -786,12 +813,26 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.hero-buttons .btn {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-image {
@@ -1234,9 +1275,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-section {
-        min-height: 70vh;
+        min-height: 60vh;
+        padding: 2rem 1rem;
         padding-top: 120px;
-        padding-bottom: 30px;
     }
     
     .hero-section::before {
@@ -1256,12 +1297,15 @@ h1, h2, h3, h4, h5, h6 {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
     }
     
-    .btn {
+    .hero-buttons .btn {
         width: 100%;
         max-width: 300px;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
     }
     
     .hero-image {
@@ -1279,9 +1323,9 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 576px) {
     .hero-section {
-        min-height: 80vh;
+        min-height: 70vh;
+        padding: 1.5rem 1rem;
         padding-top: 100px;
-        padding-bottom: 20px;
     }
     
     .hero-section::before {
