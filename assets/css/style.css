@@ -91,27 +91,24 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
-/* Divider visual prominente entre navbar y hero */
+/* Divider visual prominente entre navbar y hero - Tech Futurista */
 .hero-section::after {
     content: '';
     position: absolute;
-    top: 128px;
+    top: 124px;
     left: 0;
     right: 0;
-    height: 3px;
+    height: 2px;
     background: linear-gradient(90deg, 
         transparent 0%, 
-        var(--knd-neon-blue) 10%, 
         var(--knd-electric-purple) 25%, 
-        #ffffff 50%, 
+        var(--knd-neon-blue) 50%, 
         var(--knd-electric-purple) 75%, 
-        var(--knd-neon-blue) 90%, 
         transparent 100%);
     box-shadow: 
-        0 0 20px rgba(0, 191, 255, 0.7),
-        0 0 40px rgba(138, 43, 226, 0.5),
-        0 3px 12px rgba(0, 0, 0, 0.9),
-        0 0 15px rgba(255, 255, 255, 0.1);
+        0 0 15px rgba(138, 43, 226, 0.6),
+        0 0 25px rgba(0, 191, 255, 0.4),
+        0 2px 8px rgba(0, 0, 0, 0.8);
     z-index: 2;
 }
 
