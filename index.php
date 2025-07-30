@@ -3,7 +3,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     ini_set('session.cookie_httponly', 1);
     ini_set('session.use_only_cookies', 1);
-    ini_set('session.cookie_secure', 0); // Cambiar a 1 en producción con HTTPS
+    ini_set('session.cookie_secure', 1); // Habilitado para HTTPS en producción
     session_start();
 } else {
     // Si la sesión ya está activa, solo la iniciamos
