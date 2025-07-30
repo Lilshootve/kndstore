@@ -77,7 +77,7 @@ $productos = [
     ],
     'wallpaper-personalizado' => [
         'id' => 7,
-        'nombre' => 'Wallpaper personalizado estilo KND',
+        'nombre' => 'Wallpaper personalizado IA',
         'descripcion' => 'Tu fondo, tu nave. Generado a medida.<br><br>Incluye:<br>• Diseño personalizado<br>• Múltiples resoluciones<br>• Estilo galáctico KND<br>• Versión móvil incluida<br>• Archivos en alta calidad<br>• Modificaciones gratuitas',
         'precio' => 4.00,
         'imagen' => 'assets/images/productos/wallpaper-personalizado-knd.png',
