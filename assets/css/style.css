@@ -814,6 +814,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 2rem;
     color: rgba(255, 255, 255, 0.9);
     max-width: 600px;
+    text-align: left;
 }
 
 .hero-buttons {
@@ -821,6 +822,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1.5rem;
     flex-wrap: wrap;
     margin-top: 1rem;
+    justify-content: flex-start;
 }
 
 .hero-buttons .btn {
@@ -1286,17 +1288,17 @@ h1, h2, h3, h4, h5, h6 {
     
     .hero-title {
         font-size: 2.5rem;
-        text-align: center;
+        text-align: left;
     }
     
     .hero-subtitle {
-        text-align: center;
+        text-align: left;
         font-size: 1.1rem;
     }
     
     .hero-buttons {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         gap: 1rem;
     }
     
@@ -1334,12 +1336,12 @@ h1, h2, h3, h4, h5, h6 {
     
     .hero-title {
         font-size: 2rem;
-        text-align: center;
+        text-align: left;
     }
     
     .hero-subtitle {
         font-size: 1rem;
-        text-align: center;
+        text-align: left;
     }
     
     .hero-logo {
