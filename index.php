@@ -131,14 +131,24 @@ require_once 'includes/footer.php';
             foreach ($featuredProducts as $product): ?>
                 <div class="col-lg-6 col-md-6 mb-4">
                     <div class="product-card">
+                        <?php if (in_array($product['name'], ['Avatar gamer personalizado', 'Wallpaper personalizado IA'])): ?>
+                            <div class="product-offer-badge">Oferta</div>
+                        <?php endif; ?>
                         <div class="product-image">
                             <img src="<?php echo $product['image']; ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
                         </div>
                         <div class="product-info">
                             <h3><?php echo htmlspecialchars($product['name']); ?></h3>
                             <p><?php echo htmlspecialchars($product['description']); ?></p>
-                            <div class="product-price"><?php echo formatPrice($product['price']); ?></div>
-                                                            <a href="/producto.php?slug=<?php echo str_replace(['/producto/', '/'], '', $product['url']); ?>" class="btn btn-primary">Ver Detalles</a>
+                            <div class="product-price">
+                                <?php if (in_array($product['name'], ['Avatar gamer personalizado', 'Wallpaper personalizado IA'])): ?>
+                                    <span class="product-price-original"><?php echo formatPrice($product['price']); ?></span>
+                                    <span class="product-price-offer">$2.50</span>
+                                <?php else: ?>
+                                    <?php echo formatPrice($product['price']); ?>
+                                <?php endif; ?>
+                            </div>
+                            <a href="/producto.php?slug=<?php echo str_replace(['/producto/', '/'], '', $product['url']); ?>" class="btn btn-primary">Ver Detalles</a>
                         </div>
                     </div>
                 </div>
