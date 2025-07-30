@@ -106,23 +106,30 @@ require_once 'includes/footer.php';
                     'url' => '/producto/formateo-limpieza-pc'
                 ],
                 [
-                    'name' => 'Optimización Gamer (FPS, temperaturas, disco)',
-                    'description' => 'Tu PC, afinada para dominar la galaxia del gaming.',
+                    'name' => 'Asesoría para PC Gamer (Presupuesto personalizado)',
+                    'description' => 'Te ayudamos a construir la PC de tus sueños con el presupuesto que tengas.',
                     'price' => 5.00,
-                    'image' => 'assets/images/productos/optimizacion-gamer-fps-temperaturas-disco.png',
-                    'url' => '/producto/optimizacion-gamer'
+                    'image' => 'assets/images/productos/asesoria-pc-gamer-presupuesto.png',
+                    'url' => '/producto/asesoria-pc-gamer'
                 ],
                 [
-                    'name' => 'PC Ready Pack (software + configuración)',
-                    'description' => 'Todo instalado, optimizado y listo para jugar o trabajar.',
-                    'price' => 10.00,
-                    'image' => 'assets/images/productos/pc-ready-pack-software-configuracion.png',
-                    'url' => '/producto/pc-ready-pack'
+                    'name' => 'Avatar gamer personalizado',
+                    'description' => 'Crea tu identidad digital única con un avatar personalizado estilo gamer.',
+                    'price' => 15.00,
+                    'image' => 'assets/images/productos/avatar-gamer-personalizado.png',
+                    'url' => '/producto/avatar-gamer'
+                ],
+                [
+                    'name' => 'Wallpaper personalizado IA',
+                    'description' => 'Diseños únicos generados con inteligencia artificial para tu escritorio.',
+                    'price' => 8.00,
+                    'image' => 'assets/images/productos/wallpaper-personalizado-knd.png',
+                    'url' => '/producto/wallpaper-ia'
                 ]
             ];
             
             foreach ($featuredProducts as $product): ?>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="col-lg-6 col-md-6 mb-4">
                     <div class="product-card">
                         <div class="product-image">
                             <img src="<?php echo $product['image']; ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
