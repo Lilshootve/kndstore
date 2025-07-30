@@ -1,8 +1,9 @@
 // KND Store - Service Worker Optimizado
-const CACHE_NAME = 'knd-store-v1.1.0';
-const STATIC_CACHE = 'knd-static-v1.1.0';
-const DYNAMIC_CACHE = 'knd-dynamic-v1.1.0';
+const CACHE_NAME = 'knd-store-v1.1.2';
+const STATIC_CACHE = 'knd-static-v1.1.2';
+const DYNAMIC_CACHE = 'knd-dynamic-v1.1.2';
 
+// Solo cachear recursos locales y algunos externos seguros
 const urlsToCache = [
     '/',
     '/index.php',
@@ -15,13 +16,21 @@ const urlsToCache = [
     '/offline.html',
     '/assets/css/style.css',
     '/assets/css/mobile-optimization.css',
+    '/assets/css/font-awesome-fix.css',
     '/assets/js/main.js',
     '/assets/js/mobile-optimization.js',
     '/assets/js/scroll-smooth.js',
+    '/assets/js/font-awesome-fix.js',
     '/assets/images/knd-logo.png',
     '/assets/images/favicon.ico',
     '/assets/images/favicon-96x96.png',
     '/assets/images/apple-touch-icon.png',
+    '/assets/images/web-app-manifest-192x192.png',
+    '/assets/images/web-app-manifest-512x512.png'
+];
+
+// Recursos externos que NO se cachean (causan problemas de CSP)
+const externalResources = [
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
@@ -66,6 +75,20 @@ async function networkFirst(request) {
         }
         return caches.match('/offline.html');
     }
+}
+
+// Función para verificar si es un recurso externo problemático
+function isExternalResource(url) {
+    // Verificar si la URL es externa al dominio actual
+    const currentHost = self.location.hostname;
+    const urlHost = new URL(url).hostname;
+    
+    // Si es un dominio externo, verificar si está en la lista de recursos problemáticos
+    if (urlHost !== currentHost) {
+        return externalResources.some(resource => url.includes(resource));
+    }
+    
+    return false;
 }
 
 // Instalación del Service Worker
@@ -122,11 +145,14 @@ self.addEventListener('fetch', event => {
         return;
     }
 
-    // Excluir peticiones a APIs externas
+    // Excluir peticiones a APIs externas y recursos problemáticos
     if (url.hostname !== self.location.hostname || 
         url.pathname.includes('api.') || 
         url.pathname.includes('analytics') ||
-        url.pathname.includes('tracking')) {
+        url.pathname.includes('tracking') ||
+        isExternalResource(request.url)) {
+        console.log('🔄 Pasando recurso externo sin cachear:', request.url);
+        // Para recursos externos, simplemente pasar la petición sin interceptar
         return;
     }
 

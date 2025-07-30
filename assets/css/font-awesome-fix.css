@@ -1,0 +1,187 @@
+/* Font Awesome Fix - KND Store */
+
+/* Asegurar que Font Awesome se cargue correctamente */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* Configuración base para Font Awesome */
+.fas, .fab, .far, .fa {
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Font Awesome 6 Regular', sans-serif !important;
+    font-weight: 900;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+/* Iconos específicos con códigos Unicode como fallback */
+.fa-rocket::before { content: "\f135"; }
+.fa-gamepad::before { content: "\f11b"; }
+.fa-headset::before { content: "\f590"; }
+.fa-code::before { content: "\f121"; }
+.fa-microchip::before { content: "\f2db"; }
+.fa-search::before { content: "\f002"; }
+.fa-eye::before { content: "\f06e"; }
+.fa-envelope::before { content: "\f0e0"; }
+.fa-phone::before { content: "\f095"; }
+.fa-map-marker-alt::before { content: "\f3c5"; }
+.fa-clock::before { content: "\f017"; }
+.fa-palette::before { content: "\f53f"; }
+.fa-magic::before { content: "\f0d0"; }
+.fa-brain::before { content: "\f5dc"; }
+.fa-credit-card::before { content: "\f09d"; }
+.fa-coins::before { content: "\f51e"; }
+.fa-tools::before { content: "\f7d9"; }
+.fa-shopping-cart::before { content: "\f07a"; }
+.fa-user-astronaut::before { content: "\f4fb"; }
+.fa-sign-in-alt::before { content: "\f2f6"; }
+.fa-user-plus::before { content: "\f234"; }
+.fa-crown::before { content: "\f521"; }
+.fa-arrow-left::before { content: "\f060"; }
+.fa-home::before { content: "\f015"; }
+.fa-info-circle::before { content: "\f05a"; }
+.fa-shipping-fast::before { content: "\f48b"; }
+.fa-shield-alt::before { content: "\f3ed"; }
+.fa-check-circle::before { content: "\f058"; }
+.fa-cogs::before { content: "\f085"; }
+.fa-globe::before { content: "\f0ac"; }
+.fa-paper-plane::before { content: "\f1d8"; }
+.fa-exclamation-triangle::before { content: "\f071"; }
+.fa-undo::before { content: "\f0e2"; }
+.fa-copyright::before { content: "\f1f9"; }
+.fa-file-contract::before { content: "\f56c"; }
+.fa-database::before { content: "\f1c0"; }
+.fa-lock::before { content: "\f023"; }
+.fa-cookie-bite::before { content: "\f564"; }
+.fa-share-alt::before { content: "\f1e0"; }
+.fa-user-shield::before { content: "\f505"; }
+.fa-user-check::before { content: "\f4fc"; }
+.fa-edit::before { content: "\f044"; }
+.fa-satellite::before { content: "\f7e0"; }
+.fa-broadcast-tower::before { content: "\f519"; }
+.fa-bullseye::before { content: "\f140"; }
+.fa-comments::before { content: "\f086"; }
+.fa-robot::before { content: "\f544"; }
+.fa-dice::before { content: "\f522"; }
+.fa-crystal-ball::before { content: "\f563"; }
+.fa-question-circle::before { content: "\f059"; }
+.fa-vial::before { content: "\f492"; }
+.fa-list::before { content: "\f03a"; }
+.fa-download::before { content: "\f019"; }
+
+/* Estilos para iconos de categorías */
+.category-icon {
+    font-size: 2.5rem;
+    color: var(--knd-neon-blue);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+}
+
+.category-card:hover .category-icon {
+    color: var(--knd-electric-purple);
+    transform: scale(1.1);
+}
+
+/* Fallback visual para iconos que no cargan */
+.category-icon:empty::before,
+.category-icon i:empty::before {
+    content: "□";
+    font-size: 2rem;
+    color: var(--knd-neon-blue);
+    opacity: 0.5;
+}
+
+/* Animación de carga para iconos */
+@keyframes iconLoad {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.fas, .fab, .far {
+    animation: iconLoad 0.3s ease-in-out;
+}
+
+/* Responsive para iconos */
+@media (max-width: 768px) {
+    .category-icon {
+        font-size: 2rem;
+        min-height: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-icon {
+        font-size: 1.8rem;
+        min-height: 40px;
+    }
+}
+
+/* Fallback con emojis si Font Awesome no carga */
+.fontawesome-fallback .fas,
+.fontawesome-fallback .fab,
+.fontawesome-fallback .far {
+    font-family: monospace !important;
+    font-size: 1.2em;
+}
+
+.fontawesome-fallback .fa-rocket::before { content: "🚀"; }
+.fontawesome-fallback .fa-gamepad::before { content: "🎮"; }
+.fontawesome-fallback .fa-headset::before { content: "🎧"; }
+.fontawesome-fallback .fa-code::before { content: "💻"; }
+.fontawesome-fallback .fa-microchip::before { content: "🔧"; }
+.fontawesome-fallback .fa-search::before { content: "🔍"; }
+.fontawesome-fallback .fa-eye::before { content: "👁️"; }
+.fontawesome-fallback .fa-envelope::before { content: "📧"; }
+.fontawesome-fallback .fa-phone::before { content: "📞"; }
+.fontawesome-fallback .fa-clock::before { content: "⏰"; }
+.fontawesome-fallback .fa-palette::before { content: "🎨"; }
+.fontawesome-fallback .fa-magic::before { content: "✨"; }
+.fontawesome-fallback .fa-brain::before { content: "🧠"; }
+.fontawesome-fallback .fa-credit-card::before { content: "💳"; }
+.fontawesome-fallback .fa-coins::before { content: "🪙"; }
+.fontawesome-fallback .fa-tools::before { content: "🔧"; }
+.fontawesome-fallback .fa-shopping-cart::before { content: "🛒"; }
+.fontawesome-fallback .fa-user-astronaut::before { content: "👨‍🚀"; }
+.fontawesome-fallback .fa-crown::before { content: "👑"; }
+.fontawesome-fallback .fa-home::before { content: "🏠"; }
+.fontawesome-fallback .fa-info-circle::before { content: "ℹ️"; }
+.fontawesome-fallback .fa-shipping-fast::before { content: "🚚"; }
+.fontawesome-fallback .fa-shield-alt::before { content: "🛡️"; }
+.fontawesome-fallback .fa-check-circle::before { content: "✅"; }
+.fontawesome-fallback .fa-cogs::before { content: "⚙️"; }
+.fontawesome-fallback .fa-globe::before { content: "🌍"; }
+.fontawesome-fallback .fa-paper-plane::before { content: "📮"; }
+.fontawesome-fallback .fa-exclamation-triangle::before { content: "⚠️"; }
+.fontawesome-fallback .fa-undo::before { content: "↩️"; }
+.fontawesome-fallback .fa-copyright::before { content: "©️"; }
+.fontawesome-fallback .fa-file-contract::before { content: "📄"; }
+.fontawesome-fallback .fa-database::before { content: "🗄️"; }
+.fontawesome-fallback .fa-lock::before { content: "🔒"; }
+.fontawesome-fallback .fa-cookie-bite::before { content: "🍪"; }
+.fontawesome-fallback .fa-share-alt::before { content: "📤"; }
+.fontawesome-fallback .fa-user-shield::before { content: "👤🛡️"; }
+.fontawesome-fallback .fa-user-check::before { content: "👤✅"; }
+.fontawesome-fallback .fa-edit::before { content: "✏️"; }
+.fontawesome-fallback .fa-satellite::before { content: "🛰️"; }
+.fontawesome-fallback .fa-broadcast-tower::before { content: "📡"; }
+.fontawesome-fallback .fa-bullseye::before { content: "🎯"; }
+.fontawesome-fallback .fa-comments::before { content: "💬"; }
+.fontawesome-fallback .fa-robot::before { content: "🤖"; }
+.fontawesome-fallback .fa-dice::before { content: "🎲"; }
+.fontawesome-fallback .fa-crystal-ball::before { content: "🔮"; }
+.fontawesome-fallback .fa-question-circle::before { content: "❓"; }
+.fontawesome-fallback .fa-vial::before { content: "🧪"; }
+.fontawesome-fallback .fa-list::before { content: "📋"; }
+.fontawesome-fallback .fa-download::before { content: "⬇️"; }
+.fontawesome-fallback .fa-arrow-left::before { content: "←"; }
+.fontawesome-fallback .fa-sign-in-alt::before { content: "➡️"; }
+.fontawesome-fallback .fa-user-plus::before { content: "👤+"; } 

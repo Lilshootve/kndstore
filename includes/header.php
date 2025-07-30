@@ -61,11 +61,78 @@ function generateCommonAssets() {
     $assets .= '<link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
     $assets .= '<noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"></noscript>' . "\n";
     
-    // Font Awesome - Carga directa para mejor compatibilidad
-    $assets .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">' . "\n";
+    // Font Awesome con carga mejorada y múltiples CDNs
+    $assets .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
+    $assets .= '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
+    $assets .= '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
+    
+    // Script de fallback para Font Awesome
+    $assets .= '<script>
+        // Fallback para Font Awesome
+        (function() {
+            function loadFontAwesome() {
+                const cdnUrls = [
+                    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+                    "https://use.fontawesome.com/releases/v6.4.0/css/all.css",
+                    "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+                ];
+                
+                function tryLoadCDN(index) {
+                    if (index >= cdnUrls.length) return;
+                    
+                    const link = document.createElement("link");
+                    link.rel = "stylesheet";
+                    link.href = cdnUrls[index];
+                    
+                    link.onload = function() {
+                        console.log("Font Awesome cargado desde:", cdnUrls[index]);
+                    };
+                    
+                    link.onerror = function() {
+                        console.warn("Falló CDN:", cdnUrls[index]);
+                        tryLoadCDN(index + 1);
+                    };
+                    
+                    document.head.appendChild(link);
+                }
+                
+                // Verificar si Font Awesome ya está cargado
+                const testElement = document.createElement("i");
+                testElement.className = "fas fa-rocket";
+                testElement.style.position = "absolute";
+                testElement.style.left = "-9999px";
+                testElement.style.fontSize = "1px";
+                document.body.appendChild(testElement);
+                
+                const computedStyle = window.getComputedStyle(testElement, "::before");
+                const content = computedStyle.getPropertyValue("content");
+                
+                document.body.removeChild(testElement);
+                
+                if (!content || content === "none" || content === "normal") {
+                    console.log("Font Awesome no detectado, cargando...");
+                    tryLoadCDN(0);
+                } else {
+                    console.log("Font Awesome ya está cargado");
+                }
+            }
+            
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", loadFontAwesome);
+            } else {
+                loadFontAwesome();
+            }
+        })();
+    </script>' . "\n";
+    
+    // Font Awesome Fix JavaScript
+    $assets .= '<script src="assets/js/font-awesome-fix.js" defer></script>' . "\n";
     
     // Custom CSS con cache headers
     $assets .= '<link rel="stylesheet" href="assets/css/style.css">' . "\n";
+    
+    // Font Awesome Fix CSS
+    $assets .= '<link rel="stylesheet" href="assets/css/font-awesome-fix.css">' . "\n";
     
     // Mobile Optimization CSS
     $assets .= '<link rel="stylesheet" href="assets/css/mobile-optimization.css">' . "\n";

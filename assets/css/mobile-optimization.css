@@ -6,11 +6,10 @@
 @media screen and (max-width: 768px) {
     /* Ajustes de tipografía para móviles */
     body {
-        font-size: 16px !important; /* Previene zoom automático en iOS */
-        line-height: 1.5 !important;
-        -webkit-text-size-adjust: 100% !important;
-        -ms-text-size-adjust: 100% !important;
-        overflow-x: hidden !important;
+        font-size: 16px; /* Previene zoom automático en iOS */
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
     }
     
     /* Títulos responsivos */
@@ -70,12 +69,6 @@
     .navbar {
         height: 80px !important;
         padding: 0.5rem 1rem !important;
-        position: fixed !important;
-        top: 0 !important;
-        width: 100% !important;
-        z-index: 1030 !important;
-        background: rgba(0, 0, 0, 0.95) !important;
-        backdrop-filter: blur(10px) !important;
     }
     
     .navbar-brand img {
