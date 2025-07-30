@@ -672,12 +672,31 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero-section {
-    min-height: 100vh;
+    min-height: 100vh !important;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     padding-top: 120px; /* Espacio para el navbar fijo */
     padding-bottom: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    overflow: visible;
+    z-index: 1;
+}
+
+.hero-section .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.hero-section .row {
+    width: 100%;
+    margin: 0;
+    align-items: center;
 }
 
 .hero-title {
@@ -687,6 +706,8 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
     line-height: 1.2;
     text-align: left;
+    position: relative;
+    z-index: 10;
 }
 
 .hero-title .text-gradient {
