@@ -8,13 +8,8 @@ ini_set('display_errors', 1);
 // Configuración de zona horaria
 date_default_timezone_set('America/Mexico_City');
 
-// Configuración de sesión básica - solo si la sesión no está activa
-if (session_status() == PHP_SESSION_NONE) {
-    ini_set('session.cookie_httponly', 1);
-    ini_set('session.use_only_cookies', 1);
-    ini_set('session.cookie_secure', 1);
-    ini_set('session.cookie_samesite', 'Strict');
-}
+// Configuración de sesión - ya se maneja en index.php
+// No configurar aquí para evitar conflictos
 
 // Headers de seguridad básicos
 header('X-Content-Type-Options: nosniff');
