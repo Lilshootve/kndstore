@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Iconos - KND Store</title>
+    <title>Test Alternativo de Iconos - KND Store</title>
     
-    <!-- Font Awesome -->
+    <!-- Múltiples CDNs de Font Awesome para redundancia -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     
     <!-- Estilos básicos -->
     <style>
@@ -44,14 +46,25 @@
             font-family: monospace;
             font-size: 12px;
         }
+        .cdn-status {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        .cdn-success { background: #28a745; }
+        .cdn-error { background: #dc3545; }
+        .cdn-loading { background: #ffc107; color: #000; }
     </style>
 </head>
 <body>
-    <h1>🧪 Test de Iconos - KND Store</h1>
+    <h1>🧪 Test Alternativo de Iconos - KND Store</h1>
     
     <div class="status">
         <h3>Estado de Font Awesome:</h3>
         <div id="fa-status">Verificando...</div>
+        <div id="cdn-status">Estado de CDNs: <span id="cdn-loading" class="cdn-status">Cargando...</span></div>
     </div>
     
     <div class="debug-info">
@@ -347,6 +360,35 @@
             return fallbackCount;
         }
         
+        // Función para verificar CDNs
+        function checkCDNs() {
+            const cdnStatus = document.getElementById('cdn-status');
+            const cdnLoading = document.getElementById('cdn-loading');
+            
+            // Verificar CDN 1
+            const test1 = document.createElement('i');
+            test1.className = 'fas fa-rocket';
+            test1.style.position = 'absolute';
+            test1.style.left = '-9999px';
+            document.body.appendChild(test1);
+            
+            setTimeout(() => {
+                const style1 = window.getComputedStyle(test1, '::before');
+                const content1 = style1.getPropertyValue('content');
+                document.body.removeChild(test1);
+                
+                if (content1 && content1 !== 'none' && content1 !== 'normal' && content1 !== '') {
+                    cdnLoading.className = 'cdn-status cdn-success';
+                    cdnLoading.textContent = 'CDN 1: ✅ Funcionando';
+                    cdnStatus.innerHTML = 'Estado de CDNs: <span class="cdn-status cdn-success">CDN 1: ✅</span>';
+                } else {
+                    cdnLoading.className = 'cdn-status cdn-error';
+                    cdnLoading.textContent = 'CDN 1: ❌ Falló';
+                    cdnStatus.innerHTML = 'Estado de CDNs: <span class="cdn-status cdn-error">CDN 1: ❌</span>';
+                }
+            }, 1000);
+        }
+        
         // Función para verificar si Font Awesome está realmente cargado
         function checkFontAwesome() {
             const testElement = document.createElement('i');
@@ -373,7 +415,8 @@
                     <strong>Font Family:</strong> ${fontFamily}<br>
                     <strong>Content Length:</strong> ${content.length}<br>
                     <strong>Is FontAwesome:</strong> ${fontFamily.includes('Font Awesome')}<br>
-                    <strong>Has Content:</strong> ${content && content !== 'none' && content !== 'normal' && content !== ''}
+                    <strong>Has Content:</strong> ${content && content !== 'none' && content !== 'normal' && content !== ''}<br>
+                    <strong>Raw Content:</strong> "${content}"
                 `;
                 
                 // Verificar si realmente está cargado
@@ -393,6 +436,9 @@
             }, 1000);
         }
         
+        // Verificar CDNs primero
+        checkCDNs();
+        
         // Verificar cuando la página se carga
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', checkFontAwesome);
@@ -405,6 +451,7 @@
         
         // Verificar después de un delay adicional
         setTimeout(checkFontAwesome, 2000);
+        setTimeout(checkFontAwesome, 5000);
     </script>
 </body>
-</html> 
+</html>

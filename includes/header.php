@@ -61,12 +61,14 @@ function generateCommonAssets() {
     $assets .= '<link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
     $assets .= '<noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"></noscript>' . "\n";
     
-    // Font Awesome - Solo un CDN confiable
+    // Font Awesome - Múltiples CDNs para redundancia
     $assets .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
+    $assets .= '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
+    $assets .= '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
     
-    // Script de fallback simple para Font Awesome
+    // Script de fallback mejorado para Font Awesome
     $assets .= '<script>
-        // Fallback simple para Font Awesome
+        // Fallback mejorado para Font Awesome
         (function() {
             function checkFontAwesome() {
                 const testElement = document.createElement("i");
@@ -76,17 +78,58 @@ function generateCommonAssets() {
                 testElement.style.fontSize = "1px";
                 document.body.appendChild(testElement);
                 
-                const computedStyle = window.getComputedStyle(testElement, "::before");
-                const content = computedStyle.getPropertyValue("content");
-                
-                document.body.removeChild(testElement);
-                
-                if (!content || content === "none" || content === "normal") {
-                    console.warn("Font Awesome no detectado, aplicando fallbacks...");
-                    document.body.classList.add("fontawesome-fallback");
-                } else {
-                    console.log("Font Awesome cargado correctamente");
-                }
+                setTimeout(() => {
+                    const computedStyle = window.getComputedStyle(testElement, "::before");
+                    const content = computedStyle.getPropertyValue("content");
+                    const fontFamily = computedStyle.getPropertyValue("font-family");
+                    
+                    document.body.removeChild(testElement);
+                    
+                    // Verificar si realmente está cargado
+                    const isLoaded = content && content !== "none" && content !== "normal" && content !== "" && content.length > 0;
+                    
+                    if (!isLoaded) {
+                        console.warn("Font Awesome no detectado, aplicando fallbacks...");
+                        document.body.classList.add("fontawesome-fallback");
+                        
+                        // Aplicar fallbacks visuales
+                        const icons = document.querySelectorAll(".fas, .fab, .far");
+                        icons.forEach(icon => {
+                            const iconName = icon.className.match(/fa-(\\w+)/);
+                            if (iconName) {
+                                const fallbackText = getFallbackText(iconName[1]);
+                                icon.textContent = fallbackText;
+                                icon.style.fontFamily = "monospace";
+                                icon.style.fontSize = "1.2em";
+                            }
+                        });
+                    } else {
+                        console.log("Font Awesome detectado correctamente");
+                    }
+                }, 1000);
+            }
+            
+            // Función para obtener texto de fallback
+            function getFallbackText(iconName) {
+                const fallbacks = {
+                    "rocket": "🚀", "gamepad": "🎮", "headset": "🎧", "code": "💻",
+                    "microchip": "🔧", "search": "🔍", "eye": "👁️", "envelope": "📧",
+                    "phone": "📞", "clock": "⏰", "palette": "🎨", "magic": "✨",
+                    "brain": "🧠", "credit-card": "💳", "coins": "🪙", "tools": "🔧",
+                    "shopping-cart": "🛒", "user-astronaut": "👨‍🚀", "crown": "👑",
+                    "home": "🏠", "info-circle": "ℹ️", "shipping-fast": "🚚",
+                    "shield-alt": "🛡️", "check-circle": "✅", "cogs": "⚙️",
+                    "globe": "🌍", "paper-plane": "📮", "exclamation-triangle": "⚠️",
+                    "undo": "↩️", "copyright": "©️", "file-contract": "📄",
+                    "database": "🗄️", "lock": "🔒", "cookie-bite": "🍪",
+                    "share-alt": "📤", "user-shield": "👤🛡️", "user-check": "👤✅",
+                    "edit": "✏️", "satellite": "🛰️", "broadcast-tower": "📡",
+                    "bullseye": "🎯", "comments": "💬", "robot": "🤖", "dice": "🎲",
+                    "crystal-ball": "🔮", "question-circle": "❓", "vial": "🧪",
+                    "list": "📋", "download": "⬇️", "arrow-left": "←",
+                    "sign-in-alt": "➡️", "user-plus": "👤+"
+                };
+                return fallbacks[iconName] || "□";
             }
             
             if (document.readyState === "loading") {
@@ -94,6 +137,9 @@ function generateCommonAssets() {
             } else {
                 checkFontAwesome();
             }
+            
+            // También verificar cuando la ventana se carga completamente
+            window.addEventListener("load", checkFontAwesome);
         })();
     </script>' . "\n";
     
