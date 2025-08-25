@@ -61,87 +61,196 @@ function generateCommonAssets() {
     $assets .= '<link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
     $assets .= '<noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"></noscript>' . "\n";
     
-    // Font Awesome - Múltiples CDNs para redundancia
-    $assets .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
-    $assets .= '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
-    $assets .= '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
+    // Detectar si estamos en producción (Hostinger)
+    $isProduction = (strpos($_SERVER['HTTP_HOST'], 'kndstore.com') !== false || 
+                    strpos($_SERVER['HTTP_HOST'], 'hstgr.io') !== false);
     
-    // Script de fallback mejorado para Font Awesome
-    $assets .= '<script>
-        // Fallback mejorado para Font Awesome
-        (function() {
-            function checkFontAwesome() {
-                const testElement = document.createElement("i");
-                testElement.className = "fas fa-rocket";
-                testElement.style.position = "absolute";
-                testElement.style.left = "-9999px";
-                testElement.style.fontSize = "1px";
-                document.body.appendChild(testElement);
-                
-                setTimeout(() => {
-                    const computedStyle = window.getComputedStyle(testElement, "::before");
-                    const content = computedStyle.getPropertyValue("content");
-                    const fontFamily = computedStyle.getPropertyValue("font-family");
+    if ($isProduction) {
+        // En producción, usar solo CDN más confiable y fallbacks locales
+        $assets .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">' . "\n";
+        
+        // Script de fallback robusto para producción
+        $assets .= '<script>
+            // Fallback robusto para producción (Hostinger)
+            (function() {
+                function checkFontAwesome() {
+                    const testElement = document.createElement("i");
+                    testElement.className = "fas fa-rocket";
+                    testElement.style.position = "absolute";
+                    testElement.style.left = "-9999px";
+                    testElement.style.fontSize = "1px";
+                    document.body.appendChild(testElement);
                     
-                    document.body.removeChild(testElement);
-                    
-                    // Verificar si realmente está cargado
-                    const isLoaded = content && content !== "none" && content !== "normal" && content !== "" && content.length > 0;
-                    
-                    if (!isLoaded) {
-                        console.warn("Font Awesome no detectado, aplicando fallbacks...");
-                        document.body.classList.add("fontawesome-fallback");
+                    setTimeout(() => {
+                        const computedStyle = window.getComputedStyle(testElement, "::before");
+                        const content = computedStyle.getPropertyValue("content");
+                        const fontFamily = computedStyle.getPropertyValue("font-family");
                         
-                        // Aplicar fallbacks visuales
-                        const icons = document.querySelectorAll(".fas, .fab, .far");
-                        icons.forEach(icon => {
-                            const iconName = icon.className.match(/fa-(\\w+)/);
-                            if (iconName) {
-                                const fallbackText = getFallbackText(iconName[1]);
-                                icon.textContent = fallbackText;
-                                icon.style.fontFamily = "monospace";
-                                icon.style.fontSize = "1.2em";
-                            }
-                        });
-                    } else {
-                        console.log("Font Awesome detectado correctamente");
-                    }
-                }, 1000);
-            }
-            
-            // Función para obtener texto de fallback
-            function getFallbackText(iconName) {
-                const fallbacks = {
-                    "rocket": "🚀", "gamepad": "🎮", "headset": "🎧", "code": "💻",
-                    "microchip": "🔧", "search": "🔍", "eye": "👁️", "envelope": "📧",
-                    "phone": "📞", "clock": "⏰", "palette": "🎨", "magic": "✨",
-                    "brain": "🧠", "credit-card": "💳", "coins": "🪙", "tools": "🔧",
-                    "shopping-cart": "🛒", "user-astronaut": "👨‍🚀", "crown": "👑",
-                    "home": "🏠", "info-circle": "ℹ️", "shipping-fast": "🚚",
-                    "shield-alt": "🛡️", "check-circle": "✅", "cogs": "⚙️",
-                    "globe": "🌍", "paper-plane": "📮", "exclamation-triangle": "⚠️",
-                    "undo": "↩️", "copyright": "©️", "file-contract": "📄",
-                    "database": "🗄️", "lock": "🔒", "cookie-bite": "🍪",
-                    "share-alt": "📤", "user-shield": "👤🛡️", "user-check": "👤✅",
-                    "edit": "✏️", "satellite": "🛰️", "broadcast-tower": "📡",
-                    "bullseye": "🎯", "comments": "💬", "robot": "🤖", "dice": "🎲",
-                    "crystal-ball": "🔮", "question-circle": "❓", "vial": "🧪",
-                    "list": "📋", "download": "⬇️", "arrow-left": "←",
-                    "sign-in-alt": "➡️", "user-plus": "👤+"
-                };
-                return fallbacks[iconName] || "□";
-            }
-            
-            if (document.readyState === "loading") {
-                document.addEventListener("DOMContentLoaded", checkFontAwesome);
-            } else {
-                checkFontAwesome();
-            }
-            
-            // También verificar cuando la ventana se carga completamente
-            window.addEventListener("load", checkFontAwesome);
-        })();
-    </script>' . "\n";
+                        document.body.removeChild(testElement);
+                        
+                        // Verificar si realmente está cargado
+                        const isLoaded = content && content !== "none" && content !== "normal" && content !== "" && content.length > 0;
+                        
+                        if (!isLoaded) {
+                            console.warn("Font Awesome no detectado en producción, aplicando fallbacks locales...");
+                            document.body.classList.add("fontawesome-fallback");
+                            
+                            // Aplicar fallbacks visuales inmediatamente
+                            applyFallbacks();
+                        } else {
+                            console.log("Font Awesome detectado correctamente en producción");
+                        }
+                    }, 1500); // Más tiempo para producción
+                }
+                
+                // Función para obtener texto de fallback
+                function getFallbackText(iconName) {
+                    const fallbacks = {
+                        "rocket": "🚀", "gamepad": "🎮", "headset": "🎧", "code": "💻",
+                        "microchip": "🔧", "search": "🔍", "eye": "👁️", "envelope": "📧",
+                        "phone": "📞", "clock": "⏰", "palette": "🎨", "magic": "✨",
+                        "brain": "🧠", "credit-card": "💳", "coins": "🪙", "tools": "🔧",
+                        "shopping-cart": "🛒", "user-astronaut": "👨‍🚀", "crown": "👑",
+                        "home": "🏠", "info-circle": "ℹ️", "shipping-fast": "🚚",
+                        "shield-alt": "🛡️", "check-circle": "✅", "cogs": "⚙️",
+                        "globe": "🌍", "paper-plane": "📮", "exclamation-triangle": "⚠️",
+                        "undo": "↩️", "copyright": "©️", "file-contract": "📄",
+                        "database": "🗄️", "lock": "🔒", "cookie-bite": "🍪",
+                        "share-alt": "📤", "user-shield": "👤🛡️", "user-check": "👤✅",
+                        "edit": "✏️", "satellite": "🛰️", "broadcast-tower": "📡",
+                        "bullseye": "🎯", "comments": "💬", "robot": "🤖", "dice": "🎲",
+                        "crystal-ball": "🔮", "question-circle": "❓", "vial": "🧪",
+                        "list": "📋", "download": "⬇️", "arrow-left": "←",
+                        "sign-in-alt": "➡️", "user-plus": "👤+", "star": "⭐",
+                        "crosshairs": "🎯", "users": "👥", "user-secret": "🕵️",
+                        "network-wired": "🌐", "university": "🏛️", "space-shuttle": "🚀",
+                        "store": "🏪"
+                    };
+                    return fallbacks[iconName] || "□";
+                }
+                
+                // Función para aplicar fallbacks visuales
+                function applyFallbacks() {
+                    const icons = document.querySelectorAll(".fas, .fab, .far");
+                    let fallbackCount = 0;
+                    
+                    icons.forEach(icon => {
+                        const iconName = icon.className.match(/fa-(\\w+)/);
+                        if (iconName) {
+                            const fallbackText = getFallbackText(iconName[1]);
+                            icon.textContent = fallbackText;
+                            icon.style.fontFamily = "monospace";
+                            icon.style.fontSize = "1.2em";
+                            icon.style.color = "#00bfff";
+                            fallbackCount++;
+                        }
+                    });
+                    
+                    console.log(`Fallbacks aplicados a ${fallbackCount} iconos en producción`);
+                    return fallbackCount;
+                }
+                
+                // Verificar cuando la página se carga
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", checkFontAwesome);
+                } else {
+                    checkFontAwesome();
+                }
+                
+                // También verificar cuando la ventana se carga completamente
+                window.addEventListener("load", checkFontAwesome);
+                
+                // Verificar después de delays adicionales para producción
+                setTimeout(checkFontAwesome, 3000);
+                setTimeout(checkFontAwesome, 5000);
+            })();
+        </script>' . "\n";
+    } else {
+        // En desarrollo local, usar múltiples CDNs
+        $assets .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
+        $assets .= '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
+        $assets .= '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">' . "\n";
+        
+        // Script de fallback para desarrollo
+        $assets .= '<script>
+            // Fallback para desarrollo local
+            (function() {
+                function checkFontAwesome() {
+                    const testElement = document.createElement("i");
+                    testElement.className = "fas fa-rocket";
+                    testElement.style.position = "absolute";
+                    testElement.style.left = "-9999px";
+                    testElement.style.fontSize = "1px";
+                    document.body.appendChild(testElement);
+                    
+                    setTimeout(() => {
+                        const computedStyle = window.getComputedStyle(testElement, "::before");
+                        const content = computedStyle.getPropertyValue("content");
+                        const fontFamily = computedStyle.getPropertyValue("font-family");
+                        
+                        document.body.removeChild(testElement);
+                        
+                        // Verificar si realmente está cargado
+                        const isLoaded = content && content !== "none" && content !== "normal" && content !== "" && content.length > 0;
+                        
+                        if (!isLoaded) {
+                            console.warn("Font Awesome no detectado en desarrollo, aplicando fallbacks...");
+                            document.body.classList.add("fontawesome-fallback");
+                            
+                            // Aplicar fallbacks visuales
+                            const icons = document.querySelectorAll(".fas, .fab, .far");
+                            icons.forEach(icon => {
+                                const iconName = icon.className.match(/fa-(\\w+)/);
+                                if (iconName) {
+                                    const fallbackText = getFallbackText(iconName[1]);
+                                    icon.textContent = fallbackText;
+                                    icon.style.fontFamily = "monospace";
+                                    icon.style.fontSize = "1.2em";
+                                }
+                            });
+                        } else {
+                            console.log("Font Awesome detectado correctamente en desarrollo");
+                        }
+                    }, 1000);
+                }
+                
+                // Función para obtener texto de fallback
+                function getFallbackText(iconName) {
+                    const fallbacks = {
+                        "rocket": "🚀", "gamepad": "🎮", "headset": "🎧", "code": "💻",
+                        "microchip": "🔧", "search": "🔍", "eye": "👁️", "envelope": "📧",
+                        "phone": "📞", "clock": "⏰", "palette": "🎨", "magic": "✨",
+                        "brain": "🧠", "credit-card": "💳", "coins": "🪙", "tools": "🔧",
+                        "shopping-cart": "🛒", "user-astronaut": "👨‍🚀", "crown": "👑",
+                        "home": "🏠", "info-circle": "ℹ️", "shipping-fast": "🚚",
+                        "shield-alt": "🛡️", "check-circle": "✅", "cogs": "⚙️",
+                        "globe": "🌍", "paper-plane": "📮", "exclamation-triangle": "⚠️",
+                        "undo": "↩️", "copyright": "©️", "file-contract": "📄",
+                        "database": "🗄️", "lock": "🔒", "cookie-bite": "🍪",
+                        "share-alt": "📤", "user-shield": "👤🛡️", "user-check": "👤✅",
+                        "edit": "✏️", "satellite": "🛰️", "broadcast-tower": "📡",
+                        "bullseye": "🎯", "comments": "💬", "robot": "🤖", "dice": "🎲",
+                        "crystal-ball": "🔮", "question-circle": "❓", "vial": "🧪",
+                        "list": "📋", "download": "⬇️", "arrow-left": "←",
+                        "sign-in-alt": "➡️", "user-plus": "👤+"
+                    };
+                    return fallbacks[iconName] || "□";
+                }
+                
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", checkFontAwesome);
+                } else {
+                    checkFontAwesome();
+                }
+                
+                // También verificar cuando la ventana se carga completamente
+                window.addEventListener("load", checkFontAwesome);
+                
+                // Verificar después de un delay adicional
+                setTimeout(checkFontAwesome, 2000);
+            })();
+        </script>' . "\n";
+    }
     
     // Custom CSS con cache headers
     $assets .= '<link rel="stylesheet" href="assets/css/style.css">' . "\n";

@@ -15,6 +15,9 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once 'includes/config.php';
 require_once 'includes/header.php';
 require_once 'includes/footer.php';
+
+// Incluir fix específico para Hostinger si es necesario
+include_once 'hostinger-font-awesome-fix.php';
 ?>
 
 <?php echo generateHeader('Sobre Nosotros', 'Descubre la historia galáctica detrás de KND Store - La tienda más badass de la galaxia'); ?>

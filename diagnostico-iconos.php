@@ -26,11 +26,11 @@ echo generateNavigation();
             </div>
             
             <!-- Iconos de Prueba -->
-            <div class="card bg-dark mb-4">
-                <div class="card-header">
+                    <div class="card bg-dark mb-4">
+                        <div class="card-header">
                     <h5><i class="fas fa-vial"></i> Iconos de Prueba</h5>
-                </div>
-                <div class="card-body">
+                        </div>
+                        <div class="card-body">
                     <div class="row">
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
@@ -265,84 +265,84 @@ echo generateNavigation();
                                 <i class="fas fa-satellite fa-2x text-primary mb-2"></i>
                                 <div>Satélite</div>
                             </div>
-                        </div>
+                            </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-broadcast-tower fa-2x text-primary mb-2"></i>
                                 <div>Torre</div>
-                            </div>
+                        </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-bullseye fa-2x text-primary mb-2"></i>
                                 <div>Diana</div>
-                            </div>
-                        </div>
+                    </div>
+                </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-comments fa-2x text-primary mb-2"></i>
                                 <div>Comentarios</div>
-                            </div>
                         </div>
+                            </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-robot fa-2x text-primary mb-2"></i>
                                 <div>Robot</div>
-                            </div>
                         </div>
+                    </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-dice fa-2x text-primary mb-2"></i>
                                 <div>Dados</div>
-                            </div>
-                        </div>
+                </div>
+            </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-crystal-ball fa-2x text-primary mb-2"></i>
                                 <div>Bola de Cristal</div>
-                            </div>
                         </div>
+                            </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-question-circle fa-2x text-primary mb-2"></i>
                                 <div>Pregunta</div>
-                            </div>
+                        </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-vial fa-2x text-primary mb-2"></i>
                                 <div>Tubo de Ensayo</div>
-                            </div>
-                        </div>
+                    </div>
+                </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-list fa-2x text-primary mb-2"></i>
                                 <div>Lista</div>
-                            </div>
                         </div>
+                            </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-download fa-2x text-primary mb-2"></i>
                                 <div>Descargar</div>
-                            </div>
                         </div>
+                    </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-arrow-left fa-2x text-primary mb-2"></i>
                                 <div>Flecha Izquierda</div>
-                            </div>
-                        </div>
+                </div>
+            </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-sign-in-alt fa-2x text-primary mb-2"></i>
                                 <div>Entrar</div>
-                            </div>
+                </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <div class="text-center p-3 border border-primary rounded">
                                 <i class="fas fa-user-plus fa-2x text-primary mb-2"></i>
                                 <div>Agregar Usuario</div>
-                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -388,7 +388,7 @@ echo generateNavigation();
     // Verificar cuando la página se carga
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', checkFontAwesome);
-    } else {
+            } else {
         checkFontAwesome();
     }
     
