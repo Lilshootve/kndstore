@@ -3,193 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Simple de Iconos - KND Store</title>
+    <title>Test Iconos - KND Store</title>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/font-awesome-fix.css">
-    
+    <!-- Estilos básicos -->
     <style>
         body {
             background: #000;
-            color: white;
+            color: #fff;
             font-family: Arial, sans-serif;
             padding: 20px;
         }
-        
-        .test-section {
-            margin: 20px 0;
-            padding: 20px;
-            border: 1px solid #00bfff;
-            border-radius: 10px;
-        }
-        
         .icon-test {
-            display: inline-block;
-            margin: 10px;
-            padding: 15px;
-            border: 1px solid #8a2be2;
-            border-radius: 8px;
-            text-align: center;
-            min-width: 100px;
-        }
-        
-        .icon-test i {
             font-size: 2rem;
-            margin-bottom: 10px;
-            display: block;
-            color: #00bfff;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #00bfff;
+            border-radius: 5px;
+            display: inline-block;
         }
-        
         .status {
+            background: #2c2c2c;
             padding: 15px;
+            border-radius: 5px;
             margin: 20px 0;
-            border-radius: 8px;
-            border: 2px solid;
-        }
-        
-        .status.success {
-            background: rgba(40, 167, 69, 0.2);
-            border-color: #28a745;
-        }
-        
-        .status.error {
-            background: rgba(220, 53, 69, 0.2);
-            border-color: #dc3545;
-        }
-        
-        .status.warning {
-            background: rgba(255, 193, 7, 0.2);
-            border-color: #ffc107;
         }
     </style>
 </head>
 <body>
-    <h1>🧪 Test Simple de Iconos - KND Store</h1>
+    <h1>🧪 Test de Iconos - KND Store</h1>
     
-    <div id="status" class="status">
+    <div class="status">
         <h3>Estado de Font Awesome:</h3>
-        <p id="status-text">Verificando...</p>
+        <div id="fa-status">Verificando...</div>
     </div>
     
-    <div class="test-section">
-        <h3>Iconos Principales del Sitio</h3>
-        <div class="icon-test">
-            <i class="fas fa-rocket"></i>
-            <span>Rocket</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-info-circle"></i>
-            <span>Info</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-shipping-fast"></i>
-            <span>Shipping</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-shield-alt"></i>
-            <span>Shield</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-headset"></i>
-            <span>Headset</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-search"></i>
-            <span>Search</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-eye"></i>
-            <span>Eye</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-envelope"></i>
-            <span>Envelope</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-phone"></i>
-            <span>Phone</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </div>
+    <h3>Iconos de Prueba:</h3>
+    
+    <div class="icon-test">
+        <i class="fas fa-rocket"></i> Cohete
     </div>
     
-    <div class="test-section">
-        <h3>Iconos de Categorías</h3>
-        <div class="icon-test">
-            <i class="fas fa-gamepad"></i>
-            <span>Gaming</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-code"></i>
-            <span>Software</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-microchip"></i>
-            <span>Hardware</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-brain"></i>
-            <span>AI</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-palette"></i>
-            <span>Design</span>
-        </div>
+    <div class="icon-test">
+        <i class="fas fa-gamepad"></i> Gamepad
     </div>
     
-    <div class="test-section">
-        <h3>Iconos de Acciones</h3>
-        <div class="icon-test">
-            <i class="fas fa-shopping-cart"></i>
-            <span>Cart</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-user-astronaut"></i>
-            <span>User</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-crown"></i>
-            <span>Premium</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-download"></i>
-            <span>Download</span>
-        </div>
-        <div class="icon-test">
-            <i class="fas fa-arrow-left"></i>
-            <span>Back</span>
-        </div>
+    <div class="icon-test">
+        <i class="fas fa-headset"></i> Headset
     </div>
     
-    <div class="test-section">
-        <h3>Enlaces de Prueba</h3>
-        <a href="index.php" class="icon-test" style="text-decoration: none;">
-            <i class="fas fa-home"></i>
-            <span>Inicio</span>
-        </a>
-        <a href="products.php" class="icon-test" style="text-decoration: none;">
-            <i class="fas fa-list"></i>
-            <span>Productos</span>
-        </a>
-        <a href="about.php" class="icon-test" style="text-decoration: none;">
-            <i class="fas fa-info-circle"></i>
-            <span>Sobre Nosotros</span>
-        </a>
-        <a href="contact.php" class="icon-test" style="text-decoration: none;">
-            <i class="fas fa-envelope"></i>
-            <span>Contacto</span>
-        </a>
+    <div class="icon-test">
+        <i class="fas fa-code"></i> Código
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-microchip"></i> Microchip
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-search"></i> Búsqueda
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-eye"></i> Ojo
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-envelope"></i> Envelope
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-phone"></i> Teléfono
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-clock"></i> Reloj
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-palette"></i> Paleta
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-magic"></i> Magia
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-brain"></i> Cerebro
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-credit-card"></i> Tarjeta
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-coins"></i> Monedas
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-tools"></i> Herramientas
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-shopping-cart"></i> Carrito
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-user-astronaut"></i> Astronauta
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-crown"></i> Corona
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-home"></i> Casa
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-info-circle"></i> Info
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-shipping-fast"></i> Envío
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-shield-alt"></i> Escudo
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-check-circle"></i> Check
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-cogs"></i> Engranajes
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-globe"></i> Globo
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-paper-plane"></i> Avión
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-exclamation-triangle"></i> Advertencia
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-undo"></i> Deshacer
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-copyright"></i> Copyright
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-file-contract"></i> Contrato
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-database"></i> Base de Datos
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-lock"></i> Candado
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-cookie-bite"></i> Cookie
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-share-alt"></i> Compartir
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-user-shield"></i> Usuario Escudo
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-user-check"></i> Usuario Check
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-edit"></i> Editar
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-satellite"></i> Satélite
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-broadcast-tower"></i> Torre
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-bullseye"></i> Diana
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-comments"></i> Comentarios
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-robot"></i> Robot
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-dice"></i> Dados
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-crystal-ball"></i> Bola de Cristal
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-question-circle"></i> Pregunta
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-vial"></i> Tubo de Ensayo
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-list"></i> Lista
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-download"></i> Descargar
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-arrow-left"></i> Flecha Izquierda
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-sign-in-alt"></i> Entrar
+    </div>
+    
+    <div class="icon-test">
+        <i class="fas fa-user-plus"></i> Agregar Usuario
     </div>
     
     <script>
-        // Función para verificar Font Awesome
+        // Verificar si Font Awesome está cargado
         function checkFontAwesome() {
             const testElement = document.createElement('i');
             testElement.className = 'fas fa-rocket';
@@ -203,30 +265,26 @@
             
             document.body.removeChild(testElement);
             
-            const statusDiv = document.getElementById('status');
-            const statusText = document.getElementById('status-text');
+            const statusDiv = document.getElementById('fa-status');
             
-            if (!content || content === 'none' || content === 'normal') {
-                statusDiv.className = 'status error';
-                statusText.innerHTML = '❌ Font Awesome NO se cargó correctamente. Se están usando fallbacks con emojis.';
+            if (content && content !== 'none' && content !== 'normal') {
+                statusDiv.innerHTML = '<span style="color: #00ff00;">✅ Font Awesome cargado correctamente</span>';
+                statusDiv.style.color = '#00ff00';
             } else {
-                statusDiv.className = 'status success';
-                statusText.innerHTML = '✅ Font Awesome se cargó correctamente. Los iconos deberían mostrarse normalmente.';
+                statusDiv.innerHTML = '<span style="color: #ff0000;">❌ Font Awesome NO está cargado</span>';
+                statusDiv.style.color = '#ff0000';
             }
         }
         
-        // Verificar después de que la página se cargue
-        window.addEventListener('load', () => {
-            setTimeout(checkFontAwesome, 1000);
-        });
+        // Verificar cuando la página se carga
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', checkFontAwesome);
+        } else {
+            checkFontAwesome();
+        }
         
-        // Verificar también cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(checkFontAwesome, 500);
-        });
-        
-        // Verificar periódicamente
-        setInterval(checkFontAwesome, 5000);
+        // También verificar cuando la ventana se carga completamente
+        window.addEventListener('load', checkFontAwesome);
     </script>
 </body>
 </html> 
